@@ -1,0 +1,68 @@
+.cb {
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  height: 24px;
+  line-height: 24px;
+  position: relative;
+  user-select: none;
+  width: 24px;
+
+  .cb__input {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #ecf1f7;
+    border-radius: inherit;
+    border: 1px solid transparent;
+    cursor: inherit;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition-duration: 0.2s;
+    transition-property: background-color;
+    width: 100%;
+
+    &:checked {
+      background-color: #ffdd2d;
+
+      & + span {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  & > span {
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-4px);
+    transition-duration: 0.2s;
+    transition-property: transform, opacity;
+
+    & > span {
+      align-items: center;
+      display: inline-flex;
+      justify-content: center;
+      position: relative;
+
+      & > span {
+        color: inherit;
+        display: inline-block;
+        height: 24px;
+        position: relative;
+        transform: none;
+        transition-duration: 0.2s;
+        transition-property: background-color, color;
+        transition-timing-function: ease;
+        width: 24px;
+      }
+    }
+  }
+}

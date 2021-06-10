@@ -1,0 +1,22 @@
+.arrow {
+  height: 24px;
+  transition-duration: 0.2s;
+  transition-property: color, transform, -webkit-transform;
+  transition-timing-function: ease;
+  width: 24px;
+  will-change: transform, color;
+  color: rgba(0, 0, 0, 0.4);
+  transform: none;
+
+  &.arrow__top {
+    transform: rotate(180deg);
+  }
+
+  &.arrow__right {
+    transform: rotate(270deg);
+  }
+
+  &.arrow__left {
+    transform: rotate(90deg);
+  }
+}

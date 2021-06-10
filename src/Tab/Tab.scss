@@ -1,0 +1,57 @@
+.tb__btn {
+  align-items: stretch;
+  background: #fff;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  margin: 0;
+  outline: none;
+  padding: 0;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition-timing-function: ease;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 100%;
+
+  .tb__box {
+    -ms-flex: 1 1 auto;
+    align-items: center;
+    border-radius: inherit;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    display: flex;
+    flex: 1;
+    height: 100%;
+    justify-content: space-between;
+    outline: none;
+    padding: 15px;
+    width: 100%;
+
+    .tb__txt {
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 24px;
+      word-wrap: break-word;
+    }
+
+    .tb__cnt {
+      flex-shrink: 0;
+      height: 48px;
+      margin-left: 20px;
+      width: 48px;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px);
+  }
+}

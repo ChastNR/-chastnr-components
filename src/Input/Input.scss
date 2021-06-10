@@ -1,0 +1,39 @@
+.ctrl__cntr {
+  input {
+    background: none;
+    border: none;
+    box-sizing: border-box;
+    color: #333;
+    font-size: 15px;
+    font-weight: 400;
+    height: 100%;
+    letter-spacing: 0;
+    line-height: 16px;
+    opacity: 0;
+    outline: 0;
+    padding: 22px 0 9px;
+    position: relative;
+    text-overflow: ellipsis;
+    transition: opacity 0.25s ease;
+    white-space: nowrap;
+    width: 100%;
+    will-change: opacity;
+    word-wrap: break-word;
+
+    @media (max-width: 767.98px) {
+      font-size: 14px;
+    }
+  }
+
+  &:focus-within {
+    input {
+      opacity: 1;
+    }
+  }
+
+  &.hasValue {
+    input {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,124 @@
+.sw {
+  position: relative;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  border-radius: 40px;
+  cursor: pointer;
+  display: inline-block;
+  height: 24px;
+  outline: none;
+  overflow: hidden;
+  text-align: left;
+  user-select: none;
+  vertical-align: middle;
+  width: 48px;
+
+  &.sw__checked {
+    &::before {
+      background-color: #ffdd2d;
+    }
+
+    & > span {
+      &::after {
+        transform: translate3d(24px, 0, 0);
+      }
+
+      span:last-child {
+        left: 0;
+      }
+    }
+  }
+
+  &::before {
+    background-color: #ecf1f7;
+    border-radius: inherit;
+    content: "";
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: background-color 0.25s ease, opacity 0.25s ease;
+    width: 100%;
+  }
+
+  & > span {
+    span:first-child {
+      left: 0;
+    }
+
+    span:last-child {
+      right: 0;
+    }
+  }
+
+  .sw__box {
+    border-radius: inherit;
+    display: block;
+    height: inherit;
+    outline: none;
+    width: inherit;
+
+    .sw__box__left {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      box-sizing: border-box;
+      opacity: 0;
+      color: #333;
+      transition-duration: 0.25s;
+      transition-property: transform, opacity;
+      transform: scale(0.66);
+      will-change: transform, opacity;
+      margin-left: 2px;
+      display: flex;
+      width: 50%;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .sw__box__right {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      box-sizing: border-box;
+      opacity: 0;
+      color: #333;
+      transition-duration: 0.25s;
+      transition-property: transform, opacity;
+      transform: scale(0.66);
+      will-change: transform, opacity;
+      border-style: solid;
+      border-radius: 50%;
+      border-top-color: transparent;
+      margin: 4px;
+      width: 16px;
+      height: 16px;
+      border-width: 2px;
+    }
+
+    &::before {
+      border-radius: inherit;
+      content: "";
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      transition: background-color 0.25s ease;
+      width: 100%;
+    }
+
+    &::after {
+      background-color: #fff;
+      border-radius: 100%;
+      content: "";
+      height: 16px;
+      margin: 4px;
+      position: absolute;
+      transition: transform 0.25s ease;
+      width: 16px;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.tick {
+  height: 24px;
+  transition-duration: 0.2s;
+  transition-property: color, transform, -webkit-transform;
+  transition-timing-function: ease;
+  width: 24px;
+  will-change: transform, color;
+  color: #00b92d;
+  animation: Cbj519JAt 0.225s;
+}

@@ -1,0 +1,38 @@
+.cldr__icon {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 0 0 auto;
+
+  & > span {
+    cursor: pointer;
+    color: #9299a2;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #5c636b;
+    }
+
+    & > span {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: top;
+
+      & > span {
+        max-width: 100%;
+        max-height: 100%;
+        position: relative;
+        display: inline-block;
+        transition-duration: 0.2s;
+        transition-timing-function: ease;
+        transition-property: background-color, color;
+        color: inherit;
+        width: 24px;
+        height: 24px;
+        transform: none;
+      }
+    }
+  }
+}

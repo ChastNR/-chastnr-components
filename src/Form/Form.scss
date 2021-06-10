@@ -1,0 +1,19 @@
+.frm {
+  display: flex;
+  justify-content: center;
+  margin: 2em auto;
+  max-width: 450px;
+  padding: 0 1em;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+
+    .frm__title {
+      margin-bottom: 2em;
+      text-align: center;
+    }
+  }
+}
