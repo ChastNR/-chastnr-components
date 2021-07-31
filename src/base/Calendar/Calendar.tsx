@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { ReactComponent as CalendarIcon } from "./calendar.svg";
+import { ReactComponent as CalendarSvg } from "./calendar.svg";
 
 import "./Calendar.scss";
 
@@ -9,11 +9,11 @@ const Calendar = memo(() => (
     <span>
       <span>
         <span>
-          <CalendarIcon />
+          <CalendarSvg />
         </span>
       </span>
     </span>
   </div>
 ));
 
-export default Calendar;
+export { Calendar, CalendarSvg };

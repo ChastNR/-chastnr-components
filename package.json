@@ -1,6 +1,6 @@
 {
   "name": "@chastnr-org/components",
-  "version": "0.0.12",
+  "version": "0.0.16",
   "author": "chastnr",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -74,7 +74,7 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "publish": "npm publish --access=public",
+    "publish": "yarn publish",
     "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "yarn lint -- --fix",
     "lint:ci": "yarn compile && yarn lint:ts && yarn lint:css",

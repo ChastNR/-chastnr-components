@@ -1,23 +1,24 @@
 import classNames from "clsx";
 
-import { ReactComponent as Circle } from "./circle.svg";
+import { ReactComponent as RingSvg } from "./circle.svg";
 
 import "./Ring.scss";
 
 interface RingProps {
+  color?: string;
   size?: "small" | "large";
 }
 
-const Ring: React.FC<RingProps> = ({ size = "small" }) => {
+const Ring: React.FC<RingProps> = ({ color = "#1771e6", size = "small" }) => {
   const ringClassNames = classNames("ring", {
     ring__small: size === "small",
   });
 
   return (
     <div className={ringClassNames}>
-      <Circle />
+      <RingSvg stroke={color} />
     </div>
   );
 };
 
-export default Ring;
+export { Ring, RingSvg };

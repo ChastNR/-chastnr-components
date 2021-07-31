@@ -1,8 +1,10 @@
 /// <reference types="react" />
-interface DatePickerState {
+interface DatePickerInternalState {
     current: Date;
     month: number;
     year: number;
+}
+interface DatePickerState extends DatePickerInternalState {
     readonly calendarTitle: string;
     readonly calendar: (string | number)[][];
     readonly prevDisabled: boolean;

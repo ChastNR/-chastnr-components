@@ -7,10 +7,31 @@ import {
   getPreviousMonth,
 } from "../pickerConstants";
 
-interface DatePickerState {
+interface DatePickerInternalState {
   current: Date;
   month: number;
   year: number;
+}
+
+const setPrevMonth = ({
+  current,
+  month,
+  year,
+}: DatePickerInternalState): DatePickerInternalState => ({
+  current,
+  ...getPreviousMonth(month, year),
+});
+
+const setNextMonth = ({
+  current,
+  month,
+  year,
+}: DatePickerInternalState): DatePickerInternalState => ({
+  current,
+  ...getNextMonth(month, year),
+});
+
+interface DatePickerState extends DatePickerInternalState {
   readonly calendarTitle: string;
   readonly calendar: (string | number)[][];
   readonly prevDisabled: boolean;
@@ -61,29 +82,9 @@ export const DatePickerContextProvider: React.FC<DatePickerContextProviderProps>
 
   const nextDisabled = !!endDate && state.month === endDate.getMonth() + 1;
 
-  const prevMonth = useCallback(() => {
-    setState(({ month, year, current }) => {
-      const { month: newMonth, year: newYear } = getPreviousMonth(month, year);
+  const prevMonth = useCallback(() => setState(setPrevMonth), []);
 
-      return {
-        current,
-        month: newMonth,
-        year: newYear,
-      };
-    });
-  }, []);
-
-  const nextMonth = useCallback(() => {
-    setState(({ month, year, current }) => {
-      const { month: newMonth, year: newYear } = getNextMonth(month, year);
-
-      return {
-        current,
-        month: newMonth,
-        year: newYear,
-      };
-    });
-  }, []);
+  const nextMonth = useCallback(() => setState(setNextMonth), []);
 
   const setCalendarDate = useCallback((value: Date) => {
     setState({

@@ -8,14 +8,12 @@ declare const isSameMonth: (date: Date, basedate?: Date) => boolean;
 declare const isSameDay: (date: Date, basedate?: Date) => boolean;
 declare const isWeekend: (date: Date) => boolean;
 declare const getDateISO: (date?: Date) => string;
-declare const getPreviousMonth: (month: number, year: number) => {
+interface PreviousDate {
     month: number;
     year: number;
-};
-declare const getNextMonth: (month: number, year: number) => {
-    month: number;
-    year: number;
-};
+}
+declare const getPreviousMonth: (month: number, year: number) => PreviousDate;
+declare const getNextMonth: (month: number, year: number) => PreviousDate;
 declare const createCalendar: (month?: number, year?: number) => (string | number)[][];
 declare const getCalendarTitle: (month: number, year: number) => string;
 export { DAYS, MONTHS, CALENDAR_WEEKS, zeroPad, getMonthDays, getMonthFirstDay, getCalendarTitle, isSameMonth, isSameDay, isWeekend, getDateISO, getPreviousMonth, getNextMonth, createCalendar, };

@@ -24,16 +24,15 @@ const THIS_YEAR = +new Date().getFullYear();
 
 const THIS_MONTH = +new Date().getMonth() + 1;
 
+const MONTHS_WITH_THIRTY_DAYS = [4, 6, 9, 11];
+
 const getMonthDays = (month = THIS_MONTH, year = THIS_YEAR): number => {
-  const months30 = [4, 6, 9, 11];
-
-  const leapYear = year % 4 === 0;
-
   if (month === 2) {
+    const leapYear = year % 4 === 0;
     return leapYear ? 29 : 28;
   }
 
-  return months30.includes(month) ? 30 : 31;
+  return MONTHS_WITH_THIRTY_DAYS.includes(month) ? 30 : 31;
 };
 
 const getMonthFirstDay = (month = THIS_MONTH, year = THIS_YEAR): number =>
@@ -63,36 +62,28 @@ const isSameDay = (date: Date, basedate = new Date()): boolean => {
   );
 };
 
-const isWeekend = (date: Date): boolean => date.getDay() === 6 || date.getDay() === 0;
+const isWeekend = (date: Date): boolean => {
+  const day = date.getDay();
+  return day === 6 || day === 0;
+};
 
 const getDateISO = (date = new Date()): string =>
   [date.getFullYear(), zeroPad(+date.getMonth() + 1, 2), zeroPad(+date.getDate(), 2)].join("-");
 
-const getPreviousMonth = (
-  month: number,
-  year: number
-): {
+interface PreviousDate {
   month: number;
   year: number;
-} => {
-  const prevMonth = month > 1 ? month - 1 : 12;
-  const prevMonthYear = month > 1 ? year : year - 1;
+}
 
-  return { month: prevMonth, year: prevMonthYear };
-};
+const getPreviousMonth = (month: number, year: number): PreviousDate => ({
+  month: month > 1 ? month - 1 : 12,
+  year: month > 1 ? year : year - 1,
+});
 
-const getNextMonth = (
-  month: number,
-  year: number
-): {
-  month: number;
-  year: number;
-} => {
-  const nextMonth = month < 12 ? month + 1 : 1;
-  const nextMonthYear = month < 12 ? year : year + 1;
-
-  return { month: nextMonth, year: nextMonthYear };
-};
+const getNextMonth = (month: number, year: number): PreviousDate => ({
+  month: month < 12 ? month + 1 : 1,
+  year: month < 12 ? year : year + 1,
+});
 
 const createCalendar = (month = THIS_MONTH, year = THIS_YEAR): (string | number)[][] => {
   const monthDays = getMonthDays(month, year);

@@ -9,14 +9,14 @@ interface Options {
   value?: string | boolean | Date;
 }
 
-export default function createError({
+const createError = ({
   validate,
   startValidate = false,
   requiredMessage,
   errorMessage,
   value,
   regExp,
-}: Options): React.ReactNode | null {
+}: Options): React.ReactNode | null => {
   if (!validate && !startValidate) {
     return null;
   }
@@ -34,4 +34,6 @@ export default function createError({
   }
 
   return null;
-}
+};
+
+export default createError;

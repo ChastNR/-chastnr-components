@@ -7,5 +7,5 @@ interface Options {
     regExp?: RegExp;
     value?: string | boolean | Date;
 }
-export default function createError({ validate, startValidate, requiredMessage, errorMessage, value, regExp, }: Options): React.ReactNode | null;
-export {};
+declare const createError: ({ validate, startValidate, requiredMessage, errorMessage, value, regExp, }: Options) => React.ReactNode | null;
+export default createError;
