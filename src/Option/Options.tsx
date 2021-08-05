@@ -1,3 +1,4 @@
+import OptionsContainer from "./Container";
 import SelectOption, { Option } from "./Option";
 
 import "./Options.scss";
@@ -9,11 +10,11 @@ interface OptionsProps {
 }
 
 const Options: React.FC<OptionsProps> = ({ options, onClick, isMulti = false }) => (
-  <div className="slt__opts">
+  <OptionsContainer>
     {options.map((o) => (
       <SelectOption isMulti={isMulti} key={o.value} onClick={onClick(o)} option={o} />
     ))}
-  </div>
+  </OptionsContainer>
 );
 
 export default Options;

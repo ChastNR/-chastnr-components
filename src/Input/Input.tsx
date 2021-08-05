@@ -2,11 +2,12 @@ import { useCallback, useRef, useState } from "react";
 
 import { createError } from "../base";
 import Control from "../Control";
+import { OptionsContainer } from "../Option";
 import { InputTypes } from "../types";
 
 import "./Input.scss";
 
-interface InputProps {
+interface InputProps<T> {
   autoComplete?: "on" | "off";
   className?: string;
   content?: React.ReactNode;
@@ -24,10 +25,12 @@ interface InputProps {
   startValidate?: boolean;
   type?: InputTypes;
   value: string;
-  withSearch?: boolean;
+  isOptionsAvailable?: boolean;
+  options?: T[];
+  renderOption: (options: T, index: number) => React.ReactNode;
 }
 
-const Input: React.FC<InputProps> = ({
+const Input = <T,>({
   autoComplete = "off",
   children,
   className,
@@ -46,7 +49,10 @@ const Input: React.FC<InputProps> = ({
   startValidate = false,
   type = "text",
   value,
-}) => {
+  options = [],
+  isOptionsAvailable,
+  renderOption,
+}: React.PropsWithChildren<InputProps<T>>): React.ReactNode => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [validate, setValidate] = useState(false);
@@ -94,6 +100,8 @@ const Input: React.FC<InputProps> = ({
     errorMessage,
   });
 
+  const showOptions = (isOptionsAvailable || options.length > 0) && !!renderOption;
+
   return (
     <Control
       className={className}
@@ -120,6 +128,7 @@ const Input: React.FC<InputProps> = ({
         value={value}
       />
       {content}
+      {showOptions && <OptionsContainer>{options.map(renderOption)}</OptionsContainer>}
     </Control>
   );
 };

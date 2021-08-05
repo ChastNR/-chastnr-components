@@ -10,6 +10,5 @@ export { default as Input } from "./Input";
 export { default as Select } from "./Select";
 export { default as Slider } from "./Slider";
 export { default as Switch } from "./Switch";
-export { default as Image } from "./Image";
 export { default as Tab } from "./Tab";
 export { Option } from "./Option";
