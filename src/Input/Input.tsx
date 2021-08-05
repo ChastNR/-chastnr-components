@@ -21,10 +21,10 @@ interface InputProps {
   onBlur?: React.FocusEventHandler<HTMLDivElement>;
   onChange: (value: string) => void;
   onFocus?: React.FocusEventHandler<HTMLDivElement>;
-  options?: never[];
+  options?: any[];
   placeholder?: string;
   regExp?: RegExp;
-  renderOption?: <T>(option: T, index: number) => React.ReactNode;
+  renderOption?: (option: any, index: number) => React.ReactNode;
   requiredMessage?: React.ReactNode;
   startValidate?: boolean;
   type?: InputTypes;
