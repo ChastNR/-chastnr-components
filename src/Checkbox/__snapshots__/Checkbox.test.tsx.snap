@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Checkbox/> should match snapshot 1`] = `
+<div
+  className="cb"
+>
+  <input
+    className="cb__input"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <span>
+    <span>
+      <span>
+        <ReactComponent />
+      </span>
+    </span>
+  </span>
+</div>
+`;

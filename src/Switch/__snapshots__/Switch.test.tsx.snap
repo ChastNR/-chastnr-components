@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Switch/> should match snapshot 1`] = `
+<span
+  className="sw"
+>
+  <span
+    className="sw__box"
+    tabIndex={-1}
+  >
+    <input
+      hidden={true}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span
+      className="sw__box__left"
+    />
+    <span
+      className="sw__box__right"
+    />
+  </span>
+</span>
+`;

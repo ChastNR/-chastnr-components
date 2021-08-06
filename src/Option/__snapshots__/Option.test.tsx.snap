@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Option /> should equal snapshot 1`] = `
+<button
+  className="slt__opt"
+  onClick={[Function]}
+  onMouseDown={[Function]}
+  type="button"
+>
+  <div
+    className="slt__opt__txt"
+  >
+    Test
+  </div>
+</button>
+`;

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input /> snapshots should be equal 1`] = `
+<ForwardRef
+  error={null}
+  hasValue={true}
+  label="Test"
+  onBlur={[Function]}
+  onFocus={[Function]}
+  required={false}
+>
+  <input
+    autoComplete="off"
+    onChange={[Function]}
+    required={false}
+    type="text"
+    value="test"
+  />
+</ForwardRef>
+`;

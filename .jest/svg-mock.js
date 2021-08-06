@@ -1,3 +1,3 @@
 const content = "test";
-export const ReactComponent = () => content;
+export const ReactComponent = () => <span>content</span>;
 export default content;

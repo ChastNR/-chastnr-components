@@ -13,5 +13,6 @@
   top: 57px;
   transition: opacity 0.2s ease-out;
   width: calc(100% + 2px);
+  overflow-y: auto;
   z-index: -1;
 }

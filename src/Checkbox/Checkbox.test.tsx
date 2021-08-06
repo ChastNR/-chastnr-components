@@ -1,5 +1,3 @@
-import React from "react";
-
 import { mount, shallow } from "enzyme";
 import toJson from "enzyme-to-json";
 
@@ -14,12 +12,16 @@ describe("<Checkbox/>", () => {
   it("props should be equal", () => {
     const checked = true;
     const disabled = true;
+    const onChange = jest.fn();
 
-    const checkbox = mount(<Checkbox checked={checked} disabled={disabled} />);
-
+    const checkbox = mount(<Checkbox checked={checked} disabled={disabled} onChange={onChange} />);
     const input = checkbox.find("input");
+    input.simulate("change");
 
-    expect(input.props().checked).toEqual(checked);
-    expect(input.props().disabled).toEqual(disabled);
+    const props = input.props();
+
+    expect(onChange).toBeCalledTimes(1);
+    expect(props.checked).toEqual(checked);
+    expect(props.disabled).toEqual(disabled);
   });
 });

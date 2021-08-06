@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Control /> should render 1`] = `
+<div
+  className="ctrl"
+>
+  <div
+    className="ctrl__cntr"
+    role="textbox"
+    tabIndex={0}
+  >
+    <label
+      className="ctrl__lb"
+    >
+      testLabel
+    </label>
+  </div>
+  <Error />
+</div>
+`;

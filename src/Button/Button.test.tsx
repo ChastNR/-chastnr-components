@@ -28,11 +28,13 @@ describe("<Button />", () => {
       />
     );
 
-    expect(button.props().buttonStyle).toEqual(style);
-    expect(button.props().className).toEqual(className);
-    expect(button.props().disabled).toEqual(disabled);
-    expect(button.props().isLoading).toEqual(isLoading);
-    expect(button.props().to).toEqual(to);
-    expect(button.props().type).toEqual(type);
+    const props = button.props();
+
+    expect(props.buttonStyle).toEqual(style);
+    expect(props.className).toEqual(className);
+    expect(props.disabled).toEqual(disabled);
+    expect(props.isLoading).toEqual(isLoading);
+    expect(props.to).toEqual(to);
+    expect(props.type).toEqual(type);
   });
 });

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Select/> should match snapshot 1`] = `
+<ForwardRef
+  className="slt"
+  content={<Memo />}
+  error={null}
+  hasValue={false}
+  label="Test Select"
+  onBlur={[Function]}
+  required={false}
+>
+  <div
+    className="slt__value"
+  />
+  <Options
+    isMulti={false}
+    onClick={[Function]}
+    options={Array []}
+  />
+</ForwardRef>
+`;

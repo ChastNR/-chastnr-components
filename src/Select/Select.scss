@@ -11,7 +11,7 @@
     text-overflow: ellipsis;
     transition: opacity 0.25s ease;
     white-space: nowrap;
-    width: 100%;
+    width: calc(100% - 28px);
     will-change: opacity;
     word-wrap: break-word;
   }

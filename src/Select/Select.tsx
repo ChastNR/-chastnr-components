@@ -15,6 +15,7 @@ interface SelectProps {
   name?: string;
   onSelect: (value: Option | Option[]) => void;
   options: Option[];
+  optionsSeparator?: string;
   requiredMessage?: React.ReactNode;
   selected?: Option[];
 }
@@ -28,6 +29,7 @@ const Select: React.FC<SelectProps> = ({
   onSelect,
   options,
   requiredMessage,
+  optionsSeparator = ", ",
   selected = [],
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -59,7 +61,7 @@ const Select: React.FC<SelectProps> = ({
     setValidate(false);
   };
 
-  const selectedItems = createSelectedItems(options, selected);
+  const selectedItems = createSelectedItems(options, selected, optionsSeparator);
 
   const hasValue = selected.length > 0;
 
