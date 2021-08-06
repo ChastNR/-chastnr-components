@@ -7,6 +7,7 @@ export { Dropdown, DropdownItem } from "./Dropdown";
 export { default as Form } from "./Form";
 export { default as InfoBox } from "./InfoBox";
 export { default as Input } from "./Input";
+export { default as SearchInput } from "./SearchInput";
 export { default as Select } from "./Select";
 export { default as Slider } from "./Slider";
 export { default as Switch } from "./Switch";

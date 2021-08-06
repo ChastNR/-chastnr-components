@@ -2,29 +2,25 @@ import { useCallback, useRef, useState } from "react";
 
 import { createError } from "../base";
 import Control from "../Control";
-import { OptionsContainer } from "../Option";
 import { InputTypes } from "../types";
 
 import "./Input.scss";
 
-interface InputProps {
+export interface InputProps {
   autoComplete?: "on" | "off";
   className?: string;
   content?: React.ReactNode;
   disabled?: boolean;
   errorMessage?: React.ReactNode;
   id?: string;
-  isOptionsAvailable?: boolean;
   label: React.ReactNode;
   maxLength?: number;
   name?: string;
   onBlur?: React.FocusEventHandler<HTMLDivElement>;
-  onChange: (value: string) => void;
+  onChange: (value: string, close?: boolean) => void;
   onFocus?: React.FocusEventHandler<HTMLDivElement>;
-  options?: any[];
   placeholder?: string;
   regExp?: RegExp;
-  renderOption?: (option: any, index: number) => React.ReactNode;
   requiredMessage?: React.ReactNode;
   startValidate?: boolean;
   type?: InputTypes;
@@ -39,17 +35,14 @@ const Input: React.FC<InputProps> = ({
   disabled,
   errorMessage,
   id,
-  isOptionsAvailable,
   label,
   maxLength,
   name,
   onBlur,
   onChange,
   onFocus,
-  options = [],
   placeholder,
   regExp,
-  renderOption,
   requiredMessage,
   startValidate = false,
   type = "text",
@@ -102,8 +95,6 @@ const Input: React.FC<InputProps> = ({
     errorMessage,
   });
 
-  const showOptions = (isOptionsAvailable || options.length > 0) && !!renderOption;
-
   return (
     <Control
       className={className}
@@ -131,7 +122,6 @@ const Input: React.FC<InputProps> = ({
         value={value}
       />
       {content}
-      {showOptions && <OptionsContainer>{options.map(renderOption)}</OptionsContainer>}
     </Control>
   );
 };
