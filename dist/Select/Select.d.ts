@@ -9,6 +9,7 @@ interface SelectProps {
     name?: string;
     onSelect: (value: Option | Option[]) => void;
     options: Option[];
+    optionsSeparator?: string;
     requiredMessage?: React.ReactNode;
     selected?: Option[];
 }
