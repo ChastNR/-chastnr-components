@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import { useCallback, useRef, useState } from "react";
 
 import { Arrow, createError } from "../base";
@@ -85,7 +86,8 @@ const Select: React.FC<SelectProps> = ({
       required={!!requiredMessage}
     >
       <div className="slt__value">{selectedItems}</div>
-      <Options isMulti={isMulti} key={name} onClick={handleSelect} options={options} />
+      <Options isMulti={isMulti} onClick={handleSelect} options={options} />
+      {name && selected.length < 2 && <select hidden name={name} value={selected[0].value} />}
     </Control>
   );
 };

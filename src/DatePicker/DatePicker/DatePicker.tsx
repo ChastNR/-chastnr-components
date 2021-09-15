@@ -17,6 +17,7 @@ interface DatePickerProps {
   errorMessage?: React.ReactNode;
   format?: DateFormat;
   label: React.ReactNode;
+  name?: string;
   onSelect(date: Date): void;
   placeholder?: string;
   requiredMessage?: React.ReactNode;
@@ -31,6 +32,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
   errorMessage,
   format = "DD.MM.YYYY",
   label,
+  name,
   onSelect,
   placeholder = "дд.мм.гггг",
   requiredMessage,
@@ -64,6 +66,8 @@ const DatePicker: React.FC<DatePickerProps> = ({
     errorMessage,
   });
 
+  const selectedDate = date && dayjs(date).format(format);
+
   return (
     <Control
       content={
@@ -80,9 +84,10 @@ const DatePicker: React.FC<DatePickerProps> = ({
       ref={wrapperRef}
       required={!!requiredMessage}
     >
-      <span className="dp__value">{date ? dayjs(date).format(format) : placeholder}</span>
+      <span className="dp__value">{selectedDate || placeholder}</span>
       <div className="dp__cntr">
         <Picker date={date} endDate={endDate} onSelect={handleSelect} startDate={startDate} />
+        {name && <input hidden name={name} value={selectedDate} />}
       </div>
     </Control>
   );

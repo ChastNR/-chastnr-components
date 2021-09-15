@@ -8,6 +8,7 @@ interface DatePickerProps {
     errorMessage?: React.ReactNode;
     format?: DateFormat;
     label: React.ReactNode;
+    name?: string;
     onSelect(date: Date): void;
     placeholder?: string;
     requiredMessage?: React.ReactNode;

@@ -1,6 +1,7 @@
 /// <reference types="react" />
 import "./Tab.scss";
 interface TabProps {
+    className?: string;
     content?: React.ReactNode;
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
