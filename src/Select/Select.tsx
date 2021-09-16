@@ -5,6 +5,7 @@ import { Arrow, createError } from "../base";
 import Control from "../Control";
 import { Option, Options } from "../Option";
 import createSelectedItems from "./createSelectedItems";
+import createSelectedValue from "./createSelectedValue";
 
 import "./Select.scss";
 
@@ -35,7 +36,7 @@ const Select: React.FC<SelectProps> = ({
 
   const [validate, setValidate] = useState(false);
 
-  const internalSelected: Option[] = isMulti ? (selected as Option[]) : [selected as Option];
+  const internalSelected = createSelectedValue(selected, isMulti);
 
   const handleBlur = useCallback((e: React.FocusEvent<HTMLDivElement>) => {
     if (e.currentTarget.contains(e.relatedTarget as Node)) {
