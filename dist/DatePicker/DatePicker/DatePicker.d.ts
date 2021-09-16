@@ -1,14 +1,12 @@
 /// <reference types="react" />
 import "./DatePicker.scss";
-declare type DateFormat = "DD.MM.YYYY";
 interface DatePickerProps {
     date?: Date;
     disabled?: boolean;
     endDate?: Date;
     errorMessage?: React.ReactNode;
-    format?: DateFormat;
+    format?: string;
     label: React.ReactNode;
-    name?: string;
     onSelect(date: Date): void;
     placeholder?: string;
     requiredMessage?: React.ReactNode;

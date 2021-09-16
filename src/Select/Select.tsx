@@ -13,7 +13,6 @@ interface SelectProps {
   errorMessage?: React.ReactNode;
   isMulti?: boolean;
   label: React.ReactNode;
-  name?: string;
   onSelect: (value: Option | Option[]) => void;
   options: Option[];
   optionsSeparator?: string;
@@ -26,7 +25,6 @@ const Select: React.FC<SelectProps> = ({
   errorMessage,
   isMulti = false,
   label,
-  name,
   onSelect,
   options,
   requiredMessage,
@@ -87,7 +85,6 @@ const Select: React.FC<SelectProps> = ({
     >
       <div className="slt__value">{selectedItems}</div>
       <Options isMulti={isMulti} onClick={handleSelect} options={options} />
-      {name && selected.length < 2 && <select hidden name={name} value={selected[0].value} />}
     </Control>
   );
 };

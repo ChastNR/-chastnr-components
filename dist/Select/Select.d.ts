@@ -6,7 +6,6 @@ interface SelectProps {
     errorMessage?: React.ReactNode;
     isMulti?: boolean;
     label: React.ReactNode;
-    name?: string;
     onSelect: (value: Option | Option[]) => void;
     options: Option[];
     optionsSeparator?: string;
