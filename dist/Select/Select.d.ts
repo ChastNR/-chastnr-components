@@ -6,11 +6,11 @@ interface SelectProps {
     errorMessage?: React.ReactNode;
     isMulti?: boolean;
     label: React.ReactNode;
-    onSelect: (value: Option | Option[]) => void;
+    onSelect: ((value: Option) => void) | ((value: Option[]) => void);
     options: Option[];
     optionsSeparator?: string;
     requiredMessage?: React.ReactNode;
-    selected?: Option[];
+    selected?: Option | Option[];
 }
 declare const Select: React.FC<SelectProps>;
 export default Select;

@@ -13,11 +13,11 @@ interface SelectProps {
   errorMessage?: React.ReactNode;
   isMulti?: boolean;
   label: React.ReactNode;
-  onSelect: (value: Option | Option[]) => void;
+  onSelect: ((value: Option) => void) | ((value: Option[]) => void);
   options: Option[];
   optionsSeparator?: string;
   requiredMessage?: React.ReactNode;
-  selected?: Option[];
+  selected?: Option | Option[];
 }
 
 const Select: React.FC<SelectProps> = ({
@@ -29,11 +29,13 @@ const Select: React.FC<SelectProps> = ({
   options,
   requiredMessage,
   optionsSeparator = ", ",
-  selected = [],
+  selected,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const [validate, setValidate] = useState(false);
+
+  const internalSelected: Option[] = isMulti ? (selected as Option[]) : [selected as Option];
 
   const handleBlur = useCallback((e: React.FocusEvent<HTMLDivElement>) => {
     if (e.currentTarget.contains(e.relatedTarget as Node)) {
@@ -45,24 +47,24 @@ const Select: React.FC<SelectProps> = ({
 
   const handleSelect = (option: Option) => () => {
     if (isMulti) {
-      const isOptionSelected = selected.some((o) => o.value === option.value);
+      const isOptionSelected = internalSelected.some((o) => o.value === option.value);
 
       const selectedOptions = isOptionSelected
-        ? selected.filter((o) => o.value !== option.value)
-        : selected.concat(option);
+        ? internalSelected.filter((o) => o.value !== option.value)
+        : internalSelected.concat(option);
 
-      onSelect(selectedOptions);
+      (onSelect as (value: Option[]) => void)(selectedOptions);
     } else {
       wrapperRef.current?.blur();
-      onSelect(option);
+      (onSelect as (value: Option) => void)(option);
     }
 
     setValidate(false);
   };
 
-  const selectedItems = createSelectedItems(options, selected, optionsSeparator);
+  const selectedItems = createSelectedItems(options, internalSelected, optionsSeparator);
 
-  const hasValue = selected.length > 0;
+  const hasValue = internalSelected.length > 0;
 
   const error = createError({
     validate,
