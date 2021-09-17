@@ -12,7 +12,7 @@ import "./Select.scss";
 interface SelectProps {
   disabled?: boolean;
   errorMessage?: React.ReactNode;
-  // isMulti?: boolean;
+  isMulti?: boolean;
   label: React.ReactNode;
   onSelect: ((value: Option) => void) | ((value: Option[]) => void);
   options: Option[];
@@ -24,7 +24,7 @@ interface SelectProps {
 const Select: React.FC<SelectProps> = ({
   disabled,
   errorMessage,
-  // isMulti = false,
+  isMulti = false,
   label,
   onSelect,
   options,
@@ -35,8 +35,6 @@ const Select: React.FC<SelectProps> = ({
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const [validate, setValidate] = useState(false);
-
-  const isMulti = selected && Array.isArray(selected);
 
   const internalSelected = createSelectedValue(selected, isMulti);
 

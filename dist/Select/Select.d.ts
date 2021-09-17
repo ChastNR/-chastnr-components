@@ -4,6 +4,7 @@ import "./Select.scss";
 interface SelectProps {
     disabled?: boolean;
     errorMessage?: React.ReactNode;
+    isMulti?: boolean;
     label: React.ReactNode;
     onSelect: ((value: Option) => void) | ((value: Option[]) => void);
     options: Option[];
