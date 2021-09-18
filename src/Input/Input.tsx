@@ -17,7 +17,7 @@ export interface InputProps {
   maxLength?: number;
   name?: string;
   onBlur?: React.FocusEventHandler<HTMLDivElement>;
-  onChange: (value: string, close?: boolean) => void;
+  onChange: (value: string) => void;
   onFocus?: React.FocusEventHandler<HTMLDivElement>;
   placeholder?: string;
   regExp?: RegExp;
