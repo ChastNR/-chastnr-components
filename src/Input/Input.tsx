@@ -1,8 +1,8 @@
 import { useCallback, useRef, useState } from "react";
 
-import { createError } from "../base";
 import Control from "../Control";
 import { InputTypes } from "../types";
+import { createError } from "../utils";
 
 import "./Input.scss";
 

@@ -16,7 +16,7 @@ const createError = ({
   errorMessage,
   value,
   regExp,
-}: Options): React.ReactNode | null => {
+}: Options): React.ReactNode => {
   if (!validate && !startValidate) {
     return null;
   }

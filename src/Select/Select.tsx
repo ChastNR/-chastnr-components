@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { useCallback, useRef, useState } from "react";
 
-import { Arrow, createError } from "../base";
+import { Arrow } from "../base";
 import Control from "../Control";
 import { Option, Options } from "../Option";
+import { createError } from "../utils";
 import createSelectedItems from "./createSelectedItems";
 import createSelectedValue from "./createSelectedValue";
 

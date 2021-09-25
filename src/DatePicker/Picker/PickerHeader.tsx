@@ -1,6 +1,7 @@
 import classNames from "clsx";
 
-import { ArrowSvg, mouseDownPrevent } from "../../base";
+import { ArrowSvg } from "../../base";
+import { mouseDownPrevent } from "../../utils";
 import { useDatePickerContext } from "./context";
 
 const PickerHeader: React.FC = () => {
