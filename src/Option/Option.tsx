@@ -1,12 +1,8 @@
 import { useCallback, useState } from "react";
 
 import Checkbox from "../Checkbox";
+import { Option } from "../types";
 import { mouseDownPrevent } from "../utils";
-
-export interface Option<T = string | number> {
-  title: React.ReactNode;
-  value: T;
-}
 
 interface OptionProps {
   option: Option;

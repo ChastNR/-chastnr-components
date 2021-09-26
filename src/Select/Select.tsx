@@ -3,10 +3,9 @@ import { useCallback, useRef, useState } from "react";
 
 import { Arrow } from "../base";
 import Control from "../Control";
-import { Option, Options } from "../Option";
-import { createError } from "../utils";
-import createSelectedItems from "./createSelectedItems";
-import createSelectedValue from "./createSelectedValue";
+import { Options } from "../Option";
+import { Option } from "../types";
+import { createError, createSelectedItems, createSelectedValue } from "../utils";
 
 import "./Select.scss";
 

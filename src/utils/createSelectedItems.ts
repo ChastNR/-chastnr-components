@@ -1,4 +1,4 @@
-import { Option } from "../Option";
+import { Option } from "../types";
 
 const createSelectedItems = (options: Option[], selected: Option[], separator = ", "): string => {
   const selectedTitles = options.reduce((acc: React.ReactNode[], o) => {

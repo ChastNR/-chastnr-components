@@ -1,5 +1,6 @@
+import { Option } from "../types";
 import OptionsContainer from "./Container";
-import SelectOption, { Option } from "./Option";
+import SelectOption from "./Option";
 
 import "./Options.scss";
 

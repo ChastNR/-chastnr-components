@@ -1,7 +1,7 @@
 import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
 
-import Calendar from "./Calendar";
+import { Calendar } from "./Calendar";
 
 describe("<Calendar/>", () => {
   it("should equal snapshot", () => {

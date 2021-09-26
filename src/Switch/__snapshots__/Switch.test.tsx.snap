@@ -10,7 +10,6 @@ exports[`<Switch/> should match snapshot 1`] = `
   >
     <input
       hidden={true}
-      onChange={[Function]}
       type="checkbox"
     />
     <span

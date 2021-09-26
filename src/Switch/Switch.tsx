@@ -16,7 +16,7 @@ const Switch: React.FC<SwitchProps> = ({ name, checked, onChange }) => {
   return (
     <span className={switchClassNames} onClick={onChange}>
       <span className="sw__box" tabIndex={-1}>
-        <input checked={checked} hidden name={name} onChange={() => {}} type="checkbox" />
+        <input checked={checked} hidden name={name} type="checkbox" />
         <span className="sw__box__left" />
         <span className="sw__box__right" />
       </span>

@@ -1,4 +1,4 @@
-import { Option } from "../Option";
+import { Option } from "../types";
 import createSelectedItems from "./createSelectedItems";
 
 describe("createSelectedItems", () => {

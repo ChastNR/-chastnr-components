@@ -7,9 +7,26 @@ describe("<Input />", () => {
   const onChangeMock = jest.fn();
   const onBlurMock = jest.fn();
   const onFocusMock = jest.fn();
+  const mockSetState = jest.fn();
+  const mockUseRef = jest.fn();
+
+  beforeEach(() => {
+    jest.mock("react", () => {
+      const actualReact = jest.requireActual("react");
+
+      mockUseRef.mockImplementation(actualReact.useRef);
+
+      return {
+        ...actualReact,
+        useRef: mockUseRef,
+        useState: jest.fn().mockImplementation((value) => [value, mockSetState]),
+      };
+    });
+  });
 
   it("snapshots should be equal", () => {
     const wrapper = shallow(<Input label="Test" onChange={onChangeMock} value="test" />);
+
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
@@ -49,26 +66,45 @@ describe("<Input />", () => {
       />
     );
 
-    expect(input.props().className).toEqual(className);
-    expect(input.props().content).toEqual(content);
-    expect(input.props().disabled).toEqual(disabled);
-    expect(input.props().label).toEqual(label);
-    expect(input.props().name).toEqual(name);
-    expect(input.props().maxLength).toEqual(maxLength);
-    expect(input.props().type).toEqual(type);
-    expect(input.props().value).toEqual(value);
-    expect(input.props().placeholder).toEqual(placeholder);
-    expect(input.props().regExp).toEqual(regExp);
-    expect(input.props().autoComplete).toEqual(autoComplete);
-    expect(input.props().errorMessage).toEqual(errorMessage);
-    expect(input.props().requiredMessage).toEqual(requiredMessage);
-    expect(input.props().startValidate).toEqual(startValidate);
+    const {
+      className: expectedClassName,
+      content: expectedContent,
+      disabled: expectedDisabled,
+      label: expectedLabel,
+      name: expectedName,
+      maxLength: expectedMaxLength,
+      type: expectedType,
+      value: expectedValue,
+      placeholder: expectedPlaceholder,
+      regExp: expectedRegExp,
+      autoComplete: expectedAutoComplete,
+      errorMessage: expectedErrorMessage,
+      requiredMessage: expectedRequiredMessage,
+      startValidate: expectedStartValidate,
+    } = input.props();
+
+    expect(expectedClassName).toEqual(className);
+    expect(expectedContent).toEqual(content);
+    expect(expectedDisabled).toEqual(disabled);
+    expect(expectedLabel).toEqual(label);
+    expect(expectedName).toEqual(name);
+    expect(expectedMaxLength).toEqual(maxLength);
+    expect(expectedType).toEqual(type);
+    expect(expectedValue).toEqual(value);
+    expect(expectedPlaceholder).toEqual(placeholder);
+    expect(expectedRegExp).toEqual(regExp);
+    expect(expectedAutoComplete).toEqual(autoComplete);
+    expect(expectedErrorMessage).toEqual(errorMessage);
+    expect(expectedRequiredMessage).toEqual(requiredMessage);
+    expect(expectedStartValidate).toEqual(startValidate);
   });
 
   it("should trigger change event", () => {
     const input = mount(<Input label="Test" onChange={onChangeMock} value="testValue" />);
+
     input.find("input").simulate("change");
     input.simulate("change", { currentTarget: { value: "test" } });
+
     expect(onChangeMock).toBeCalledWith("testValue");
   });
 
@@ -76,18 +112,38 @@ describe("<Input />", () => {
     const input = mount(
       <Input label="Test" onBlur={onBlurMock} onChange={onChangeMock} value="testValue" />
     );
-    input.find("input").simulate("focus");
-    input.find("input").simulate("blur");
+
+    const inputElement = input.find("input");
+
+    inputElement.simulate("focus");
+    inputElement.simulate("blur");
     input.simulate("blur");
+
     expect(onBlurMock).toBeCalled();
+  });
+
+  it("should return when blur input node", () => {
+    mockUseRef.mockImplementation(() => ({ current: null }));
+
+    const input = mount(<Input label="Test" onChange={onChangeMock} value="testValue" />);
+
+    const inputElement = input.find("input");
+
+    inputElement.simulate("focus");
+    inputElement.simulate("blur");
+    // input.simulate("blur");
+
+    expect(mockSetState).toBeCalledTimes(0);
   });
 
   it("should trigger focus event", () => {
     const input = mount(
       <Input label="Test" onChange={onChangeMock} onFocus={onFocusMock} value="testValue" />
     );
+
     input.find("input").simulate("focus");
     input.simulate("focus");
+
     expect(onFocusMock).toBeCalled();
   });
 });

@@ -34,14 +34,16 @@ describe("<Control />", () => {
       />
     );
 
-    expect(control.props().className).toEqual(className);
-    expect(control.props().content).toEqual(content);
-    expect(control.props().name).toEqual(name);
-    expect(control.props().disabled).toEqual(disabled);
-    expect(control.props().error).toEqual(error);
-    expect(control.props().label).toEqual(label);
-    expect(control.props().required).toEqual(required);
-    expect(control.props().hasValue).toEqual(hasValue);
-    expect(control.props().role).toEqual(role);
+    const props = control.props();
+
+    expect(props.className).toEqual(className);
+    expect(props.content).toEqual(content);
+    expect(props.name).toEqual(name);
+    expect(props.disabled).toEqual(disabled);
+    expect(props.error).toEqual(error);
+    expect(props.label).toEqual(label);
+    expect(props.required).toEqual(required);
+    expect(props.hasValue).toEqual(hasValue);
+    expect(props.role).toEqual(role);
   });
 });

@@ -3,12 +3,9 @@
 import classNames from "clsx";
 
 import { mouseDownPrevent } from "../../utils";
-import { getDateISO, isSameDay, isSameMonth, isWeekend } from "./pickerConstants";
+import { isSameDay, isSameMonth, isWeekend } from "./pickerConstants";
 
-const createDate = (date: (string | number)[]) => {
-  const stringDate = date.join("-");
-  return new Date(stringDate);
-};
+const createDate = (date: (string | number)[]) => new Date(date.join("-"));
 
 interface DayProps {
   current: Date;
@@ -24,7 +21,7 @@ const renderDay =
 
     const className = classNames("cldr__day", {
       current: isSameDay(internalDate, current),
-      inmonth: isSameMonth(internalDate, new Date([year, month, 1].join("-"))),
+      inmonth: isSameMonth(internalDate, new Date(`${year}-${month}-1`)),
       weekend: isWeekend(internalDate),
     });
 
@@ -33,7 +30,8 @@ const renderDay =
     return (
       <div
         className={className}
-        key={getDateISO(internalDate)}
+        // key={getDateISO(internalDate)}
+        key={+internalDate}
         onClick={handleClick}
         onMouseDown={mouseDownPrevent}
       >

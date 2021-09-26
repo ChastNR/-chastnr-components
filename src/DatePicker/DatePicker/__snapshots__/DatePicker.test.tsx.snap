@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DatePicker /> should render 1`] = `
+<ForwardRef
+  content={
+    <div
+      className="dp__cnt"
+    >
+      <Memo />
+    </div>
+  }
+  error={null}
+  hasValue={false}
+  label="testLabel"
+  onBlur={[Function]}
+  required={false}
+>
+  <span
+    className="dp__value"
+  >
+    дд.мм.гггг
+  </span>
+  <div
+    className="dp__cntr"
+  >
+    <Picker
+      onSelect={[Function]}
+    />
+  </div>
+</ForwardRef>
+`;
