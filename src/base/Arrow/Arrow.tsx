@@ -1,18 +1,14 @@
-import { memo } from "react";
-
 import classNames from "clsx";
 
 import { ReactComponent as ArrowSvg } from "./arrow.svg";
 
 import "./Arrow.scss";
 
-type Direction = "top" | "right" | "left";
-
 interface ArrowProps {
-  direction?: Direction;
+  direction?: "top" | "right" | "left";
 }
 
-const Arrow: React.FC<ArrowProps> = memo(({ direction }) => {
+const Arrow: React.FC<ArrowProps> = ({ direction }) => {
   const arrowClassNames = classNames("arrow", {
     arrow__top: direction === "top",
     arrow__right: direction === "right",
@@ -24,6 +20,6 @@ const Arrow: React.FC<ArrowProps> = memo(({ direction }) => {
       <ArrowSvg />
     </div>
   );
-});
+};
 
 export { Arrow, ArrowSvg };

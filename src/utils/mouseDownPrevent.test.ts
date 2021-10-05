@@ -7,7 +7,7 @@ describe("mouseDownPrevent", () => {
     const event = {
       preventDefault: mockPreventDefault,
       stopPropagation: mockStopPropagation,
-    } as unknown as React.MouseEvent<any, MouseEvent>;
+    } as unknown as React.MouseEvent<Element, MouseEvent>;
 
     mouseDownPrevent(event);
 

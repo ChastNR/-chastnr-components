@@ -30,7 +30,6 @@ const renderDay =
     return (
       <div
         className={className}
-        // key={getDateISO(internalDate)}
         key={+internalDate}
         onClick={handleClick}
         onMouseDown={mouseDownPrevent}

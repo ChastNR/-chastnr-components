@@ -5,9 +5,8 @@ interface LocationProps {
     search?: string;
     state?: unknown;
 }
-declare type ButtonStyle = "link" | "outline" | "icon";
 interface ButtonProps {
-    buttonStyle?: ButtonStyle;
+    buttonStyle?: "link" | "outline" | "icon";
     className?: string;
     disabled?: boolean;
     isLoading?: boolean;

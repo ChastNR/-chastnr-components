@@ -1,21 +1,16 @@
 {
-  "extends": [
-    "airbnb-typescript",
-    "airbnb/hooks",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier"
-  ],
+  "root": true,
   "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "eslint-plugin-import-helpers", "jest"],
+  "extends": ["airbnb", "airbnb-typescript", "airbnb/hooks", "plugin:jest/recommended", "prettier"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
     "ecmaVersion": 2018,
-    "project": "tsconfig.json",
+    "project": "./tsconfig.json",
     "sourceType": "module"
   },
-  "plugins": ["eslint-plugin-import-helpers"],
   "rules": {
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-empty-interface": [
@@ -24,7 +19,7 @@
         "allowSingleExtends": true
       }
     ],
-    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
     "comma-dangle": "off",
     "global-require": "off",
     "import-helpers/order-imports": [
@@ -88,7 +83,9 @@
       }
     ],
     "class-methods-use-this": "off",
-    "curly": ["warn", "all"]
+    "curly": ["warn", "all"],
+    "react/button-has-type": "off",
+    "jsx-a11y/no-static-element-interactions": "warn"
   },
   "settings": {
     "react": {

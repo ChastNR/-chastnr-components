@@ -12,10 +12,13 @@ describe("<Switch/>", () => {
   it("props should be equal", () => {
     const name = "testName";
     const checked = true;
+    const onChange = jest.fn();
 
-    const switchComponent = mount(<Switch checked={checked} name={name} />);
+    const switchComponent = mount(<Switch checked={checked} onChange={onChange} name={name} />);
 
-    expect(switchComponent.props().name).toEqual(name);
-    expect(switchComponent.props().checked).toEqual(checked);
+    const props = switchComponent.props();
+
+    expect(props.name).toEqual(name);
+    expect(props.checked).toEqual(checked);
   });
 });

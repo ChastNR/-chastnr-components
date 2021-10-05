@@ -1,9 +1,8 @@
 /// <reference types="react" />
 import { ReactComponent as ArrowSvg } from "./arrow.svg";
 import "./Arrow.scss";
-declare type Direction = "top" | "right" | "left";
 interface ArrowProps {
-    direction?: Direction;
+    direction?: "top" | "right" | "left";
 }
 declare const Arrow: React.FC<ArrowProps>;
 export { Arrow, ArrowSvg };

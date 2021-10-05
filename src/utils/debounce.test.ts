@@ -4,7 +4,7 @@ jest.useFakeTimers();
 
 describe("debounce", () => {
   let func: jest.Mock;
-  let debouncedFunc: () => any;
+  let debouncedFunc: () => unknown;
 
   beforeEach(() => {
     func = jest.fn();

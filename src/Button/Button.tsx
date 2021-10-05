@@ -12,10 +12,8 @@ interface LocationProps {
   state?: unknown;
 }
 
-type ButtonStyle = "link" | "outline" | "icon";
-
 interface ButtonProps {
-  buttonStyle?: ButtonStyle;
+  buttonStyle?: "link" | "outline" | "icon";
   className?: string;
   disabled?: boolean;
   isLoading?: boolean;
@@ -26,13 +24,13 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({
   buttonStyle,
-  className,
   children,
+  className,
   disabled,
-  to,
-  type = "button",
   isLoading,
   onClick,
+  to,
+  type = "button",
 }) => {
   const buttonClassNames = classNames("btn", className, {
     btn__link: buttonStyle === "link",

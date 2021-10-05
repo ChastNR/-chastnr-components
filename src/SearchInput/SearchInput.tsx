@@ -1,6 +1,6 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { Component } from "react";
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import { useCallback, useRef, useState } from "react";
 
 import { v4 as uuid } from "uuid";
 
@@ -10,111 +10,97 @@ import { debounce } from "../utils";
 import SearchInputComponent from "./SearchInputComponent";
 
 interface SearchInputProps extends InputProps {
-  searchThreshold?: number;
   isOptionsAvailable?: boolean;
-  timeout?: number;
   loadOptions: (value: string) => Promise<SearchOption[]>;
   renderOption?: OptionRenderComponent;
+  searchThreshold?: number;
+  timeout?: number;
 }
 
-interface SearchInputState {
-  options: SearchOption[];
-}
+const SearchInput: React.FC<SearchInputProps> = ({
+  loadOptions,
+  onChange,
+  renderOption: RenderComponent,
+  searchThreshold = 3,
+  timeout = 500,
+  ...restProps
+}) => {
+  const searchInputId = useRef<string>(uuid());
+  const inputEl = useRef<HTMLElement>(null);
 
-class SearchInput extends Component<SearchInputProps, SearchInputState> {
-  private readonly searchInputId: string = uuid();
+  const [options, setOptions] = useState<SearchOption[]>([]);
 
-  private inputEl: HTMLElement | null = null;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const loadOptionsInternal = useCallback(
+    debounce((value: string) => {
+      loadOptions(value).then(setOptions);
+    }, timeout),
+    [loadOptions, timeout]
+  );
 
-  loadOptions = debounce((value: string) => {
-    this.props.loadOptions(value).then((options) => {
-      this.setState({
-        options,
-      });
-    });
-  }, this.props.timeout || 500);
+  const handleChange = useCallback(
+    (value: string): void => {
+      onChange(value);
 
-  constructor(props: Readonly<SearchInputProps>) {
-    super(props);
+      setOptions([]);
 
-    this.state = {
-      options: [],
-    };
+      if (value.length < searchThreshold) {
+        return;
+      }
 
-    this.handleChange = this.handleChange.bind(this);
-    this.optionHandleClick = this.optionHandleClick.bind(this);
-    this.renderOption = this.renderOption.bind(this);
-    this.loadOptions = this.loadOptions.bind(this);
-  }
+      loadOptionsInternal(value);
+    },
+    [loadOptionsInternal, onChange, searchThreshold]
+  );
 
-  handleChange(value: string): void {
-    const { searchThreshold = 3, onChange } = this.props;
+  const optionHandleClick = useCallback(
+    (value: string): void => {
+      if (!inputEl.current) {
+        inputEl.current = document.getElementById(searchInputId.current);
+      }
 
-    onChange(value);
+      inputEl.current?.blur();
 
-    this.setState({
-      options: [],
-    });
+      onChange(value);
 
-    if (value.length < searchThreshold) {
-      return;
-    }
+      setOptions([]);
+    },
+    [onChange]
+  );
 
-    this.loadOptions(value);
-  }
+  const renderOption = useCallback(
+    ({ label, value }: SearchOption): JSX.Element => {
+      const handleClick = () => optionHandleClick(`${value}`);
 
-  optionHandleClick(value: string): void {
-    const { onChange } = this.props;
+      if (RenderComponent) {
+        return (
+          <RenderComponent
+            className="search_option"
+            key={value}
+            label={label}
+            onClick={handleClick}
+          />
+        );
+      }
 
-    if (!this.inputEl) {
-      this.inputEl = document.getElementById(this.searchInputId);
-    }
-
-    this.inputEl?.blur();
-
-    onChange(value);
-
-    this.setState({
-      options: [],
-    });
-  }
-
-  renderOption({ label, value }: SearchOption): JSX.Element {
-    const { renderOption: RenderComponent } = this.props;
-
-    const handleClick = () => this.optionHandleClick(`${value}`);
-
-    if (RenderComponent) {
       return (
-        <RenderComponent
-          className="search_option"
-          key={value}
-          label={label}
-          onClick={handleClick}
-        />
+        <div className="search_option" key={value} onClick={handleClick}>
+          <div>{label}</div>
+        </div>
       );
-    }
+    },
+    [RenderComponent, optionHandleClick]
+  );
 
-    return (
-      <div className="search_option" key={value} onClick={handleClick}>
-        <div>{label}</div>
-      </div>
-    );
-  }
-
-  render(): JSX.Element {
-    const { options } = this.state;
-
-    return (
-      <SearchInputComponent
-        {...this.props}
-        id={this.searchInputId}
-        onChange={this.handleChange}
-        options={options}
-        renderOption={this.renderOption}
-      />
-    );
-  }
-}
+  return (
+    <SearchInputComponent
+      {...restProps}
+      id={searchInputId.current}
+      onChange={handleChange}
+      options={options}
+      renderOption={renderOption}
+    />
+  );
+};
 
 export default SearchInput;

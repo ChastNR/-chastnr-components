@@ -1,10 +1,11 @@
 import Input, { InputProps } from "../Input";
 import { OptionsContainer } from "../Option";
+import { SearchOption } from "../types";
 
 interface SearchInputProps extends InputProps {
   isOptionsAvailable?: boolean;
-  options?: any[];
-  renderOption?: (option: any, index: number) => React.ReactNode;
+  options?: SearchOption[];
+  renderOption?: (option: SearchOption, index: number) => React.ReactNode;
 }
 
 const SearchInputComponent: React.FC<SearchInputProps> = ({

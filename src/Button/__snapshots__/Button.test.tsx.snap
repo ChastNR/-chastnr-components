@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> should match snapshot 1`] = `
+<button
+  className="btn"
+  type="button"
+>
+  <div
+    className="btn__txt__cntr"
+    tabIndex={-1}
+  >
+    <div
+      className="btn__txt__cntr__txt"
+    >
+      Click
+    </div>
+  </div>
+</button>
+`;

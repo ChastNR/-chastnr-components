@@ -1,5 +1,5 @@
-const debounce = <P extends any[]>(
-  func: (...args: P) => any,
+const debounce = <P extends unknown[]>(
+  func: (...args: P) => unknown,
   timeout: number
 ): ((...args: P) => void) => {
   let timer: NodeJS.Timeout;

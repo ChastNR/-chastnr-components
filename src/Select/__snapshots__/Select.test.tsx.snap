@@ -3,7 +3,7 @@
 exports[`<Select/> should match snapshot 1`] = `
 <ForwardRef
   className="slt"
-  content={<Memo />}
+  content={<Arrow />}
   error={null}
   hasValue={false}
   label="Test Select"

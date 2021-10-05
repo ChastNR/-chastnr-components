@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Dropdown /> shoud equal snapshot 1`] = `
+<div
+  className="dd"
+>
+  <span
+    className="dd__cnt"
+  />
+  <span
+    className="dd__itms"
+  >
+    <ul>
+      <DropdownElement
+        id={0}
+        key="0"
+        title="testTitle"
+        to="/"
+      />
+    </ul>
+  </span>
+</div>
+`;

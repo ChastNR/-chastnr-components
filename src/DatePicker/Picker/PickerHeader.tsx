@@ -17,7 +17,7 @@ const PickerHeader: React.FC = () => {
   });
 
   return (
-    <header className="cldr__hdr">
+    <div className="cldr__hdr">
       <ArrowSvg
         className={leftArrowClassNames}
         onClick={prevMonth}
@@ -29,7 +29,7 @@ const PickerHeader: React.FC = () => {
         onClick={nextMonth}
         onMouseDown={mouseDownPrevent}
       />
-    </header>
+    </div>
   );
 };
 
