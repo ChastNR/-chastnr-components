@@ -1,6 +1,6 @@
 /// <reference types="react" />
-import { InputProps } from "../Input";
-import { OptionRenderComponent, SearchOption } from "../types";
+import { InputProps } from '../Input';
+import { OptionRenderComponent, SearchOption } from '../types';
 interface SearchInputProps extends InputProps {
     isOptionsAvailable?: boolean;
     loadOptions: (value: string) => Promise<SearchOption[]>;

@@ -1,8 +1,8 @@
-import debounce from "./debounce";
+import debounce from './debounce';
 
 jest.useFakeTimers();
 
-describe("debounce", () => {
+describe('debounce', () => {
   let func: jest.Mock;
   let debouncedFunc: () => unknown;
 
@@ -11,7 +11,7 @@ describe("debounce", () => {
     debouncedFunc = debounce(func, 1000);
   });
 
-  test("execute just once", () => {
+  test('execute just once', () => {
     for (let i = 0; i < 100; i++) {
       debouncedFunc();
     }

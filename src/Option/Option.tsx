@@ -1,8 +1,8 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState } from 'react';
 
-import Checkbox from "../Checkbox";
-import { Option } from "../types";
-import { mouseDownPrevent } from "../utils";
+import Checkbox from '../Checkbox';
+import { Option } from '../types';
+import { mouseDownPrevent } from '../utils';
 
 interface OptionProps {
   option: Option;

@@ -1,4 +1,4 @@
-import "./Container.scss";
+import './Container.scss';
 
 const OptionsContainer: React.FC = ({ children }) => <div className="slt__opts">{children}</div>;
 

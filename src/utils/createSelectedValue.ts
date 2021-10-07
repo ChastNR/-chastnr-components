@@ -1,4 +1,4 @@
-import { Option } from "../types";
+import { Option } from '../types';
 
 const createSelectedValue = (selected?: Option | Option[], isMulti?: boolean): Option[] => {
   if (!selected) {

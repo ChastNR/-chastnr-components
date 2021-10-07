@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import "./InfoBox.scss";
+import './InfoBox.scss';
 interface InfoBoxProps {
     title: React.ReactNode;
     additionalInfo?: React.ReactNode;

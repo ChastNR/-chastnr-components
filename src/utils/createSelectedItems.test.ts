@@ -1,16 +1,16 @@
-import { Option } from "../types";
-import createSelectedItems from "./createSelectedItems";
+import { Option } from '../types';
+import createSelectedItems from './createSelectedItems';
 
-describe("createSelectedItems", () => {
-  it("should return valid value", () => {
+describe('createSelectedItems', () => {
+  it('should return valid value', () => {
     const options: Option[] = [
       {
-        title: "Test",
-        value: "test",
+        title: 'Test',
+        value: 'test',
       },
       {
-        title: "Test 2",
-        value: "test 2",
+        title: 'Test 2',
+        value: 'test 2',
       },
     ];
 
@@ -18,6 +18,6 @@ describe("createSelectedItems", () => {
 
     const items = createSelectedItems(options, selected);
 
-    expect(items).toEqual("Test");
+    expect(items).toEqual('Test');
   });
 });

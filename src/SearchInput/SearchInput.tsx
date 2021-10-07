@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState } from 'react';
 
-import { v4 as uuid } from "uuid";
+import { v4 as uuid } from 'uuid';
 
-import { InputProps } from "../Input";
-import { OptionRenderComponent, SearchOption } from "../types";
-import { debounce } from "../utils";
-import SearchInputComponent from "./SearchInputComponent";
+import { InputProps } from '../Input';
+import { OptionRenderComponent, SearchOption } from '../types';
+import { debounce } from '../utils';
+import SearchInputComponent from './SearchInputComponent';
 
 interface SearchInputProps extends InputProps {
   isOptionsAvailable?: boolean;

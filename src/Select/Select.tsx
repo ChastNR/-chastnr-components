@@ -1,13 +1,18 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState } from 'react';
 
-import { Arrow } from "../base";
-import Control from "../Control";
-import { Options } from "../Option";
-import { Option } from "../types";
-import { createError, createSelectedItems, createSelectedValue } from "../utils";
+import { Arrow } from '../base';
+import Control from '../Control';
+import { Options } from '../Option';
+import { Option } from '../types';
+import {
+  createError,
+  createSelectedItems,
+  createSelectedOptions,
+  createSelectedValue,
+} from '../utils';
 
-import "./Select.scss";
+import './Select.scss';
 
 interface SelectProps {
   disabled?: boolean;
@@ -29,7 +34,7 @@ const Select: React.FC<SelectProps> = ({
   onSelect,
   options,
   requiredMessage,
-  optionsSeparator = ", ",
+  optionsSeparator = ', ',
   selected,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -37,6 +42,8 @@ const Select: React.FC<SelectProps> = ({
   const [validate, setValidate] = useState(false);
 
   const internalSelected = createSelectedValue(selected, isMulti);
+
+  console.log('Select - internalSelected: ', internalSelected);
 
   const handleBlur = useCallback((e: React.FocusEvent<HTMLDivElement>) => {
     if (e.currentTarget.contains(e.relatedTarget as Node)) {
@@ -48,12 +55,7 @@ const Select: React.FC<SelectProps> = ({
 
   const handleSelect = (option: Option) => () => {
     if (isMulti) {
-      const isOptionSelected = internalSelected.some((o) => o.value === option.value);
-
-      const selectedOptions = isOptionSelected
-        ? internalSelected.filter((o) => o.value !== option.value)
-        : internalSelected.concat(option);
-
+      const selectedOptions = createSelectedOptions(internalSelected, option);
       (onSelect as (value: Option[]) => void)(selectedOptions);
     } else {
       wrapperRef.current?.blur();

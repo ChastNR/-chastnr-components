@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import classNames from "clsx";
+import classNames from 'clsx';
 
-import { Ring } from "../base";
+import { Ring } from '../base';
 
-import "./Button.scss";
+import './Button.scss';
 
 interface LocationProps {
   pathname?: string;
@@ -13,13 +13,13 @@ interface LocationProps {
 }
 
 interface ButtonProps {
-  buttonStyle?: "link" | "outline" | "icon";
+  buttonStyle?: 'link' | 'outline' | 'icon';
   className?: string;
   disabled?: boolean;
   isLoading?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   to?: string | LocationProps;
-  type?: "submit" | "reset" | "button";
+  type?: 'submit' | 'reset' | 'button';
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -30,12 +30,12 @@ const Button: React.FC<ButtonProps> = ({
   isLoading,
   onClick,
   to,
-  type = "button",
+  type = 'button',
 }) => {
-  const buttonClassNames = classNames("btn", className, {
-    btn__link: buttonStyle === "link",
-    btn__icon: buttonStyle === "icon",
-    btn__outline: buttonStyle === "outline",
+  const buttonClassNames = classNames('btn', className, {
+    btn__link: buttonStyle === 'link',
+    btn__icon: buttonStyle === 'icon',
+    btn__outline: buttonStyle === 'outline',
   });
 
   const button = (

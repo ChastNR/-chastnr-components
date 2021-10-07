@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import classNames from "clsx";
+import classNames from 'clsx';
 
-import "./Error.scss";
+import './Error.scss';
 
 const Error: React.FC = ({ children }) => {
   const [height, setHeight] = useState(0);
@@ -10,7 +10,7 @@ const Error: React.FC = ({ children }) => {
   const handleRef = (element: HTMLDivElement | null) =>
     element && setHeight(children ? element.scrollHeight : 0);
 
-  const errorClassNames = classNames("er__cntr", {
+  const errorClassNames = classNames('er__cntr', {
     error: height !== 0,
   });
 

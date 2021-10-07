@@ -1,6 +1,6 @@
-import classNames from "clsx";
+import classNames from 'clsx';
 
-import "./Switch.scss";
+import './Switch.scss';
 
 interface SwitchProps {
   name?: string;
@@ -10,7 +10,7 @@ interface SwitchProps {
 }
 
 const Switch: React.FC<SwitchProps> = ({ name, checked, onChange, onKeyDown }) => {
-  const switchClassNames = classNames("sw", {
+  const switchClassNames = classNames('sw', {
     sw__checked: checked,
   });
 

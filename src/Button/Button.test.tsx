@@ -1,21 +1,21 @@
-import { mount, shallow } from "enzyme";
-import toJson from "enzyme-to-json";
+import { mount, shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
-import Button from "./Button";
+import Button from './Button';
 
-describe("<Button />", () => {
-  it("should match snapshot", () => {
+describe('<Button />', () => {
+  it('should match snapshot', () => {
     const button = shallow(<Button>Click</Button>);
     expect(toJson(button)).toMatchSnapshot();
   });
 
-  it("props should be equal", () => {
-    const style = "outline";
-    const className = "testClassName";
+  it('props should be equal', () => {
+    const style = 'outline';
+    const className = 'testClassName';
     const disabled = true;
     const isLoading = true;
-    const to = "";
-    const type = "submit";
+    const to = '';
+    const type = 'submit';
 
     const button = mount(
       <Button

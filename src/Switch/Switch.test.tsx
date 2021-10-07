@@ -1,16 +1,16 @@
-import { mount, shallow } from "enzyme";
-import toJson from "enzyme-to-json";
+import { mount, shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
-import Switch from "./Switch";
+import Switch from './Switch';
 
-describe("<Switch/>", () => {
-  it("should match snapshot", () => {
+describe('<Switch/>', () => {
+  it('should match snapshot', () => {
     const switchComponent = shallow(<Switch />);
     expect(toJson(switchComponent)).toMatchSnapshot();
   });
 
-  it("props should be equal", () => {
-    const name = "testName";
+  it('props should be equal', () => {
+    const name = 'testName';
     const checked = true;
     const onChange = jest.fn();
 

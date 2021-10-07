@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import "./Switch.scss";
+import './Switch.scss';
 interface SwitchProps {
     name?: string;
     checked?: boolean;

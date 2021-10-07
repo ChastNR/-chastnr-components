@@ -1,9 +1,9 @@
 /// <reference types="react" />
-import "./Card.scss";
+import './Card.scss';
 interface CardProps {
     animate?: boolean;
     className?: string;
-    size?: "small" | "medium";
+    size?: 'small' | 'medium';
     imgSrc: string;
     buttonText: React.ReactNode;
     onClick?: React.MouseEventHandler<HTMLButtonElement>;

@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import Checkbox from "../Checkbox";
+import Checkbox from '../Checkbox';
 
-import "./InfoBox.scss";
+import './InfoBox.scss';
 
 interface InfoBoxProps {
   title: React.ReactNode;

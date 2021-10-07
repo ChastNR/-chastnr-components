@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { Option } from "../types";
+import { Option } from '../types';
 interface OptionProps {
     option: Option;
     checked?: boolean;

@@ -1,6 +1,6 @@
-import classNames from "clsx";
+import classNames from 'clsx';
 
-import "./Tab.scss";
+import './Tab.scss';
 
 interface TabProps {
   className?: string;
@@ -9,13 +9,13 @@ interface TabProps {
 }
 
 const Tab: React.FC<TabProps> = ({ className, content, children, onClick }) => {
-  const tabClassNames = classNames("tb__btn", className);
+  const tabClassNames = classNames('tb__btn', className);
 
   return (
     <button
       className={tabClassNames}
       onClick={onClick}
-      style={{ cursor: onClick ? "cursor" : "unset" }}
+      style={{ cursor: onClick ? 'cursor' : 'unset' }}
       type="button"
     >
       <span className="tb__box" tabIndex={-1}>

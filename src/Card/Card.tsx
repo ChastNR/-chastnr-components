@@ -1,13 +1,13 @@
-import classNames from "clsx";
+import classNames from 'clsx';
 
-import Button from "../Button";
+import Button from '../Button';
 
-import "./Card.scss";
+import './Card.scss';
 
 interface CardProps {
   animate?: boolean;
   className?: string;
-  size?: "small" | "medium";
+  size?: 'small' | 'medium';
   imgSrc: string;
   buttonText: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
@@ -15,17 +15,17 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({
   animate = true,
-  size = "medium",
+  size = 'medium',
   imgSrc,
   buttonText,
   children,
   onClick,
 }) => {
-  const cardClassNames = classNames("cd", {
+  const cardClassNames = classNames('cd', {
     size,
   });
 
-  const boxClassNames = classNames("cd__box", {
+  const boxClassNames = classNames('cd__box', {
     animate,
   });
 

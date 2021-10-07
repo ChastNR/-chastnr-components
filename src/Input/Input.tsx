@@ -1,13 +1,13 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState } from 'react';
 
-import Control from "../Control";
-import { InputTypes } from "../types";
-import { createError } from "../utils";
+import Control from '../Control';
+import { InputTypes } from '../types';
+import { createError } from '../utils';
 
-import "./Input.scss";
+import './Input.scss';
 
 export interface InputProps {
-  autoComplete?: "on" | "off";
+  autoComplete?: 'on' | 'off';
   className?: string;
   content?: React.ReactNode;
   disabled?: boolean;
@@ -28,7 +28,7 @@ export interface InputProps {
 }
 
 const Input: React.FC<InputProps> = ({
-  autoComplete = "off",
+  autoComplete = 'off',
   children,
   className,
   content,
@@ -45,7 +45,7 @@ const Input: React.FC<InputProps> = ({
   regExp,
   requiredMessage,
   startValidate = false,
-  type = "text",
+  type = 'text',
   value,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);

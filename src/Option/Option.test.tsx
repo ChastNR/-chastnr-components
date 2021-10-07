@@ -1,14 +1,14 @@
-import { mount, shallow } from "enzyme";
-import toJson from "enzyme-to-json";
+import { mount, shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
-import SelectOption from "./Option";
-import { Option } from "../types";
+import SelectOption from './Option';
+import { Option } from '../types';
 
 const mockSetState = jest.fn();
 const mockOnClick = jest.fn();
 
-jest.mock("react", () => {
-  const actualReact = jest.requireActual("react");
+jest.mock('react', () => {
+  const actualReact = jest.requireActual('react');
 
   return {
     ...actualReact,
@@ -16,18 +16,18 @@ jest.mock("react", () => {
   };
 });
 
-describe("<Option />", () => {
+describe('<Option />', () => {
   const option: Option = {
-    title: "Test",
-    value: "testValue",
+    title: 'Test',
+    value: 'testValue',
   };
 
-  it("should equal snapshot", () => {
+  it('should equal snapshot', () => {
     const optionComponent = shallow(<SelectOption option={option} />);
     expect(toJson(optionComponent)).toMatchSnapshot();
   });
 
-  it("props should equal", () => {
+  it('props should equal', () => {
     const checked = true;
     const isMulti = true;
 
@@ -35,7 +35,7 @@ describe("<Option />", () => {
       <SelectOption checked={checked} isMulti={isMulti} option={option} />
     );
 
-    const input = optionComponent.find("input");
+    const input = optionComponent.find('input');
 
     expect(input.props().checked).toEqual(checked);
 
@@ -44,11 +44,11 @@ describe("<Option />", () => {
     }
   });
 
-  it("click should call setChecked and onClick", () => {
+  it('click should call setChecked and onClick', () => {
     const optionComponent = mount(<SelectOption option={option} onClick={mockOnClick} />);
 
-    const buttonElement = optionComponent.find(".slt__opt");
-    buttonElement.simulate("click");
+    const buttonElement = optionComponent.find('.slt__opt');
+    buttonElement.simulate('click');
 
     expect(mockSetState).toBeCalledTimes(1);
     expect(mockOnClick).toBeCalledTimes(1);
@@ -57,8 +57,8 @@ describe("<Option />", () => {
   it("click shouldn't call onClick", () => {
     const optionComponent = mount(<SelectOption option={option} />);
 
-    const buttonElement = optionComponent.find(".slt__opt");
-    buttonElement.simulate("click");
+    const buttonElement = optionComponent.find('.slt__opt');
+    buttonElement.simulate('click');
 
     expect(mockSetState).toBeCalled();
   });

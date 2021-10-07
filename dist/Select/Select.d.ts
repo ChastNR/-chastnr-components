@@ -1,6 +1,6 @@
 /// <reference types="react" />
-import { Option } from "../types";
-import "./Select.scss";
+import { Option } from '../types';
+import './Select.scss';
 interface SelectProps {
     disabled?: boolean;
     errorMessage?: React.ReactNode;

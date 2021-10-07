@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import "./Tab.scss";
+import './Tab.scss';
 interface TabProps {
     className?: string;
     content?: React.ReactNode;

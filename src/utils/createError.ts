@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 interface Options {
   validate?: boolean;
@@ -25,7 +25,7 @@ const createError = ({
     return requiredMessage;
   }
 
-  if (regExp && value && typeof value === "string" && !regExp.test(value)) {
+  if (regExp && value && typeof value === 'string' && !regExp.test(value)) {
     return errorMessage;
   }
 

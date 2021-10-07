@@ -1,10 +1,10 @@
-import { shallow } from "enzyme";
-import toJson from "enzyme-to-json";
+import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
-import Error from "./Error";
+import Error from './Error';
 
-describe("<Error/>", () => {
-  it("should equal snapshot", () => {
+describe('<Error/>', () => {
+  it('should equal snapshot', () => {
     const error = shallow(<Error>Error Text</Error>);
     expect(toJson(error)).toMatchSnapshot();
   });

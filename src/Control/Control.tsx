@@ -1,10 +1,10 @@
-import { forwardRef, PropsWithChildren } from "react";
+import { forwardRef, PropsWithChildren } from 'react';
 
-import classNames from "clsx";
+import classNames from 'clsx';
 
-import Error from "../Error";
+import Error from '../Error';
 
-import "./Control.scss";
+import './Control.scss';
 
 interface ControlProps {
   className?: string;
@@ -37,7 +37,7 @@ const Control = forwardRef<HTMLDivElement, PropsWithChildren<ControlProps>>(
     },
     ref
   ) => {
-    const controlClassNames = classNames("ctrl__cntr", className, {
+    const controlClassNames = classNames('ctrl__cntr', className, {
       required,
       disabled,
       error,

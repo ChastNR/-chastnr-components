@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import "./Checkbox.scss";
+import './Checkbox.scss';
 interface CheckboxProps {
     checked?: boolean;
     disabled?: boolean;

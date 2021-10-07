@@ -1,6 +1,6 @@
-import DropdownElement, { DropdownItem } from "./DropdownItem";
+import DropdownElement, { DropdownItem } from './DropdownItem';
 
-import "./Dropdown.scss";
+import './Dropdown.scss';
 
 interface DropdownProps {
   items: DropdownItem[];

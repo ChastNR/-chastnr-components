@@ -1,6 +1,6 @@
 /// <reference types="react" />
-import { Option } from "../types";
-import "./Options.scss";
+import { Option } from '../types';
+import './Options.scss';
 interface OptionsProps {
     options: Option[];
     isMulti?: boolean;

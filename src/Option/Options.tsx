@@ -1,8 +1,8 @@
-import { Option } from "../types";
-import OptionsContainer from "./Container";
-import SelectOption from "./Option";
+import { Option } from '../types';
+import OptionsContainer from './Container';
+import SelectOption from './Option';
 
-import "./Options.scss";
+import './Options.scss';
 
 interface OptionsProps {
   options: Option[];

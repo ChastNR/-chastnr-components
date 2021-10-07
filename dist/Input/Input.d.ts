@@ -1,8 +1,8 @@
 /// <reference types="react" />
-import { InputTypes } from "../types";
-import "./Input.scss";
+import { InputTypes } from '../types';
+import './Input.scss';
 export interface InputProps {
-    autoComplete?: "on" | "off";
+    autoComplete?: 'on' | 'off';
     className?: string;
     content?: React.ReactNode;
     disabled?: boolean;

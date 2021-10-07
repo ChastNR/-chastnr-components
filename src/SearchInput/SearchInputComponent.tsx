@@ -1,6 +1,6 @@
-import Input, { InputProps } from "../Input";
-import { OptionsContainer } from "../Option";
-import { SearchOption } from "../types";
+import Input, { InputProps } from '../Input';
+import { OptionsContainer } from '../Option';
+import { SearchOption } from '../types';
 
 interface SearchInputProps extends InputProps {
   isOptionsAvailable?: boolean;

@@ -1,24 +1,24 @@
-import { mount, shallow } from "enzyme";
-import toJson from "enzyme-to-json";
+import { mount, shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
-import Control from "./Control";
+import Control from './Control';
 
-describe("<Control />", () => {
-  it("should render", () => {
+describe('<Control />', () => {
+  it('should render', () => {
     const control = shallow(<Control hasValue={false} label="testLabel" />);
     expect(toJson(control)).toMatchSnapshot();
   });
 
-  it("props should be equal", () => {
-    const className = "testClassName";
-    const content = "testContent";
-    const name = "testName";
+  it('props should be equal', () => {
+    const className = 'testClassName';
+    const content = 'testContent';
+    const name = 'testName';
     const disabled = true;
-    const error = "testError";
-    const label = "testLabel";
+    const error = 'testError';
+    const label = 'testLabel';
     const required = true;
     const hasValue = true;
-    const role = "textbox";
+    const role = 'textbox';
 
     const control = mount(
       <Control

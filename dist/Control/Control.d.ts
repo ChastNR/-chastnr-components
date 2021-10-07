@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import "./Control.scss";
+import './Control.scss';
 interface ControlProps {
     className?: string;
     content?: React.ReactNode;

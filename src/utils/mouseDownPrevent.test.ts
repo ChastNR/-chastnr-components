@@ -1,7 +1,7 @@
-import mouseDownPrevent from "./mouseDownPrevent";
+import mouseDownPrevent from './mouseDownPrevent';
 
-describe("mouseDownPrevent", () => {
-  it("should call preventDefault and stopPropagation", () => {
+describe('mouseDownPrevent', () => {
+  it('should call preventDefault and stopPropagation', () => {
     const mockPreventDefault = jest.fn();
     const mockStopPropagation = jest.fn();
     const event = {

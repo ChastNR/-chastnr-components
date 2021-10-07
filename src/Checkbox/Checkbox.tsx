@@ -1,6 +1,6 @@
-import { ReactComponent as CheckboxSvg } from "./checkbox.svg";
+import { ReactComponent as CheckboxSvg } from './checkbox.svg';
 
-import "./Checkbox.scss";
+import './Checkbox.scss';
 
 interface CheckboxProps {
   checked?: boolean;
