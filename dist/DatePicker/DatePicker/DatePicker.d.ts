@@ -1,6 +1,7 @@
 /// <reference types="react" />
-import "./DatePicker.scss";
+import './DatePicker.scss';
 interface DatePickerProps {
+    className?: string;
     date?: Date;
     disabled?: boolean;
     endDate?: Date;

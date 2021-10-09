@@ -1,11 +1,11 @@
-import { createContext, useCallback, useContext, useState } from "react";
+import { createContext, useCallback, useContext, useState } from 'react';
 
 import {
   createCalendar,
   getCalendarTitle,
   getNextMonth,
   getPreviousMonth,
-} from "../pickerConstants";
+} from '../pickerConstants';
 
 interface DatePickerInternalState {
   current: Date;
@@ -53,7 +53,7 @@ export const useDatePickerContext = (): DatePickerState => {
   const context = useContext(DatePickerContext);
 
   if (!context) {
-    throw new Error("");
+    throw new Error('');
   }
 
   return context;

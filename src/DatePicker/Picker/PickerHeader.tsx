@@ -1,18 +1,18 @@
-import classNames from "clsx";
+import classNames from 'clsx';
 
-import { ArrowSvg } from "../../base";
-import { mouseDownPrevent } from "../../utils";
-import { useDatePickerContext } from "./context";
+import { ArrowSvg } from '../../base';
+import { mouseDownPrevent } from '../../utils';
+import { useDatePickerContext } from './context';
 
 const PickerHeader: React.FC = () => {
   const { prevDisabled, nextDisabled, calendarTitle, prevMonth, nextMonth } =
     useDatePickerContext();
 
-  const leftArrowClassNames = classNames("dp__arrow", "left", {
+  const leftArrowClassNames = classNames('dp__arrow', 'left', {
     disabled: prevDisabled,
   });
 
-  const rightArrowClassNames = classNames("dp__arrow", "right", {
+  const rightArrowClassNames = classNames('dp__arrow', 'right', {
     disabled: nextDisabled,
   });
 

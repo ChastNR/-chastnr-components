@@ -1,15 +1,16 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState } from 'react';
 
-import dayjs from "dayjs";
+import dayjs from 'dayjs';
 
-import { Calendar } from "../../base";
-import Control from "../../Control";
-import { createError } from "../../utils";
-import Picker from "../Picker";
+import { Calendar } from '../../base';
+import Control from '../../Control';
+import { createError } from '../../utils';
+import Picker from '../Picker';
 
-import "./DatePicker.scss";
+import './DatePicker.scss';
 
 interface DatePickerProps {
+  className?: string;
   date?: Date;
   disabled?: boolean;
   endDate?: Date;
@@ -23,15 +24,16 @@ interface DatePickerProps {
 }
 
 const DatePicker: React.FC<DatePickerProps> = ({
+  className,
   children,
   date,
   disabled,
   endDate,
   errorMessage,
-  format = "DD.MM.YYYY",
+  format = 'DD.MM.YYYY',
   label,
   onSelect,
-  placeholder = "дд.мм.гггг",
+  placeholder = 'дд.мм.гггг',
   requiredMessage,
   startDate,
 }) => {
@@ -63,8 +65,11 @@ const DatePicker: React.FC<DatePickerProps> = ({
     errorMessage,
   });
 
+  const value = date ? dayjs(date).format(format) : placeholder;
+
   return (
     <Control
+      className={className}
       content={
         <div className="dp__cnt">
           {children}
@@ -79,7 +84,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
       ref={wrapperRef}
       required={!!requiredMessage}
     >
-      <span className="dp__value">{date ? dayjs(date).format(format) : placeholder}</span>
+      <span className="dp__value">{value}</span>
       <div className="dp__cntr">
         <Picker date={date} endDate={endDate} onSelect={handleSelect} startDate={startDate} />
       </div>

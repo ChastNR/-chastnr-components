@@ -15,8 +15,19 @@
   max-width: 400px;
   -webkit-tap-highlight-color: transparent;
 
+  &.small {
+    height: 56px;
+
+    &:hover {
+      &:before {
+        background-color: #f6f7f8;
+        border-color: #dddfe0;
+      }
+    }
+  }
+
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     top: -1px;
     right: -1px;

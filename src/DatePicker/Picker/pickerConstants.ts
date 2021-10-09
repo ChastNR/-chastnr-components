@@ -1,24 +1,24 @@
-const DAYS = ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"];
+const DAYS = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
 
 const MONTHS = [
-  "Январь",
-  "Февраль",
-  "Март",
-  "Апрель",
-  "Май",
-  "Июнь",
-  "Июль",
-  "Август",
-  "Сентябрь",
-  "Октябрь",
-  "Ноябрь",
-  "Декабрь",
+  'Январь',
+  'Февраль',
+  'Март',
+  'Апрель',
+  'Май',
+  'Июнь',
+  'Июль',
+  'Август',
+  'Сентябрь',
+  'Октябрь',
+  'Ноябрь',
+  'Декабрь',
 ];
 
 const CALENDAR_WEEKS = 6;
 
 const zeroPad = (value: number | string, length: number): string =>
-  `${value}`.padStart(length, "0");
+  `${value}`.padStart(length, '0');
 
 const THIS_YEAR = +new Date().getFullYear();
 
@@ -73,7 +73,7 @@ const isWeekend = (date: Date): boolean => {
 };
 
 const getDateISO = (date = new Date()): string =>
-  [date.getFullYear(), zeroPad(+date.getMonth() + 1, 2), zeroPad(+date.getDate(), 2)].join("-");
+  [date.getFullYear(), zeroPad(+date.getMonth() + 1, 2), zeroPad(+date.getDate(), 2)].join('-');
 
 interface PreviousDate {
   month: number;

@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import "./Picker.scss";
+import './Picker.scss';
 interface PickerProps {
     date?: Date;
     startDate?: Date;

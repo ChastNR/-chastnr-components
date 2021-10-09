@@ -43,8 +43,6 @@ const Select: React.FC<SelectProps> = ({
 
   const internalSelected = createSelectedValue(selected, isMulti);
 
-  console.log('Select - internalSelected: ', internalSelected);
-
   const handleBlur = useCallback((e: React.FocusEvent<HTMLDivElement>) => {
     if (e.currentTarget.contains(e.relatedTarget as Node)) {
       return;

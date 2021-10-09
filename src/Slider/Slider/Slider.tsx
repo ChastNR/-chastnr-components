@@ -1,10 +1,10 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState } from 'react';
 
-import classNames from "clsx";
+import classNames from 'clsx';
 
-import Slide from "../Slide";
+import Slide from '../Slide';
 
-import "./Slider.scss";
+import './Slider.scss';
 
 interface SliderProps {
   slides: React.ReactNode[];
@@ -22,16 +22,12 @@ const Slider: React.FC<SliderProps> = ({ slides, defaultSlide }) => {
     setCurrentSlide((s) => s - 1);
   }, []);
 
-  const isPrevAvailable = currentSlide !== 0;
-
-  const isNextAvailable = currentSlide !== slides.length;
-
-  const leftArrowClassNames = classNames("sldr__wrp__arrow", {
-    hidden: isPrevAvailable,
+  const leftArrowClassNames = classNames('sldr__wrp__arrow', {
+    hidden: currentSlide !== 0,
   });
 
-  const rightArrowClassNames = classNames("sldr__wrp__arrow", {
-    hidden: isNextAvailable,
+  const rightArrowClassNames = classNames('sldr__wrp__arrow', {
+    hidden: currentSlide !== slides.length,
   });
 
   return (
@@ -64,7 +60,7 @@ const Slider: React.FC<SliderProps> = ({ slides, defaultSlide }) => {
               <ul>
                 {slides.map((_, index) => (
                   <li
-                    className={classNames("sldr__wrp__dot", {
+                    className={classNames('sldr__wrp__dot', {
                       active: currentSlide === index,
                     })}
                   />

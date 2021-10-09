@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import classNames from "clsx";
+import classNames from 'clsx';
 
-import { mouseDownPrevent } from "../../utils";
-import { isSameDay, isSameMonth, isWeekend } from "./pickerConstants";
+import { mouseDownPrevent } from '../../utils';
+import { isSameDay, isSameMonth, isWeekend } from './pickerConstants';
 
-const createDate = (date: (string | number)[]) => new Date(date.join("-"));
+const createDate = (date: (string | number)[]) => new Date(date.join('-'));
 
 interface DayProps {
   current: Date;
@@ -19,7 +19,7 @@ const renderDay =
   (date: (string | number)[]): JSX.Element => {
     const internalDate = createDate(date);
 
-    const className = classNames("cldr__day", {
+    const className = classNames('cldr__day', {
       current: isSameDay(internalDate, current),
       inmonth: isSameMonth(internalDate, new Date(`${year}-${month}-1`)),
       weekend: isWeekend(internalDate),

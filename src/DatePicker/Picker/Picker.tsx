@@ -1,9 +1,9 @@
-import CalendarDates from "./CalendarDates";
-import { DatePickerContextProvider } from "./context";
-import DayLabel from "./DayLabel";
-import PickerHeader from "./PickerHeader";
+import CalendarDates from './CalendarDates';
+import { DatePickerContextProvider } from './context';
+import DayLabel from './DayLabel';
+import PickerHeader from './PickerHeader';
 
-import "./Picker.scss";
+import './Picker.scss';
 
 interface PickerProps {
   date?: Date;

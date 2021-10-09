@@ -1,7 +1,7 @@
-import { useCallback } from "react";
+import { useCallback } from 'react';
 
-import { useDatePickerContext } from "./context";
-import renderDay from "./Day";
+import { useDatePickerContext } from './context';
+import renderDay from './Day';
 
 interface CalendarDatesProps {
   onSelect: (date: Date) => void;
