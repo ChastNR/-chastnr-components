@@ -1,19 +1,34 @@
-name: Publish
+name: publish
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
-  build:
+  release:
+    name: publish
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: node
+        uses: actions/setup-node@v2
         with:
           node-version: 14
           registry-url: https://registry.npmjs.org/
-      - run: yarn install
-      - run: yarn test:jest
-      - run: yarn build
-      - run: yarn publish
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run tests
+        run: yarn test:jest
+
+      - name: Build package
+        run: yarn build
+
+      - name: Publish package
+        run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

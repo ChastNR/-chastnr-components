@@ -2,11 +2,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useCallback, useRef, useState } from 'react';
 
-import { v4 as uuid } from 'uuid';
-
 import { InputProps } from '../Input';
 import { OptionRenderComponent, SearchOption } from '../types';
-import { debounce } from '../utils';
+import { debounce, uid } from '../utils';
 import SearchInputComponent from './SearchInputComponent';
 
 interface SearchInputProps extends InputProps {
@@ -25,10 +23,13 @@ const SearchInput: React.FC<SearchInputProps> = ({
   timeout = 500,
   ...restProps
 }) => {
-  const searchInputId = useRef<string>(uuid());
+  const searchInputId = useRef<string>(uid());
+
   const inputEl = useRef<HTMLElement>(null);
 
   const [options, setOptions] = useState<SearchOption[]>([]);
+
+  const [inputValue, setInputValue] = useState('');
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const loadOptionsInternal = useCallback(
@@ -40,7 +41,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
 
   const handleChange = useCallback(
     (value: string): void => {
-      onChange(value);
+      setInputValue(value);
 
       setOptions([]);
 
@@ -50,18 +51,20 @@ const SearchInput: React.FC<SearchInputProps> = ({
 
       loadOptionsInternal(value);
     },
-    [loadOptionsInternal, onChange, searchThreshold]
+    [loadOptionsInternal, searchThreshold]
   );
 
   const optionHandleClick = useCallback(
-    (value: string): void => {
+    (option: SearchOption): void => {
       if (!inputEl.current) {
         inputEl.current = document.getElementById(searchInputId.current);
       }
 
       inputEl.current?.blur();
 
-      onChange(value);
+      setInputValue(option.label);
+
+      onChange(`${option.value}`);
 
       setOptions([]);
     },
@@ -69,23 +72,23 @@ const SearchInput: React.FC<SearchInputProps> = ({
   );
 
   const renderOption = useCallback(
-    ({ label, value }: SearchOption): JSX.Element => {
-      const handleClick = () => optionHandleClick(`${value}`);
+    (option: SearchOption): JSX.Element => {
+      const handleClick = () => optionHandleClick(option);
 
       if (RenderComponent) {
         return (
           <RenderComponent
             className="search_option"
-            key={value}
-            label={label}
+            key={option.value}
+            label={option.label}
             onClick={handleClick}
           />
         );
       }
 
       return (
-        <div className="search_option" key={value} onClick={handleClick}>
-          <div>{label}</div>
+        <div className="search_option" key={option.value} onClick={handleClick}>
+          <div>{option.label}</div>
         </div>
       );
     },
@@ -99,6 +102,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
       onChange={handleChange}
       options={options}
       renderOption={renderOption}
+      value={inputValue}
     />
   );
 };

@@ -7,19 +7,25 @@ import './InfoBox.scss';
 
 interface InfoBoxProps {
   additionalInfo?: React.ReactNode;
+  checked?: boolean;
   className?: string;
+  disabled?: boolean;
   img?: string;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
   small?: boolean;
   title: React.ReactNode;
 }
 
 const InfoBox: React.FC<InfoBoxProps> = ({
   additionalInfo,
+  checked,
+  children,
   className,
+  disabled,
   img,
+  onChange,
   small,
   title,
-  children,
 }) => {
   const infoBoxClassNames = classNames('ib', className, { small });
 
@@ -29,7 +35,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
     <label className={infoBoxClassNames}>
       <div>
         <div className="ib__stn">
-          <Checkbox />
+          <Checkbox checked={checked} disabled={disabled} onChange={onChange} />
         </div>
         {isImgAvailable && (
           <div className="ib__stn">

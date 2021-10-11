@@ -2,6 +2,7 @@
   .slt__opt {
     align-items: flex-start;
     background-color: #fff;
+    border: 0;
     color: rgba(0, 0, 0, 0.8);
     cursor: pointer;
     display: flex;
@@ -11,9 +12,14 @@
     padding-left: 16px;
     padding-right: 12px;
     padding-top: 10px;
-    width: 100%;
     text-align: left;
-    border: 0;
+    user-select: none;
+    width: 100%;
+
+    &.disabled {
+      opacity: 0.56;
+      pointer-events: none;
+    }
 
     &:hover {
       background-color: #f6f7f8;

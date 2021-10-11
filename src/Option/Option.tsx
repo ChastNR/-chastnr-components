@@ -1,17 +1,28 @@
 import { useCallback, useState } from 'react';
 
+import classNames from 'clsx';
+
 import Checkbox from '../Checkbox';
 import { Option } from '../types';
 import { mouseDownPrevent } from '../utils';
 
 interface OptionProps {
-  option: Option;
   checked?: boolean;
+  className?: string;
+  disabled?: boolean;
   isMulti?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  option: Option;
 }
 
-const SelectOption: React.FC<OptionProps> = ({ checked = false, option, isMulti, onClick }) => {
+const SelectOption: React.FC<OptionProps> = ({
+  checked = false,
+  className,
+  disabled,
+  isMulti,
+  onClick,
+  option,
+}) => {
   const [isChecked, setChecked] = useState(checked);
 
   const handleClick = useCallback(
@@ -25,8 +36,17 @@ const SelectOption: React.FC<OptionProps> = ({ checked = false, option, isMulti,
     [onClick]
   );
 
+  const optionsClassNames = classNames('slt__opt', className, {
+    disabled,
+  });
+
   return (
-    <button className="slt__opt" onClick={handleClick} onMouseDown={mouseDownPrevent} type="button">
+    <button
+      className={optionsClassNames}
+      onClick={handleClick}
+      onMouseDown={mouseDownPrevent}
+      type="button"
+    >
       <div className="slt__opt__txt">{option.title}</div>
       {isMulti && <Checkbox checked={isChecked} />}
     </button>
