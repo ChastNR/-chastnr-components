@@ -1,5 +1,5 @@
-import { Option } from '../types';
-import createSelectedValue from './createSelectedValue';
+import { IOption } from '../types';
+import { createSelectedValue } from './createSelectedValue';
 
 describe('createSelectedValue', () => {
   it('should return empty array', () => {
@@ -9,7 +9,7 @@ describe('createSelectedValue', () => {
   });
 
   it('should return array of selected options when isMulti equals true', () => {
-    const selectedItems: Option[] = [{ title: 'Test', value: 'Test' }];
+    const selectedItems: IOption[] = [{ title: 'Test', value: 'Test' }];
     const isMulti = true;
 
     const items = createSelectedValue(selectedItems, isMulti);
@@ -19,7 +19,7 @@ describe('createSelectedValue', () => {
   });
 
   it('should return array of selected options when option provided', () => {
-    const selectedItems: Option = { title: 'Test', value: 'Test' };
+    const selectedItems: IOption = { title: 'Test', value: 'Test' };
 
     const items = createSelectedValue(selectedItems);
 

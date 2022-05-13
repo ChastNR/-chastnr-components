@@ -1,22 +1,16 @@
 import classNames from 'clsx';
-
 import { ReactComponent as CheckboxSvg } from './checkbox.svg';
 
 import './Checkbox.scss';
 
-interface CheckboxProps {
+interface ICheckboxProps {
   className?: string;
   checked?: boolean;
   disabled?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Checkbox: React.FC<CheckboxProps> = ({
-  className,
-  checked,
-  disabled,
-  onChange = () => {},
-}) => {
+export const Checkbox: React.FC<ICheckboxProps> = ({ className, checked, disabled, onChange }) => {
   const checkBoxClassNames = classNames('cb', className);
 
   return (
@@ -38,5 +32,3 @@ const Checkbox: React.FC<CheckboxProps> = ({
     </div>
   );
 };
-
-export default Checkbox;

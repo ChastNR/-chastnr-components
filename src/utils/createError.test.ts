@@ -1,4 +1,4 @@
-import createError from './createError';
+import { createError } from './createError';
 
 describe('createError', () => {
   it('should return null when validate equals false', () => {

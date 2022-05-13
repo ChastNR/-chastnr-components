@@ -1,16 +1,16 @@
-import { Option } from '../types';
-import OptionsContainer from './Container';
-import SelectOption from './Option';
+import { IOption } from '../types';
+import { OptionsContainer } from './Container';
+import { SelectOption } from './Option';
 
 import './Options.scss';
 
-interface OptionsProps {
-  options: Option[];
+interface IOptionsProps {
+  options: IOption[];
   isMulti?: boolean;
-  onClick: (value: Option) => () => void;
+  onClick: (value: IOption) => () => void;
 }
 
-const Options: React.FC<OptionsProps> = ({ options, onClick, isMulti = false }) => (
+export const Options: React.FC<IOptionsProps> = ({ options, onClick, isMulti = false }) => (
   <OptionsContainer>
     {options.map((o) => (
       <SelectOption
@@ -24,5 +24,3 @@ const Options: React.FC<OptionsProps> = ({ options, onClick, isMulti = false }) 
     ))}
   </OptionsContainer>
 );
-
-export default Options;

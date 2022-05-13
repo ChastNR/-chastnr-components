@@ -1,7 +1,6 @@
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
-import Form from './Form';
+import { Form } from './Form';
 
 describe('<Form />', () => {
   it('should equal snapshot', () => {

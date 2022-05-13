@@ -1,9 +1,9 @@
-import { Option } from '../types';
-import createSelectedItems from './createSelectedItems';
+import { IOption } from '../types';
+import { createSelectedItems } from './createSelectedItems';
 
 describe('createSelectedItems', () => {
   it('should return valid value', () => {
-    const options: Option[] = [
+    const options: IOption[] = [
       {
         title: 'Test',
         value: 'test',
@@ -14,7 +14,7 @@ describe('createSelectedItems', () => {
       },
     ];
 
-    const selected: Option[] = [options[0]];
+    const selected: IOption[] = [options[0]];
 
     const items = createSelectedItems(options, selected);
 

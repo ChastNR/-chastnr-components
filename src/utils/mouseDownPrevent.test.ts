@@ -1,4 +1,4 @@
-import mouseDownPrevent from './mouseDownPrevent';
+import { mouseDownPrevent } from './mouseDownPrevent';
 
 describe('mouseDownPrevent', () => {
   it('should call preventDefault and stopPropagation', () => {

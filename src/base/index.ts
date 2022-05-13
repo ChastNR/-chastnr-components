@@ -1,6 +1,4 @@
-import { Arrow, ArrowSvg } from './Arrow';
-import { Calendar, CalendarSvg } from './Calendar';
-import { Ring, RingSvg } from './Ring';
-import { Tick, TickSvg } from './Tick';
-
-export { Arrow, ArrowSvg, Calendar, CalendarSvg, Ring, RingSvg, Tick, TickSvg };
+export { Arrow, ArrowSvg } from './Arrow';
+export { Calendar, CalendarSvg } from './Calendar';
+export { Ring, RingSvg } from './Ring';
+export { Tick, TickSvg } from './Tick';

@@ -1,21 +1,19 @@
 import { useCallback, useState } from 'react';
-
 import classNames from 'clsx';
-
-import Checkbox from '../Checkbox';
-import { Option } from '../types';
+import { Checkbox } from '../Checkbox';
+import { IOption } from '../types';
 import { mouseDownPrevent } from '../utils';
 
-interface OptionProps {
+interface IOptionProps {
   checked?: boolean;
   className?: string;
   disabled?: boolean;
   isMulti?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  option: Option;
+  option: IOption;
 }
 
-const SelectOption: React.FC<OptionProps> = ({
+export const SelectOption: React.FC<IOptionProps> = ({
   checked = false,
   className,
   disabled,
@@ -52,5 +50,3 @@ const SelectOption: React.FC<OptionProps> = ({
     </button>
   );
 };
-
-export default SelectOption;

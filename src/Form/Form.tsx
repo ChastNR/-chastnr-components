@@ -1,13 +1,15 @@
+import { PropsWithChildren } from 'react';
 import classNames from 'clsx';
 
 import './Form.scss';
 
-interface FormProps {
-  className?: string;
-  title?: React.ReactNode;
-}
+interface IFormProps
+  extends PropsWithChildren<{
+    className?: string;
+    title?: React.ReactNode;
+  }> {}
 
-const Form: React.FC<FormProps> = ({ className, children, title }) => {
+export const Form: React.FC<IFormProps> = ({ className, children, title }) => {
   const formClassNames = classNames('frm', className);
 
   return (
@@ -23,5 +25,3 @@ const Form: React.FC<FormProps> = ({ className, children, title }) => {
     </div>
   );
 };
-
-export default Form;

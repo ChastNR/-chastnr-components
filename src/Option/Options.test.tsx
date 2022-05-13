@@ -1,11 +1,10 @@
 import { mount, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
-import { Option } from './Option';
-import Options from './Options';
+import { IOption } from '../types';
+import { Options } from './Options';
 
 describe('<Options />', () => {
-  const options: Option[] = [
+  const options: IOption[] = [
     {
       title: 'Test',
       value: 'testValue',

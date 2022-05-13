@@ -1,21 +1,20 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useId, useRef, useState } from 'react';
+import { IInputProps } from '../Input';
+import { ISearchOption, OptionRenderComponent } from '../types';
+import { debounce } from '../utils';
+import { SearchInputComponent } from './SearchInputComponent';
 
-import { InputProps } from '../Input';
-import { OptionRenderComponent, SearchOption } from '../types';
-import { debounce, uid } from '../utils';
-import SearchInputComponent from './SearchInputComponent';
-
-interface SearchInputProps extends InputProps {
+interface ISearchInputProps extends IInputProps {
   isOptionsAvailable?: boolean;
-  loadOptions: (value: string) => Promise<SearchOption[]>;
+  loadOptions: (value: string) => Promise<ISearchOption[]>;
   renderOption?: OptionRenderComponent;
   searchThreshold?: number;
   timeout?: number;
 }
 
-const SearchInput: React.FC<SearchInputProps> = ({
+export const SearchInput: React.FC<ISearchInputProps> = ({
   loadOptions,
   onChange,
   renderOption: RenderComponent,
@@ -23,19 +22,17 @@ const SearchInput: React.FC<SearchInputProps> = ({
   timeout = 500,
   ...restProps
 }) => {
-  const searchInputId = useRef<string>(uid());
+  const searchInputId = useId();
 
   const inputEl = useRef<HTMLElement>(null);
 
-  const [options, setOptions] = useState<SearchOption[]>([]);
+  const [options, setOptions] = useState<ISearchOption[]>([]);
 
   const [inputValue, setInputValue] = useState('');
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const loadOptionsInternal = useCallback(
-    debounce((value: string) => {
-      loadOptions(value).then(setOptions);
-    }, timeout),
+    debounce((value: string) => loadOptions(value).then(setOptions), timeout),
     [loadOptions, timeout]
   );
 
@@ -55,9 +52,9 @@ const SearchInput: React.FC<SearchInputProps> = ({
   );
 
   const optionHandleClick = useCallback(
-    (option: SearchOption): void => {
+    (option: ISearchOption): void => {
       if (!inputEl.current) {
-        inputEl.current = document.getElementById(searchInputId.current);
+        inputEl.current = document.getElementById(searchInputId);
       }
 
       inputEl.current?.blur();
@@ -68,11 +65,11 @@ const SearchInput: React.FC<SearchInputProps> = ({
 
       setOptions([]);
     },
-    [onChange]
+    [onChange, searchInputId]
   );
 
   const renderOption = useCallback(
-    (option: SearchOption): JSX.Element => {
+    (option: ISearchOption): JSX.Element => {
       const handleClick = () => optionHandleClick(option);
 
       if (RenderComponent) {
@@ -98,7 +95,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
   return (
     <SearchInputComponent
       {...restProps}
-      id={searchInputId.current}
+      id={searchInputId}
       onChange={handleChange}
       options={options}
       renderOption={renderOption}
@@ -106,5 +103,3 @@ const SearchInput: React.FC<SearchInputProps> = ({
     />
   );
 };
-
-export default SearchInput;

@@ -1,5 +1,3 @@
-import OptionsContainer from './Container';
-import SelectOption from './Option';
-import Options from './Options';
-
-export { Options, OptionsContainer, SelectOption };
+export { Options } from './Options';
+export { OptionsContainer } from './Container';
+export { SelectOption } from './Option';

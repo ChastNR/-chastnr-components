@@ -1,33 +1,33 @@
-import { useCallback, useRef, useState } from 'react';
-
-import Control from '../Control';
+import { PropsWithChildren, useCallback, useRef, useState } from 'react';
+import { Control } from '../Control';
 import { InputTypes } from '../types';
 import { createError } from '../utils';
 
 import './Input.scss';
 
-export interface InputProps {
-  autoComplete?: 'on' | 'off';
-  className?: string;
-  content?: React.ReactNode;
-  disabled?: boolean;
-  errorMessage?: React.ReactNode;
-  id?: string;
-  label: React.ReactNode;
-  maxLength?: number;
-  name?: string;
-  onBlur?: React.FocusEventHandler<HTMLDivElement>;
-  onChange: (value: string) => void;
-  onFocus?: React.FocusEventHandler<HTMLDivElement>;
-  placeholder?: string;
-  regExp?: RegExp;
-  requiredMessage?: React.ReactNode;
-  startValidate?: boolean;
-  type?: InputTypes;
-  value: string;
-}
+export interface IInputProps
+  extends PropsWithChildren<{
+    autoComplete?: 'on' | 'off';
+    className?: string;
+    content?: React.ReactNode;
+    disabled?: boolean;
+    errorMessage?: React.ReactNode;
+    id?: string;
+    label: React.ReactNode;
+    maxLength?: number;
+    name?: string;
+    onBlur?: React.FocusEventHandler<HTMLDivElement>;
+    onChange: (value: string) => void;
+    onFocus?: React.FocusEventHandler<HTMLDivElement>;
+    placeholder?: string;
+    regExp?: RegExp;
+    requiredMessage?: React.ReactNode;
+    startValidate?: boolean;
+    type?: InputTypes;
+    value: string;
+  }> {}
 
-const Input: React.FC<InputProps> = ({
+export const Input: React.FC<IInputProps> = ({
   autoComplete = 'off',
   children,
   className,
@@ -55,10 +55,7 @@ const Input: React.FC<InputProps> = ({
   const handleFocus = useCallback(
     (e: React.FocusEvent<HTMLDivElement>) => {
       inputRef.current?.focus();
-
-      if (onFocus) {
-        onFocus(e);
-      }
+      onFocus?.(e);
     },
     [onFocus]
   );
@@ -70,10 +67,7 @@ const Input: React.FC<InputProps> = ({
       }
 
       setValidate(true);
-
-      if (onBlur) {
-        onBlur(e);
-      }
+      onBlur?.(e);
     },
     [onBlur]
   );
@@ -125,5 +119,3 @@ const Input: React.FC<InputProps> = ({
     </Control>
   );
 };
-
-export default Input;

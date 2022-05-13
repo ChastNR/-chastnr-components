@@ -1,10 +1,9 @@
-import { useState } from 'react';
-
+import { PropsWithChildren, useState } from 'react';
 import classNames from 'clsx';
 
 import './Error.scss';
 
-const Error: React.FC = ({ children }) => {
+export const Error: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   const [height, setHeight] = useState(0);
 
   const handleRef = (element: HTMLDivElement | null) =>
@@ -20,5 +19,3 @@ const Error: React.FC = ({ children }) => {
     </div>
   );
 };
-
-export default Error;

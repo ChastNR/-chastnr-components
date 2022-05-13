@@ -1,22 +1,23 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+import { PropsWithChildren } from 'react';
 import classNames from 'clsx';
-
-import Checkbox from '../Checkbox';
+import { Checkbox } from '../Checkbox';
 
 import './InfoBox.scss';
 
-interface InfoBoxProps {
-  additionalInfo?: React.ReactNode;
-  checked?: boolean;
-  className?: string;
-  disabled?: boolean;
-  img?: string;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  small?: boolean;
-  title: React.ReactNode;
-}
+interface IInfoBoxProps
+  extends PropsWithChildren<{
+    additionalInfo?: React.ReactNode;
+    checked?: boolean;
+    className?: string;
+    disabled?: boolean;
+    img?: string;
+    onChange?: React.ChangeEventHandler<HTMLInputElement>;
+    small?: boolean;
+    title: React.ReactNode;
+  }> {}
 
-const InfoBox: React.FC<InfoBoxProps> = ({
+export const InfoBox: React.FC<IInfoBoxProps> = ({
   additionalInfo,
   checked,
   children,
@@ -53,5 +54,3 @@ const InfoBox: React.FC<InfoBoxProps> = ({
     </label>
   );
 };
-
-export default InfoBox;

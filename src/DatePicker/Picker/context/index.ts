@@ -1,1 +1,1 @@
-export * from './DatePickerContext';
+export { DatePickerContextProvider, useDatePickerContext } from './DatePickerContext';

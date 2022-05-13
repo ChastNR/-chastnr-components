@@ -1,18 +1,17 @@
-import classNames from "clsx";
+import classNames from 'clsx';
+import { ReactComponent as ArrowSvg } from './arrow.svg';
 
-import { ReactComponent as ArrowSvg } from "./arrow.svg";
-
-import "./Arrow.scss";
+import './Arrow.scss';
 
 interface ArrowProps {
-  direction?: "top" | "right" | "left";
+  direction?: 'top' | 'right' | 'left';
 }
 
 const Arrow: React.FC<ArrowProps> = ({ direction }) => {
-  const arrowClassNames = classNames("arrow", {
-    arrow__top: direction === "top",
-    arrow__right: direction === "right",
-    arrow__left: direction === "left",
+  const arrowClassNames = classNames('arrow', {
+    'arrow--top': direction === 'top',
+    'arrow--right': direction === 'right',
+    'arrow--left': direction === 'left',
   });
 
   return (

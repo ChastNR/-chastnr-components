@@ -1,17 +1,16 @@
-import classNames from "clsx";
+import classNames from 'clsx';
+import { ReactComponent as RingSvg } from './circle.svg';
 
-import { ReactComponent as RingSvg } from "./circle.svg";
-
-import "./Ring.scss";
+import './Ring.scss';
 
 interface RingProps {
   color?: string;
-  size?: "small" | "large";
+  size?: 'small' | 'large';
 }
 
-const Ring: React.FC<RingProps> = ({ color = "#1771e6", size = "small" }) => {
-  const ringClassNames = classNames("ring", {
-    ring__small: size === "small",
+const Ring: React.FC<RingProps> = ({ color = '#1771e6', size = 'small' }) => {
+  const ringClassNames = classNames('ring', {
+    'ring--small': size === 'small',
   });
 
   return (

@@ -1,4 +1,4 @@
-export interface SearchOption {
+export interface ISearchOption {
   label: string;
   value: string | number;
 }

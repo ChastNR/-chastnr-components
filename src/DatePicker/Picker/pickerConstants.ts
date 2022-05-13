@@ -46,20 +46,6 @@ const isSameMonth = (date: Date, basedate = new Date()): boolean => {
   return +basedateMonth === +dateMonth && +basedateYear === +dateYear;
 };
 
-// const isSameDay = (date: Date, basedate = new Date()): boolean => {
-//   const basedateDate = basedate.getDate();
-//   const basedateMonth = +basedate.getMonth() + 1;
-//   const basedateYear = basedate.getFullYear();
-
-//   const dateDate = date.getDate();
-//   const dateMonth = +date.getMonth() + 1;
-//   const dateYear = date.getFullYear();
-
-//   return (
-//     +basedateDate === +dateDate && +basedateMonth === +dateMonth && +basedateYear === +dateYear
-//   );
-// };
-
 const isSameDay = (date: Date, basedate = new Date()): boolean => {
   const basedateDate = basedate.getDate();
   const dateDate = date.getDate();

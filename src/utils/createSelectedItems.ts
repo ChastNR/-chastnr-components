@@ -1,6 +1,10 @@
-import { Option } from '../types';
+import { IOption } from '../types';
 
-const createSelectedItems = (options: Option[], selected: Option[], separator = ', '): string => {
+export const createSelectedItems = (
+  options: IOption[],
+  selected: IOption[],
+  separator = ', '
+): string => {
   const selectedTitles = options.reduce((acc: React.ReactNode[], o) => {
     const option = selected.find((s) => o.value === s.value);
 
@@ -13,5 +17,3 @@ const createSelectedItems = (options: Option[], selected: Option[], separator = 
 
   return selectedTitles.join(separator);
 };
-
-export default createSelectedItems;

@@ -1,14 +1,16 @@
+import { PropsWithChildren } from 'react';
 import classNames from 'clsx';
 
 import './Tab.scss';
 
-interface TabProps {
-  className?: string;
-  content?: React.ReactNode;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-}
+interface ITabProps
+  extends PropsWithChildren<{
+    className?: string;
+    content?: React.ReactNode;
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  }> {}
 
-const Tab: React.FC<TabProps> = ({ className, content, children, onClick }) => {
+export const Tab: React.FC<ITabProps> = ({ className, content, children, onClick }) => {
   const tabClassNames = classNames('tb__btn', className);
 
   return (
@@ -25,5 +27,3 @@ const Tab: React.FC<TabProps> = ({ className, content, children, onClick }) => {
     </button>
   );
 };
-
-export default Tab;

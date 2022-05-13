@@ -1,18 +1,23 @@
-import CalendarDates from './CalendarDates';
+import { CalendarDates } from './CalendarDates';
 import { DatePickerContextProvider } from './context';
-import DayLabel from './DayLabel';
-import PickerHeader from './PickerHeader';
+import { DayLabel } from './DayLabel';
+import { PickerHeader } from './PickerHeader';
 
 import './Picker.scss';
 
-interface PickerProps {
+interface IPickerProps {
   date?: Date;
   startDate?: Date;
   endDate?: Date;
   onSelect: (date: Date) => void;
 }
 
-const Picker: React.FC<PickerProps> = ({ date = new Date(), startDate, endDate, onSelect }) => (
+export const Picker: React.FC<IPickerProps> = ({
+  date = new Date(),
+  startDate,
+  endDate,
+  onSelect,
+}) => (
   <DatePickerContextProvider date={date} endDate={endDate} startDate={startDate}>
     <div className="cldr">
       <div>
@@ -33,5 +38,3 @@ const Picker: React.FC<PickerProps> = ({ date = new Date(), startDate, endDate, 
     </div>
   </DatePickerContextProvider>
 );
-
-export default Picker;

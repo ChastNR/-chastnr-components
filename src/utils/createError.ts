@@ -9,7 +9,7 @@ interface Options {
   value?: string | boolean | Date;
 }
 
-const createError = ({
+export const createError = ({
   validate,
   startValidate = false,
   requiredMessage,
@@ -35,5 +35,3 @@ const createError = ({
 
   return null;
 };
-
-export default createError;

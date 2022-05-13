@@ -1,5 +1,6 @@
+import { PropsWithChildren } from 'react';
 import './CardsContainer.scss';
 
-const CardsContainer: React.FC = ({ children }) => <div className="cds__cnt">{children}</div>;
-
-export default CardsContainer;
+export const CardsContainer: React.FC<PropsWithChildren<{}>> = ({ children }) => (
+  <div className="cds__cnt">{children}</div>
+);

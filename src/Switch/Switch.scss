@@ -15,7 +15,7 @@
   vertical-align: middle;
   width: 48px;
 
-  &.sw__checked {
+  &.sw--checked {
     &::before {
       background-color: #ffdd2d;
     }
@@ -34,7 +34,7 @@
   &::before {
     background-color: #ecf1f7;
     border-radius: inherit;
-    content: "";
+    content: '';
     height: 100%;
     left: 0;
     pointer-events: none;
@@ -101,7 +101,7 @@
 
     &::before {
       border-radius: inherit;
-      content: "";
+      content: '';
       height: 100%;
       left: 0;
       position: absolute;
@@ -113,7 +113,7 @@
     &::after {
       background-color: #fff;
       border-radius: 100%;
-      content: "";
+      content: '';
       height: 16px;
       margin: 4px;
       position: absolute;

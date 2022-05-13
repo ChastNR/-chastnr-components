@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export interface DropdownItem {
+export interface IDropdownItem {
   id: string | number;
   title: React.ReactNode;
   to?: string;
@@ -8,12 +8,10 @@ export interface DropdownItem {
   onKeyDown?: React.KeyboardEventHandler<HTMLAnchorElement>;
 }
 
-const DropdownElement: React.FC<DropdownItem> = ({ to, title, onClick, onKeyDown }) => (
+export const DropdownElement: React.FC<IDropdownItem> = ({ to, title, onClick, onKeyDown }) => (
   <li>
     <Link onClick={onClick} onKeyDown={onKeyDown} to={to}>
       {title}
     </Link>
   </li>
 );
-
-export default DropdownElement;

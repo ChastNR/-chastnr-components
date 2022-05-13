@@ -1,7 +1,6 @@
 import { mount, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
-import Switch from './Switch';
+import { Switch } from './Switch';
 
 describe('<Switch/>', () => {
   it('should match snapshot', () => {

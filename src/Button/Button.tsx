@@ -1,28 +1,28 @@
+import { PropsWithChildren } from 'react';
 import { Link } from 'react-router-dom';
-
 import classNames from 'clsx';
-
 import { Ring } from '../base';
 
 import './Button.scss';
 
-interface LocationProps {
+interface ILocationProps {
   pathname?: string;
   search?: string;
   state?: unknown;
 }
 
-interface ButtonProps {
-  buttonStyle?: 'link' | 'outline' | 'icon';
-  className?: string;
-  disabled?: boolean;
-  isLoading?: boolean;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  to?: string | LocationProps;
-  type?: 'submit' | 'reset' | 'button';
-}
+interface IButtonProps
+  extends PropsWithChildren<{
+    buttonStyle?: 'link' | 'outline' | 'icon';
+    className?: string;
+    disabled?: boolean;
+    isLoading?: boolean;
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
+    to?: string | ILocationProps;
+    type?: 'submit' | 'reset' | 'button';
+  }> {}
 
-const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<IButtonProps> = ({
   buttonStyle,
   children,
   className,
@@ -33,9 +33,9 @@ const Button: React.FC<ButtonProps> = ({
   type = 'button',
 }) => {
   const buttonClassNames = classNames('btn', className, {
-    btn__link: buttonStyle === 'link',
-    btn__icon: buttonStyle === 'icon',
-    btn__outline: buttonStyle === 'outline',
+    'btn--link': buttonStyle === 'link',
+    'btn--icon': buttonStyle === 'icon',
+    'btn--outline': buttonStyle === 'outline',
   });
 
   const button = (
@@ -54,5 +54,3 @@ const Button: React.FC<ButtonProps> = ({
     button
   );
 };
-
-export default Button;

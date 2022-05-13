@@ -1,5 +1,4 @@
-import { createContext, useCallback, useContext, useState } from 'react';
-
+import { createContext, PropsWithChildren, useCallback, useContext, useState } from 'react';
 import {
   createCalendar,
   getCalendarTitle,
@@ -7,7 +6,7 @@ import {
   getPreviousMonth,
 } from '../pickerConstants';
 
-interface DatePickerInternalState {
+interface IDatePickerInternalState {
   current: Date;
   month: number;
   year: number;
@@ -17,7 +16,7 @@ const setPrevMonth = ({
   current,
   month,
   year,
-}: DatePickerInternalState): DatePickerInternalState => ({
+}: IDatePickerInternalState): IDatePickerInternalState => ({
   current,
   ...getPreviousMonth(month, year),
 });
@@ -26,12 +25,12 @@ const setNextMonth = ({
   current,
   month,
   year,
-}: DatePickerInternalState): DatePickerInternalState => ({
+}: IDatePickerInternalState): IDatePickerInternalState => ({
   current,
   ...getNextMonth(month, year),
 });
 
-interface DatePickerState extends DatePickerInternalState {
+interface IDatePickerState extends IDatePickerInternalState {
   readonly calendarTitle: string;
   readonly calendar: (string | number)[][];
   readonly prevDisabled: boolean;
@@ -41,15 +40,16 @@ interface DatePickerState extends DatePickerInternalState {
   setCalendarDate(value: Date): void;
 }
 
-const DatePickerContext = createContext<DatePickerState | undefined>(undefined);
+const DatePickerContext = createContext<IDatePickerState | undefined>(undefined);
 
-interface DatePickerContextProviderProps {
-  date?: Date;
-  endDate?: Date;
-  startDate?: Date;
-}
+interface IDatePickerContextProviderProps
+  extends PropsWithChildren<{
+    date?: Date;
+    endDate?: Date;
+    startDate?: Date;
+  }> {}
 
-export const useDatePickerContext = (): DatePickerState => {
+export const useDatePickerContext = (): IDatePickerState => {
   const context = useContext(DatePickerContext);
 
   if (!context) {
@@ -59,7 +59,7 @@ export const useDatePickerContext = (): DatePickerState => {
   return context;
 };
 
-export const DatePickerContextProvider: React.FC<DatePickerContextProviderProps> = ({
+export const DatePickerContextProvider: React.FC<IDatePickerContextProviderProps> = ({
   children,
   date = new Date(),
   startDate,
@@ -97,9 +97,7 @@ export const DatePickerContextProvider: React.FC<DatePickerContextProviderProps>
   return (
     <DatePickerContext.Provider
       value={{
-        current: state.current,
-        month: state.month,
-        year: state.year,
+        ...state,
         calendarTitle,
         calendar,
         prevDisabled,

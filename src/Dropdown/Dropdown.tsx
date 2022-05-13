@@ -1,15 +1,16 @@
+import { PropsWithChildren } from 'react';
 import classNames from 'clsx';
-
-import DropdownElement, { DropdownItem } from './DropdownItem';
+import { DropdownElement, IDropdownItem } from './DropdownItem';
 
 import './Dropdown.scss';
 
-interface DropdownProps {
-  className?: string;
-  items: DropdownItem[];
-}
+interface IDropdownProps
+  extends PropsWithChildren<{
+    className?: string;
+    items: IDropdownItem[];
+  }> {}
 
-const Dropdown: React.FC<DropdownProps> = ({ className, children, items }) => {
+export const Dropdown: React.FC<IDropdownProps> = ({ className, children, items }) => {
   const dropdownClassNames = classNames('dd', className);
 
   return (
@@ -25,5 +26,3 @@ const Dropdown: React.FC<DropdownProps> = ({ className, children, items }) => {
     </div>
   );
 };
-
-export default Dropdown;

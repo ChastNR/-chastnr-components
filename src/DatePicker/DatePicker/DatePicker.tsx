@@ -1,29 +1,28 @@
-import { useCallback, useRef, useState } from 'react';
-
+import { PropsWithChildren, useCallback, useRef, useState } from 'react';
 import dayjs from 'dayjs';
-
 import { Calendar } from '../../base';
-import Control from '../../Control';
+import { Control } from '../../Control';
 import { createError } from '../../utils';
-import Picker from '../Picker';
+import { Picker } from '../Picker';
 
 import './DatePicker.scss';
 
-interface DatePickerProps {
-  className?: string;
-  date?: Date;
-  disabled?: boolean;
-  endDate?: Date;
-  errorMessage?: React.ReactNode;
-  format?: string;
-  label: React.ReactNode;
-  onSelect(date: Date): void;
-  placeholder?: string;
-  requiredMessage?: React.ReactNode;
-  startDate?: Date;
-}
+interface IDatePickerProps
+  extends PropsWithChildren<{
+    className?: string;
+    date?: Date;
+    disabled?: boolean;
+    endDate?: Date;
+    errorMessage?: React.ReactNode;
+    format?: string;
+    label: React.ReactNode;
+    onSelect(date: Date): void;
+    placeholder?: string;
+    requiredMessage?: React.ReactNode;
+    startDate?: Date;
+  }> {}
 
-const DatePicker: React.FC<DatePickerProps> = ({
+export const DatePicker: React.FC<IDatePickerProps> = ({
   className,
   children,
   date,
@@ -91,5 +90,3 @@ const DatePicker: React.FC<DatePickerProps> = ({
     </Control>
   );
 };
-
-export default DatePicker;

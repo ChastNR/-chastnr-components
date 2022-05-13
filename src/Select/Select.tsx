@@ -1,10 +1,9 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { useCallback, useRef, useState } from 'react';
-
 import { Arrow } from '../base';
-import Control from '../Control';
+import { Control } from '../Control';
 import { Options } from '../Option';
-import { Option } from '../types';
+import { IOption } from '../types';
 import {
   createError,
   createSelectedItems,
@@ -14,19 +13,19 @@ import {
 
 import './Select.scss';
 
-interface SelectProps {
+interface ISelectProps {
   disabled?: boolean;
   errorMessage?: React.ReactNode;
   isMulti?: boolean;
   label: React.ReactNode;
-  onSelect: ((value: Option) => void) | ((value: Option[]) => void);
-  options: Option[];
+  onSelect: ((value: IOption) => void) | ((value: IOption[]) => void);
+  options: IOption[];
   optionsSeparator?: string;
   requiredMessage?: React.ReactNode;
-  selected?: Option | Option[];
+  selected?: IOption | IOption[];
 }
 
-const Select: React.FC<SelectProps> = ({
+export const Select: React.FC<ISelectProps> = ({
   disabled,
   errorMessage,
   isMulti = false,
@@ -51,13 +50,13 @@ const Select: React.FC<SelectProps> = ({
     setValidate(true);
   }, []);
 
-  const handleSelect = (option: Option) => () => {
+  const handleSelect = (option: IOption) => () => {
     if (isMulti) {
       const selectedOptions = createSelectedOptions(internalSelected, option);
-      (onSelect as (value: Option[]) => void)(selectedOptions);
+      (onSelect as (value: IOption[]) => void)(selectedOptions);
     } else {
       wrapperRef.current?.blur();
-      (onSelect as (value: Option) => void)(option);
+      (onSelect as (value: IOption) => void)(option);
     }
 
     setValidate(false);
@@ -91,5 +90,3 @@ const Select: React.FC<SelectProps> = ({
     </Control>
   );
 };
-
-export default Select;

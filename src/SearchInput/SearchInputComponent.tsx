@@ -1,14 +1,14 @@
-import Input, { InputProps } from '../Input';
+import { IInputProps, Input } from '../Input';
 import { OptionsContainer } from '../Option';
-import { SearchOption } from '../types';
+import { ISearchOption } from '../types';
 
-interface SearchInputProps extends InputProps {
+interface ISearchInputProps extends IInputProps {
   isOptionsAvailable?: boolean;
-  options?: SearchOption[];
-  renderOption?: (option: SearchOption, index: number) => React.ReactNode;
+  options?: ISearchOption[];
+  renderOption?: (option: ISearchOption, index: number) => React.ReactNode;
 }
 
-const SearchInputComponent: React.FC<SearchInputProps> = ({
+export const SearchInputComponent: React.FC<ISearchInputProps> = ({
   content,
   isOptionsAvailable,
   options = [],
@@ -29,5 +29,3 @@ const SearchInputComponent: React.FC<SearchInputProps> = ({
     />
   );
 };
-
-export default SearchInputComponent;

@@ -8,15 +8,15 @@
   color: rgba(0, 0, 0, 0.4);
   transform: none;
 
-  &.arrow__top {
+  &.arrow--top {
     transform: rotate(180deg);
   }
 
-  &.arrow__right {
+  &.arrow--right {
     transform: rotate(270deg);
   }
 
-  &.arrow__left {
+  &.arrow--left {
     transform: rotate(90deg);
   }
 }

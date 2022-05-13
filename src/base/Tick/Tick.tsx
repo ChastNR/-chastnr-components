@@ -1,8 +1,7 @@
-import React from "react";
+import React from 'react';
+import { ReactComponent as TickSvg } from './tick.svg';
 
-import { ReactComponent as TickSvg } from "./tick.svg";
-
-import "./Tick.scss";
+import './Tick.scss';
 
 const Tick: React.FC = () => (
   <span className="tick">

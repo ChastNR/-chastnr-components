@@ -1,13 +1,11 @@
 import { MemoryRouter } from 'react-router-dom';
-
 import { mount, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
-import { DropdownItem } from './DropdownItem';
-import Dropdown from './Dropdown';
+import { IDropdownItem } from './DropdownItem';
+import { Dropdown } from './Dropdown';
 
 describe('<Dropdown />', () => {
-  const items: DropdownItem[] = [
+  const items: IDropdownItem[] = [
     {
       id: 0,
       title: 'testTitle',

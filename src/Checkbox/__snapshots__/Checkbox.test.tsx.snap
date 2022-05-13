@@ -6,7 +6,6 @@ exports[`<Checkbox/> should match snapshot 1`] = `
 >
   <input
     className="cb__input"
-    onChange={[Function]}
     type="checkbox"
   />
   <span>

@@ -1,8 +1,7 @@
-import { memo } from "react";
+import { memo } from 'react';
+import { ReactComponent as CalendarSvg } from './calendar.svg';
 
-import { ReactComponent as CalendarSvg } from "./calendar.svg";
-
-import "./Calendar.scss";
+import './Calendar.scss';
 
 const Calendar = memo(() => (
   <div className="cldr__icon">

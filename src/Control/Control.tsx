@@ -1,8 +1,6 @@
 import { forwardRef, PropsWithChildren } from 'react';
-
 import classNames from 'clsx';
-
-import Error from '../Error';
+import { Error } from '../Error';
 
 import './Control.scss';
 
@@ -20,7 +18,7 @@ interface ControlProps {
   role?: React.AriaRole;
 }
 
-const Control = forwardRef<HTMLDivElement, PropsWithChildren<ControlProps>>(
+export const Control = forwardRef<HTMLDivElement, PropsWithChildren<ControlProps>>(
   (
     {
       children,
@@ -65,5 +63,3 @@ const Control = forwardRef<HTMLDivElement, PropsWithChildren<ControlProps>>(
     );
   }
 );
-
-export default Control;

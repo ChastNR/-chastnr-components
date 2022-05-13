@@ -1,7 +1,6 @@
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
-import Error from './Error';
+import { Error } from './Error';
 
 describe('<Error/>', () => {
   it('should equal snapshot', () => {

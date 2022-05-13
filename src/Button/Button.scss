@@ -27,7 +27,7 @@
     }
   }
 
-  &.btn__link {
+  &.btn--link {
     background: transparent;
     border: none;
     color: #336fee;
@@ -38,13 +38,13 @@
     }
   }
 
-  &.btn__icon {
+  &.btn--icon {
     background: transparent;
     border: none;
     color: #336fee;
   }
 
-  &.btn__outline {
+  &.btn--outline {
     background-color: transparent;
     border: 1px solid #336fee;
     color: #336fee;

@@ -1,7 +1,6 @@
 import { mount, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
-import Control from './Control';
+import { Control } from './Control';
 
 describe('<Control />', () => {
   it('should render', () => {

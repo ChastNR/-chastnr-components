@@ -1,7 +1,6 @@
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
-import Tab from './Tab';
+import { Tab } from './Tab';
 
 describe('<Tab/>', () => {
   it('should match snapshot', () => {

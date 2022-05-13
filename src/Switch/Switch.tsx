@@ -2,16 +2,16 @@ import classNames from 'clsx';
 
 import './Switch.scss';
 
-interface SwitchProps {
+interface ISwitchProps {
   name?: string;
   checked?: boolean;
   onChange?: React.MouseEventHandler<HTMLSpanElement>;
   onKeyDown?: React.KeyboardEventHandler<HTMLSpanElement>;
 }
 
-const Switch: React.FC<SwitchProps> = ({ name, checked, onChange, onKeyDown }) => {
+export const Switch: React.FC<ISwitchProps> = ({ name, checked, onChange, onKeyDown }) => {
   const switchClassNames = classNames('sw', {
-    sw__checked: checked,
+    'sw--checked': checked,
   });
 
   return (
@@ -25,5 +25,3 @@ const Switch: React.FC<SwitchProps> = ({ name, checked, onChange, onKeyDown }) =
     </span>
   );
 };
-
-export default Switch;

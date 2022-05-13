@@ -1,11 +1,10 @@
 import { mount, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
-import { Option } from '../Option';
-import Select from './Select';
+import { IOption } from '../types';
+import { Select } from './Select';
 
 describe('<Select/>', () => {
-  const options: Option[] = [];
+  const options: IOption[] = [];
   const onSelectMock = jest.fn();
 
   it('should match snapshot', () => {
@@ -24,7 +23,6 @@ describe('<Select/>', () => {
   it('props should be equal', () => {
     const label = 'Test Select';
     const disabled = true;
-    const name = 'testName';
     const errorMessage = 'Error text';
     const requiredMessage = 'Required text';
     const isMulti = true;
@@ -36,7 +34,6 @@ describe('<Select/>', () => {
         errorMessage={errorMessage}
         isMulti={isMulti}
         label={label}
-        name={name}
         onSelect={onSelectMock}
         options={options}
         requiredMessage={requiredMessage}

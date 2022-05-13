@@ -1,15 +1,16 @@
-import { Option } from '../types';
+import { IOption } from '../types';
 
-const createSelectedValue = (selected?: Option | Option[], isMulti?: boolean): Option[] => {
+export const createSelectedValue = (
+  selected?: IOption | IOption[],
+  isMulti?: boolean
+): IOption[] => {
   if (!selected) {
     return [];
   }
 
   if (isMulti) {
-    return selected as Option[];
+    return selected as IOption[];
   }
 
-  return [selected as Option];
+  return [selected as IOption];
 };
-
-export default createSelectedValue;

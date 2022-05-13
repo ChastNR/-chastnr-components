@@ -1,14 +1,12 @@
-import { Option } from '../types';
+import { IOption } from '../types';
 
-const createSelectedOptions = (
-  selected: Option<string | number>[],
-  option: Option
-): Option<string | number>[] => {
+export const createSelectedOptions = (
+  selected: IOption<string | number>[],
+  option: IOption
+): IOption<string | number>[] => {
   const isOptionSelected = selected.some((o) => o.value === option.value);
 
   return isOptionSelected
     ? selected.filter((o) => o.value !== option.value)
     : selected.concat(option);
 };
-
-export default createSelectedOptions;

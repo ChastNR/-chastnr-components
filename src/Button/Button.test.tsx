@@ -1,7 +1,6 @@
 import { mount, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
-import Button from './Button';
+import { Button } from './Button';
 
 describe('<Button />', () => {
   it('should match snapshot', () => {

@@ -1,7 +1,6 @@
 import { mount, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
-import Input from './Input';
+import { Input } from './Input';
 
 describe('<Input />', () => {
   const onChangeMock = jest.fn();

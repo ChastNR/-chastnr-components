@@ -1,4 +1,4 @@
-const debounce = <P extends unknown[]>(
+export const debounce = <P extends unknown[]>(
   func: (...args: P) => unknown,
   timeout: number
 ): ((...args: P) => void) => {
@@ -8,5 +8,3 @@ const debounce = <P extends unknown[]>(
     timer = setTimeout(() => func(...args), timeout);
   };
 };
-
-export default debounce;

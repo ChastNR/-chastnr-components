@@ -1,19 +1,20 @@
+import { PropsWithChildren } from 'react';
 import classNames from 'clsx';
-
-import Button from '../Button';
+import { Button } from '../Button';
 
 import './Card.scss';
 
-interface CardProps {
-  animate?: boolean;
-  className?: string;
-  size?: 'small' | 'medium';
-  imgSrc: string;
-  buttonText: React.ReactNode;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-}
+interface ICardProps
+  extends PropsWithChildren<{
+    animate?: boolean;
+    className?: string;
+    size?: 'small' | 'medium';
+    imgSrc: string;
+    buttonText: React.ReactNode;
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  }> {}
 
-const Card: React.FC<CardProps> = ({
+export const Card: React.FC<ICardProps> = ({
   animate = true,
   size = 'medium',
   imgSrc,
@@ -49,5 +50,3 @@ const Card: React.FC<CardProps> = ({
     </div>
   );
 };
-
-export default Card;

@@ -1,21 +1,20 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import classNames from 'clsx';
-
 import { mouseDownPrevent } from '../../utils';
 import { isSameDay, isSameMonth, isWeekend } from './pickerConstants';
 
 const createDate = (date: (string | number)[]) => new Date(date.join('-'));
 
-interface DayProps {
+interface IDayProps {
   current: Date;
   month: number;
   year: number;
   onDayClick: (date: Date) => void;
 }
 
-const renderDay =
-  ({ current, month, year, onDayClick }: DayProps) =>
+export const renderDay =
+  ({ current, month, year, onDayClick }: IDayProps) =>
   (date: (string | number)[]): JSX.Element => {
     const internalDate = createDate(date);
 
@@ -38,5 +37,3 @@ const renderDay =
       </div>
     );
   };
-
-export default renderDay;
