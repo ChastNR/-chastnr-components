@@ -1,4 +1,4 @@
-import { getMonthDays, getMonthFirstDay, zeroPad } from './pickerConstants';
+import { getMonthDays, getMonthFirstDay, zeroPad } from './utils';
 
 describe('pickerConstants', () => {
   it('zeroPad should return expected value', () => {

@@ -8,10 +8,11 @@ interface ControlProps {
   className?: string;
   content?: React.ReactNode;
   disabled?: boolean;
-  name?: string;
   error?: React.ReactNode;
-  hasValue: boolean;
+  hasValue?: boolean;
+  info?: React.ReactNode;
   label: React.ReactNode;
+  name?: string;
   onBlur?: React.FocusEventHandler<HTMLDivElement>;
   onFocus?: React.FocusEventHandler<HTMLDivElement>;
   required?: boolean;
@@ -27,6 +28,7 @@ export const Control = forwardRef<HTMLDivElement, PropsWithChildren<ControlProps
       disabled,
       error,
       hasValue,
+      info,
       label,
       name,
       onBlur,
@@ -58,6 +60,7 @@ export const Control = forwardRef<HTMLDivElement, PropsWithChildren<ControlProps
           {children}
           {content && <div className="ctrl__cnt">{content}</div>}
         </div>
+        {info}
         <Error>{error}</Error>
       </div>
     );

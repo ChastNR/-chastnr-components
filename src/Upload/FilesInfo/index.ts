@@ -1,0 +1,1 @@
+export { FilesInfo } from './FilesInfo';

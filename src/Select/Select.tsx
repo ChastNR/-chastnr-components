@@ -4,21 +4,21 @@ import { Arrow } from '../base';
 import { Control } from '../Control';
 import { Options } from '../Option';
 import { IOption } from '../types';
-import {
-  createError,
-  createSelectedItems,
-  createSelectedOptions,
-  createSelectedValue,
-} from '../utils';
+import { createSelectedItems, createSelectedOptions, createSelectedValue } from './utils';
 
 import './Select.scss';
+import { createError } from '../utils';
+
+type SelectAction = (value: IOption) => void;
+
+type MultiSelectAction = (value: IOption[]) => void;
 
 interface ISelectProps {
   disabled?: boolean;
   errorMessage?: React.ReactNode;
   isMulti?: boolean;
   label: React.ReactNode;
-  onSelect: ((value: IOption) => void) | ((value: IOption[]) => void);
+  onSelect: SelectAction | MultiSelectAction;
   options: IOption[];
   optionsSeparator?: string;
   requiredMessage?: React.ReactNode;
@@ -53,10 +53,10 @@ export const Select: React.FC<ISelectProps> = ({
   const handleSelect = (option: IOption) => () => {
     if (isMulti) {
       const selectedOptions = createSelectedOptions(internalSelected, option);
-      (onSelect as (value: IOption[]) => void)(selectedOptions);
+      (onSelect as MultiSelectAction)(selectedOptions);
     } else {
       wrapperRef.current?.blur();
-      (onSelect as (value: IOption) => void)(option);
+      (onSelect as SelectAction)(option);
     }
 
     setValidate(false);

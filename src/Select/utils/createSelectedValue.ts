@@ -1,4 +1,4 @@
-import { IOption } from '../types';
+import { IOption } from '../../types';
 
 export const createSelectedValue = (
   selected?: IOption | IOption[],

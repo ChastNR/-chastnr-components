@@ -1,12 +1,12 @@
 .arrow {
+  color: rgba(0, 0, 0, 0.4);
   height: 24px;
+  transform: none;
   transition-duration: 0.2s;
   transition-property: color, transform, -webkit-transform;
   transition-timing-function: ease;
   width: 24px;
   will-change: transform, color;
-  color: rgba(0, 0, 0, 0.4);
-  transform: none;
 
   &.arrow--top {
     transform: rotate(180deg);

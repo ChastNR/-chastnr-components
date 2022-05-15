@@ -1,7 +1,7 @@
 import classNames from 'clsx';
 import { ArrowSvg } from '../../base';
 import { mouseDownPrevent } from '../../utils';
-import { useDatePickerContext } from './context';
+import { useDatePickerContext } from '../Context';
 
 export const PickerHeader: React.FC = () => {
   const { prevDisabled, nextDisabled, calendarTitle, prevMonth, nextMonth } =

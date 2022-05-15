@@ -1,0 +1,55 @@
+.ctrl__cntr {
+  &.upl {
+    background-color: #fff;
+    border: 1px dashed #428bf9;
+
+    padding: 0;
+    text-align: center;
+
+    .ctrl__lb {
+      width: 100%;
+    }
+
+    input[type='file'] {
+      appearance: none;
+      bottom: 0;
+      cursor: pointer;
+      height: 100%;
+      left: 0;
+      opacity: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+    }
+
+    &:hover {
+      border-color: #428bf9;
+      background-color: #fff;
+
+      &.error {
+        border-color: transparent;
+        background-color: rgba(224, 31, 25, 0.16);
+      }
+    }
+
+    &:focus-within {
+      .ctrl__lb {
+        color: rgba(0, 0, 0, 0.54);
+        transform: unset;
+      }
+
+      &.error {
+        background: #fff;
+        border-color: #f52222;
+
+        &.hasValue {
+          .ctrl__lb {
+            color: #e31c1c;
+          }
+        }
+      }
+    }
+  }
+}

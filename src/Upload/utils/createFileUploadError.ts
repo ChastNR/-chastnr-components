@@ -1,31 +1,36 @@
 import { ReactNode } from 'react';
+import { isFilesValid } from './isFilesValid';
 
 interface IOptions {
   validate?: boolean;
   startValidate?: boolean;
   requiredMessage?: ReactNode;
   errorMessage?: ReactNode;
-  regExp?: RegExp;
-  value?: string | boolean | Date;
+  files: File[];
+  accept?: string;
+  maxSizeKb?: number;
 }
 
-export const createError = ({
+export const createFileUploadError = ({
+  accept,
   validate,
-  startValidate = false,
-  requiredMessage,
+  startValidate,
   errorMessage,
-  value,
-  regExp,
+  requiredMessage,
+  files,
+  maxSizeKb,
 }: IOptions): ReactNode => {
   if (!validate && !startValidate) {
     return null;
   }
 
-  if (requiredMessage && !value) {
+  const filesLength = files.length;
+
+  if (requiredMessage && !filesLength) {
     return requiredMessage;
   }
 
-  if (regExp && value && typeof value === 'string' && !regExp.test(value)) {
+  if (!isFilesValid(files, accept, maxSizeKb)) {
     return errorMessage;
   }
 

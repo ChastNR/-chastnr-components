@@ -1,4 +1,4 @@
-import { IOption } from '../types';
+import { IOption } from '../../types';
 import { createSelectedItems } from './createSelectedItems';
 
 describe('createSelectedItems', () => {

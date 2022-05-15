@@ -11,4 +11,5 @@ export { SearchInput } from './SearchInput';
 export { Select } from './Select';
 export { Switch } from './Switch';
 export { Tab } from './Tab';
+export { Upload } from './Upload';
 export { ISearchOption, IOption } from './types';

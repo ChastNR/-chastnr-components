@@ -1,8 +1,8 @@
 import { mount, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import SelectOption from './Option';
-import { Option } from '../types';
+import { SelectOption } from './Option';
+import { IOption } from '../types';
 
 const mockSetState = jest.fn();
 const mockOnClick = jest.fn();
@@ -17,7 +17,7 @@ jest.mock('react', () => {
 });
 
 describe('<Option />', () => {
-  const option: Option = {
+  const option: IOption = {
     title: 'Test',
     value: 'testValue',
   };

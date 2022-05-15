@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { DAYS } from './pickerConstants';
+import { DAYS } from '../utils';
 
 export const DayLabel = memo(() => (
   <div className="cldr__wd">
