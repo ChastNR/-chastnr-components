@@ -4,10 +4,10 @@ import { Arrow } from '../base';
 import { Control } from '../Control';
 import { Options } from '../Option';
 import { IOption } from '../types';
+import { createError } from '../utils';
 import { createSelectedItems, createSelectedOptions, createSelectedValue } from './utils';
 
 import './Select.scss';
-import { createError } from '../utils';
 
 type SelectAction = (value: IOption) => void;
 
