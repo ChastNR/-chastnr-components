@@ -1,31 +1,31 @@
 .slt {
-  &.ctrl__cntr {
-    cursor: pointer;
+  cursor: pointer;
+}
 
-    .slt__value {
-      line-height: 0;
-      outline: 0;
-      padding: 22px 0 9px;
-      position: relative;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      transition: opacity 0.25s ease;
-      white-space: nowrap;
-      width: calc(100% - 28px);
-      will-change: opacity;
-      word-wrap: break-word;
+.ctrl__cntr {
+  .slt__value {
+    line-height: 0;
+    outline: 0;
+    padding: 22px 0 9px;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: opacity 0.25s ease;
+    white-space: nowrap;
+    width: calc(100% - 28px);
+    will-change: opacity;
+    word-wrap: break-word;
+  }
+
+  &:focus-within {
+    .arrow {
+      transform: rotate(180deg);
     }
 
-    &:focus-within {
-      .arrow {
-        transform: rotate(180deg);
-      }
-
-      .slt__opts {
-        height: auto;
-        opacity: 1 !important;
-        z-index: 100;
-      }
+    .slt__opts {
+      height: auto;
+      opacity: 1 !important;
+      z-index: 100;
     }
   }
 }

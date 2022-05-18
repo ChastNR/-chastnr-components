@@ -37,7 +37,7 @@ export const Control = forwardRef<HTMLDivElement, PropsWithChildren<ControlProps
     },
     ref
   ) => {
-    const controlClassNames = classNames(className, 'ctrl__cntr', {
+    const controlClassNames = classNames('ctrl__cntr', className, {
       required,
       disabled,
       error,

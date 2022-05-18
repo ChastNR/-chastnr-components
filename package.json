@@ -1,6 +1,6 @@
 {
   "name": "@chastnr-org/components",
-  "version": "0.0.52",
+  "version": "0.0.53",
   "author": "chastnr",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
