@@ -2,6 +2,7 @@
 
 exports[`<DatePicker /> should render 1`] = `
 <ForwardRef
+  className="dp"
   content={
     <div
       className="dp__cnt"

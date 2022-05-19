@@ -1,4 +1,5 @@
 import { PropsWithChildren, useCallback, useRef, useState } from 'react';
+import classNames from 'clsx';
 import dayjs from 'dayjs';
 import { Calendar } from '../../base';
 import { Control } from '../../Control';
@@ -66,9 +67,11 @@ export const DatePicker: React.FC<IDatePickerProps> = ({
 
   const value = date ? dayjs(date).format(format) : placeholder;
 
+  const datePickerClassNames = classNames('dp', className);
+
   return (
     <Control
-      className={className}
+      className={datePickerClassNames}
       content={
         <div className="dp__cnt">
           {children}

@@ -1,8 +1,8 @@
-.slt {
-  cursor: pointer;
-}
-
 .ctrl__cntr {
+  &.slt {
+    cursor: pointer;
+  }
+
   .slt__value {
     line-height: 0;
     outline: 0;
