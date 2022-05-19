@@ -1,13 +1,12 @@
 import { uglify } from 'rollup-plugin-uglify';
-import bundleScss from 'rollup-plugin-bundle-scss';
 import commonjs from '@rollup/plugin-commonjs';
 import image from '@rollup/plugin-image';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import resolve from '@rollup/plugin-node-resolve';
-import scss from 'rollup-plugin-scss';
 import svgr from '@svgr/rollup';
 import typescript from 'rollup-plugin-typescript2';
 import url from 'rollup-plugin-url';
+import postcss from 'rollup-plugin-postcss';
 
 const packageJson = require('./package.json');
 
@@ -31,14 +30,15 @@ const config = {
     resolve(),
     commonjs(),
     typescript({ useTsconfigDeclarationDir: true }),
-    bundleScss({
-      exclusive: false,
+    postcss({
+      extract: true,
+      minimize: true,
     }),
-    scss({ output: 'dist/index.css', outputStyle: 'compressed' }),
     url(),
     svgr(),
     image(),
   ],
+  external: ['react', 'react-dom', 'react-router-dom'],
 };
 
 export default config;
