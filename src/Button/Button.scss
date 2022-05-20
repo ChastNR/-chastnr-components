@@ -1,5 +1,8 @@
 .btn {
+  background-color: var(--blue);
   border-radius: 8px;
+  border: 1px solid var(--blue);
+  color: #fff;
   cursor: pointer;
   position: relative;
   transition-duration: 0.25s;
@@ -51,14 +54,11 @@
     color: #336fee;
 
     &:hover:not([disabled]) {
-      background-color: rgba(236, 241, 247, 0.08);
+      background-color: #e4ebf3;
       border-color: #1f50ba;
+      color: #1f50ba;
     }
   }
-
-  background-color: var(--blue);
-  border: 1px solid var(--blue);
-  color: #fff;
 
   &:hover:not([disabled]) {
     background-color: var(--dark-blue);

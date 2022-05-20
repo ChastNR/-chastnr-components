@@ -1,0 +1,36 @@
+@keyframes loader-rotate-animation {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+
+  to {
+    -webkit-transform: rotate(3turn);
+    transform: rotate(3turn);
+  }
+}
+
+.spnr {
+  color: rgb(255, 221, 45);
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+
+  & > svg {
+    max-height: 100%;
+    max-width: 100%;
+    animation: loader-rotate-animation 3s linear infinite;
+
+    & > circle {
+      stroke-width: 5px;
+      stroke-dashoffset: 100%;
+      stroke-dasharray: 306;
+      stroke-miterlimit: 10;
+    }
+  }
+}

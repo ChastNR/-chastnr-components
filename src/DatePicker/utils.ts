@@ -20,9 +20,11 @@ const CALENDAR_WEEKS = 6;
 const zeroPad = (value: number | string, length: number): string =>
   `${value}`.padStart(length, '0');
 
-const THIS_YEAR = +new Date().getFullYear();
+const todayDate = new Date();
 
-const THIS_MONTH = +new Date().getMonth() + 1;
+const THIS_YEAR = todayDate.getFullYear();
+
+const THIS_MONTH = todayDate.getMonth() + 1;
 
 const MONTHS_WITH_THIRTY_DAYS = [4, 6, 9, 11];
 

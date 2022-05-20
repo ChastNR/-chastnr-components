@@ -124,6 +124,19 @@
       background-color: #fcc521;
       border-color: #fcc521;
     }
+
+    &:after {
+      background-color: #ffdd2d;
+      border-radius: 1.5px;
+      bottom: 5px;
+      content: '';
+      height: 3px;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      width: 12px;
+    }
   }
 
   &.inmonth {
