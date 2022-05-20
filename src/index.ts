@@ -1,5 +1,5 @@
 // Components
-export { ArrowSvg, CalendarSvg, Ring, RingSvg, Tick, TickSvg } from './base';
+export { ArrowSvg, CalendarSvg, Ring, RingSvg, Tick, TickSvg, Spinner, SpinnerSvg } from './base';
 export { Button } from './Button';
 export { Card, CardsContainer } from './Card';
 export { Checkbox } from './Checkbox';
@@ -9,6 +9,7 @@ export { Form } from './Form';
 export { InfoBox } from './InfoBox';
 export { Input } from './Input';
 export { ISearchOption, IOption } from './types';
+export { Loader } from './Loader';
 export { Modal } from './Modal';
 export { SearchInput } from './SearchInput';
 export { Select } from './Select';
