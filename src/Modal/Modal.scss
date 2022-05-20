@@ -1,0 +1,131 @@
+@-webkit-keyframes show-overlay-animation {
+  0% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes show-overlay-animation {
+  0% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes show-popup-fade-animation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(120px);
+    transform: translateY(120px);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes show-popup-fade-animation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(120px);
+    transform: translateY(120px);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.ovrly {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+
+  &:before {
+    animation: show-overlay-animation 0.5s cubic-bezier(0.54, 1.12, 1, 1) forwards;
+    background: rgba(51, 51, 51, 0.24);
+    content: '';
+    display: block;
+    height: 100%;
+    opacity: 0;
+    width: 100%;
+  }
+
+  .ovrly__popup {
+    bottom: 0;
+    left: 0;
+    outline: none;
+    overflow-x: auto;
+    overflow-y: scroll;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+.mdl {
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  margin: auto;
+  min-height: 100%;
+  padding: 40px 44px;
+  pointer-events: none;
+  width: 100%;
+
+  .mdl__cntr {
+    align-self: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 18px 30px rgb(51 51 51 / 52%);
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.8);
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+    min-height: 40px;
+    padding: 40px 0;
+    pointer-events: all;
+    position: relative;
+    width: 100%;
+    animation: show-popup-fade-animation 0.3s ease-out;
+
+    & > button {
+      appearance: none;
+      background: none;
+      border: none;
+      color: rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      outline: none;
+      padding: 0;
+      pointer-events: all;
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      transition: color 0.2s ease;
+    }
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      min-width: 100%;
+      position: relative;
+    }
+  }
+}

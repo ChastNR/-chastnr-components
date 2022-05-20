@@ -1,3 +1,4 @@
+// Components
 export { ArrowSvg, CalendarSvg, Ring, RingSvg, Tick, TickSvg } from './base';
 export { Button } from './Button';
 export { Card, CardsContainer } from './Card';
@@ -7,9 +8,13 @@ export { Dropdown, IDropdownItem } from './Dropdown';
 export { Form } from './Form';
 export { InfoBox } from './InfoBox';
 export { Input } from './Input';
+export { ISearchOption, IOption } from './types';
+export { Modal } from './Modal';
 export { SearchInput } from './SearchInput';
 export { Select } from './Select';
 export { Switch } from './Switch';
 export { Tab } from './Tab';
 export { Upload } from './Upload';
-export { ISearchOption, IOption } from './types';
+
+// Hooks
+export { useClickOutside, useEscapeKeyDown } from './hooks';
