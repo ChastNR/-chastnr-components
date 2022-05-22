@@ -5,13 +5,22 @@ import './Tab.scss';
 
 interface ITabProps
   extends PropsWithChildren<{
+    animate?: boolean;
     className?: string;
     content?: React.ReactNode;
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
   }> {}
 
-export const Tab: React.FC<ITabProps> = ({ className, content, children, onClick }) => {
-  const tabClassNames = classNames('tb__btn', className);
+export const Tab: React.FC<ITabProps> = ({
+  animate = true,
+  className,
+  content,
+  children,
+  onClick,
+}) => {
+  const tabClassNames = classNames('tb__btn', className, {
+    animate,
+  });
 
   return (
     <button

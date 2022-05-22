@@ -1,4 +1,5 @@
 import { ChangeEvent, useState } from 'react';
+import classNames from 'clsx';
 import { Control } from '../../Control';
 import { FilesInfo } from '../FilesInfo';
 import { createFileUploadError } from '../utils';
@@ -7,31 +8,33 @@ import './Upload.scss';
 
 interface IUploadProps {
   accept?: string;
+  className?: string;
   disabled?: boolean;
   errorMessage?: React.ReactNode;
+  files?: File[];
   info?: React.ReactNode;
   label: React.ReactNode;
-  multiple?: boolean;
-  files?: File[];
   maxSizeKb?: number;
+  multiple?: boolean;
   name?: string;
-  requiredMessage?: React.ReactNode;
   onChange: (files: File[]) => void;
+  requiredMessage?: React.ReactNode;
   startValidate?: boolean;
 }
 
 export const Upload: React.FC<IUploadProps> = ({
   accept,
+  className,
   disabled,
   errorMessage,
-  info,
   files = [],
+  info,
   label,
-  name,
-  multiple,
   maxSizeKb,
-  requiredMessage,
+  multiple,
+  name,
   onChange,
+  requiredMessage,
   startValidate = false,
 }) => {
   const [validate, setValidate] = useState(false);
@@ -65,9 +68,11 @@ export const Upload: React.FC<IUploadProps> = ({
     maxSizeKb,
   });
 
+  const controlClassName = classNames('upl', className);
+
   return (
     <Control
-      className="upl"
+      className={controlClassName}
       disabled={disabled}
       error={error}
       info={<FilesInfo accept={accept} files={files} info={info} onDeleteClick={handleDelete} />}

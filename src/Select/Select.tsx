@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { useCallback, useRef, useState } from 'react';
+import classNames from 'clsx';
 import { Arrow } from '../base';
 import { Control } from '../Control';
 import { Options } from '../Option';
@@ -14,6 +15,7 @@ type SelectAction = (value: IOption) => void;
 type MultiSelectAction = (value: IOption[]) => void;
 
 interface ISelectProps {
+  className?: string;
   disabled?: boolean;
   errorMessage?: React.ReactNode;
   isMulti?: boolean;
@@ -26,14 +28,15 @@ interface ISelectProps {
 }
 
 export const Select: React.FC<ISelectProps> = ({
+  className,
   disabled,
   errorMessage,
   isMulti = false,
   label,
   onSelect,
   options,
-  requiredMessage,
   optionsSeparator = ', ',
+  requiredMessage,
   selected,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -73,9 +76,11 @@ export const Select: React.FC<ISelectProps> = ({
     errorMessage,
   });
 
+  const controlClassName = classNames('slt', className);
+
   return (
     <Control
-      className="slt"
+      className={controlClassName}
       content={<Arrow />}
       disabled={disabled}
       error={error}
