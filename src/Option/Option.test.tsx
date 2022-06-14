@@ -1,20 +1,6 @@
-import { mount, shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
-
 import { SelectOption } from './Option';
 import { IOption } from '../types';
-
-const mockSetState = jest.fn();
-const mockOnClick = jest.fn();
-
-jest.mock('react', () => {
-  const actualReact = jest.requireActual('react');
-
-  return {
-    ...actualReact,
-    useState: jest.fn().mockImplementation((value) => [value, mockSetState]),
-  };
-});
+import { fireEvent, render } from '@testing-library/react';
 
 describe('<Option />', () => {
   const option: IOption = {
@@ -23,43 +9,28 @@ describe('<Option />', () => {
   };
 
   it('should equal snapshot', () => {
-    const optionComponent = shallow(<SelectOption option={option} />);
-    expect(toJson(optionComponent)).toMatchSnapshot();
+    const optionComponent = render(<SelectOption option={option} />);
+    expect(optionComponent.container.firstChild).toMatchSnapshot();
   });
 
   it('props should equal', () => {
-    const checked = true;
-    const isMulti = true;
+    const optionComponent = render(<SelectOption checked isMulti option={option} />);
+    const input = optionComponent.container.getElementsByTagName('input')[0];
 
-    const optionComponent = mount(
-      <SelectOption checked={checked} isMulti={isMulti} option={option} />
-    );
-
-    const input = optionComponent.find('input');
-
-    expect(input.props().checked).toEqual(checked);
-
-    if (isMulti) {
-      expect(input).toBeTruthy();
-    }
+    expect(input).toBeTruthy();
+    expect(input.checked).toBeTruthy();
   });
 
   it('click should call setChecked and onClick', () => {
-    const optionComponent = mount(<SelectOption option={option} onClick={mockOnClick} />);
+    const mockOnClick = jest.fn();
 
-    const buttonElement = optionComponent.find('.slt__opt');
-    buttonElement.simulate('click');
+    const component = <SelectOption option={option} isMulti onClick={mockOnClick} />;
+    const optionComponent = render(component);
+    const buttonElement = optionComponent.container.getElementsByTagName('button')[0];
+    const inputElement = optionComponent.container.getElementsByTagName('input')[0];
+    fireEvent.click(buttonElement);
 
-    expect(mockSetState).toBeCalledTimes(1);
+    expect(inputElement.checked).toBeTruthy();
     expect(mockOnClick).toBeCalledTimes(1);
-  });
-
-  it("click shouldn't call onClick", () => {
-    const optionComponent = mount(<SelectOption option={option} />);
-
-    const buttonElement = optionComponent.find('.slt__opt');
-    buttonElement.simulate('click');
-
-    expect(mockSetState).toBeCalled();
   });
 });

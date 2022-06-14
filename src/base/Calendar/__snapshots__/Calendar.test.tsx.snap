@@ -2,12 +2,14 @@
 
 exports[`<Calendar/> should equal snapshot 1`] = `
 <div
-  className="cldr__icon"
+  class="cldr__icon"
 >
   <span>
     <span>
       <span>
-        <ReactComponent />
+        <span>
+          content
+        </span>
       </span>
     </span>
   </span>

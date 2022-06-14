@@ -10,7 +10,12 @@ interface ICheckboxProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const Checkbox: React.FC<ICheckboxProps> = ({ className, checked, disabled, onChange }) => {
+export const Checkbox: React.FC<ICheckboxProps> = ({
+  className,
+  checked = false,
+  disabled,
+  onChange = () => {},
+}) => {
   const checkBoxClassNames = classNames('cb', className);
 
   return (

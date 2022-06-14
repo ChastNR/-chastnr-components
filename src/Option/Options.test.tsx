@@ -1,5 +1,4 @@
-import { mount, shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 import { IOption } from '../types';
 import { Options } from './Options';
 
@@ -18,19 +17,19 @@ describe('<Options />', () => {
   const onClickMock = jest.fn();
 
   it('shoud equal snapshot', () => {
-    const optionsComponent = shallow(<Options onClick={onClickMock} options={options} />);
-    expect(toJson(optionsComponent)).toMatchSnapshot();
+    const optionsComponent = render(<Options onClick={onClickMock} options={options} />);
+    expect(optionsComponent.container.firstChild).toMatchSnapshot();
   });
 
   it('should render options', () => {
-    const optionsComponent = mount(<Options onClick={onClickMock} options={options} />);
-    const optionComponents = optionsComponent.find('button');
+    const optionsComponent = render(<Options onClick={onClickMock} options={options} />);
+    const optionComponents = optionsComponent.container.getElementsByTagName('button');
     expect(optionComponents.length).toBeGreaterThan(1);
   });
 
   it('should render options with checkboxes', () => {
-    const optionsComponent = mount(<Options isMulti onClick={onClickMock} options={options} />);
-    const inputComponents = optionsComponent.find('input');
+    const optionsComponent = render(<Options isMulti onClick={onClickMock} options={options} />);
+    const inputComponents = optionsComponent.container.getElementsByTagName('input');
     expect(inputComponents.length).toBeGreaterThan(1);
   });
 });

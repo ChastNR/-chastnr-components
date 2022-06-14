@@ -1,11 +1,11 @@
-import { shallow } from "enzyme";
-import toJson from "enzyme-to-json";
+import { render } from '@testing-library/react';
 
-import { Calendar } from "./Calendar";
+import { Calendar } from './Calendar';
 
-describe("<Calendar/>", () => {
-  it("should equal snapshot", () => {
-    const calendar = shallow(<Calendar />);
-    expect(toJson(calendar)).toMatchSnapshot();
+describe('<Calendar/>', () => {
+  it('should equal snapshot', () => {
+    const calendar = render(<Calendar />);
+
+    expect(calendar.container.firstChild).toMatchSnapshot();
   });
 });

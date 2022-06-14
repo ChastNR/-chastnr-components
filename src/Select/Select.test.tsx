@@ -1,5 +1,4 @@
-import { mount, shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 import { IOption } from '../types';
 import { Select } from './Select';
 
@@ -8,19 +7,6 @@ describe('<Select/>', () => {
   const onSelectMock = jest.fn();
 
   it('should match snapshot', () => {
-    const select = shallow(
-      <Select label="Test Select" onSelect={onSelectMock} options={options} />
-    );
-    expect(toJson(select)).toMatchSnapshot();
-  });
-
-  it('should render options', () => {
-    const select = mount(<Select label="Test Select" onSelect={onSelectMock} options={options} />);
-    const optionsComponent = select.find('Options');
-    expect(optionsComponent).toBeTruthy();
-  });
-
-  it('props should be equal', () => {
     const label = 'Test Select';
     const disabled = true;
     const errorMessage = 'Error text';
@@ -28,7 +14,7 @@ describe('<Select/>', () => {
     const isMulti = true;
     const selected = [options[0]];
 
-    const select = mount(
+    const select = render(
       <Select
         disabled={disabled}
         errorMessage={errorMessage}
@@ -41,11 +27,12 @@ describe('<Select/>', () => {
       />
     );
 
-    expect(select.props().label).toEqual(label);
-    expect(select.props().disabled).toEqual(disabled);
-    expect(select.props().errorMessage).toEqual(errorMessage);
-    expect(select.props().isMulti).toEqual(isMulti);
-    expect(select.props().requiredMessage).toEqual(requiredMessage);
-    expect(select.props().selected.length).toEqual(1);
+    expect(select.container.firstChild).toMatchSnapshot();
+  });
+
+  it('should render options', () => {
+    const select = render(<Select label="Test Select" onSelect={onSelectMock} options={options} />);
+    const optionsComponent = select.container.getElementsByClassName('slt__opts')[0];
+    expect(optionsComponent).toBeTruthy();
   });
 });

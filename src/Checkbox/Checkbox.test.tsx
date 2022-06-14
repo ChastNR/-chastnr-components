@@ -1,26 +1,21 @@
-import { mount, shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { fireEvent, render } from '@testing-library/react';
 import { Checkbox } from './Checkbox';
 
 describe('<Checkbox/>', () => {
   it('should match snapshot', () => {
-    const checkbox = shallow(<Checkbox />);
-    expect(toJson(checkbox)).toMatchSnapshot();
+    const checkbox = render(<Checkbox />);
+    expect(checkbox.container.firstChild).toMatchSnapshot();
   });
 
   it('props should be equal', () => {
-    const checked = true;
-    const disabled = true;
-    const onChange = jest.fn();
+    const mockOnChange = jest.fn();
 
-    const checkbox = mount(<Checkbox checked={checked} disabled={disabled} onChange={onChange} />);
-    const input = checkbox.find('input');
-    input.simulate('change');
+    const checkbox = render(<Checkbox checked disabled onChange={mockOnChange} />);
+    const inputElement = checkbox.container.getElementsByTagName('input')[0];
+    fireEvent.click(inputElement);
 
-    const props = input.props();
-
-    expect(onChange).toBeCalledTimes(1);
-    expect(props.checked).toEqual(checked);
-    expect(props.disabled).toEqual(disabled);
+    expect(mockOnChange).toBeCalledTimes(1);
+    expect(inputElement.checked).toBeTruthy();
+    expect(inputElement.disabled).toBeTruthy();
   });
 });

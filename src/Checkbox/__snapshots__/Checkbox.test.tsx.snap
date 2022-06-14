@@ -2,16 +2,18 @@
 
 exports[`<Checkbox/> should match snapshot 1`] = `
 <div
-  className="cb"
+  class="cb"
 >
   <input
-    className="cb__input"
+    class="cb__input"
     type="checkbox"
   />
   <span>
     <span>
       <span>
-        <ReactComponent />
+        <span>
+          content
+        </span>
       </span>
     </span>
   </span>
