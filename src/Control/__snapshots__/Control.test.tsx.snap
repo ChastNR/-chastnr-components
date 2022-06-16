@@ -1,20 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Control /> should render 1`] = `
+exports[`<Control /> should match snapshot 1`] = `
 <div
-  className="ctrl"
+  class="ctrl"
 >
   <div
-    className="ctrl__cntr"
+    class="ctrl__cntr testClassName required disabled error hasValue"
     role="textbox"
-    tabIndex={0}
+    tabindex="0"
   >
     <label
-      className="ctrl__lb"
+      class="ctrl__lb"
+      for="testName"
     >
       testLabel
     </label>
+    <div
+      class="ctrl__cnt"
+    >
+      testContent
+    </div>
   </div>
-  <Error />
+  <div
+    class="er__cntr"
+    style="height: 0px;"
+  >
+    <div>
+      testError
+    </div>
+  </div>
 </div>
 `;

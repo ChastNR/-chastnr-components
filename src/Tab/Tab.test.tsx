@@ -1,25 +1,27 @@
-import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 import { Tab } from './Tab';
 
 describe('<Tab/>', () => {
   it('should match snapshot', () => {
-    const tab = shallow(<Tab />);
-    expect(toJson(tab)).toMatchSnapshot();
+    const tab = render(<Tab />);
+    expect(tab.container.firstChild).toMatchSnapshot();
   });
 
   it('should have content component', () => {
-    const tab = shallow(<Tab content={<div>Test content</div>} />);
-    const spanComponent = tab.find('.tb__cnt');
+    const tab = render(<Tab content={<div>Test content</div>} />);
+    const spanComponent = tab.findAllByText('.tb__cnt');
 
     expect(spanComponent).not.toBeNull();
   });
 
   it('style cursor should be cursor', () => {
-    const tab = shallow(<Tab onClick={() => {}} />);
-    const buttonElement = tab.find('.tb__btn');
-    const buttonStyles = buttonElement.get(0).props.style;
+    const mockOnClick = jest.fn();
 
-    expect(buttonStyles).toHaveProperty('cursor', 'cursor');
+    const tab = render(<Tab onClick={mockOnClick} />);
+    const buttonElement = tab.container.firstChild as HTMLButtonElement;
+    const buttonClasses = buttonElement.classList;
+    const result = buttonClasses.contains('cursor-pointer');
+
+    expect(result).toBeTruthy();
   });
 });

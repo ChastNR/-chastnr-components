@@ -1,4 +1,4 @@
-import { PropsWithChildren, useCallback, useState } from 'react';
+import { PropsWithChildren, useCallback, useMemo, useState } from 'react';
 import { createCalendar, getCalendarTitle, getNextMonth, getPreviousMonth } from '../utils';
 import { DatePickerContext, IDatePickerInternalState } from './DatePickerContext';
 
@@ -62,20 +62,28 @@ export const DatePickerContextProvider: React.FC<IDatePickerContextProviderProps
     });
   }, []);
 
-  return (
-    <DatePickerContext.Provider
-      value={{
-        ...state,
-        calendarTitle,
-        calendar,
-        prevDisabled,
-        nextDisabled,
-        nextMonth,
-        prevMonth,
-        setCalendarDate,
-      }}
-    >
-      {children}
-    </DatePickerContext.Provider>
+  const contextValue = useMemo(
+    () => ({
+      ...state,
+      calendarTitle,
+      calendar,
+      prevDisabled,
+      nextDisabled,
+      nextMonth,
+      prevMonth,
+      setCalendarDate,
+    }),
+    [
+      calendar,
+      calendarTitle,
+      nextDisabled,
+      nextMonth,
+      prevDisabled,
+      prevMonth,
+      setCalendarDate,
+      state,
+    ]
   );
+
+  return <DatePickerContext.Provider value={contextValue}>{children}</DatePickerContext.Provider>;
 };

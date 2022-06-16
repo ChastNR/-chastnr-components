@@ -20,15 +20,11 @@ export const Tab: React.FC<ITabProps> = ({
 }) => {
   const tabClassNames = classNames('tb__btn', className, {
     animate,
+    'cursor-pointer': !!onClick,
   });
 
   return (
-    <button
-      className={tabClassNames}
-      onClick={onClick}
-      style={{ cursor: onClick ? 'cursor' : 'unset' }}
-      type="button"
-    >
+    <button className={tabClassNames} onClick={onClick} type="button">
       <span className="tb__box" tabIndex={-1}>
         <span className="tb__txt">{children}</span>
         {content && <span className="tb__cnt">{content}</span>}

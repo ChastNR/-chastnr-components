@@ -1,6 +1,9 @@
 {
   "hooks": {
-    "pre-commit": ["yarn lint", "yarn version --patch"],
-    "pre-push": "yarn test:jest:coverage",
+    "pre-commit": [
+      "yarn lint",
+      "yarn version --patch"
+    ],
+    "pre-push": "yarn test:jest:coverage"
   }
 }

@@ -16,7 +16,6 @@ interface ControlProps {
   onBlur?: React.FocusEventHandler<HTMLDivElement>;
   onFocus?: React.FocusEventHandler<HTMLDivElement>;
   required?: boolean;
-  role?: React.AriaRole;
 }
 
 export const Control = forwardRef<HTMLDivElement, PropsWithChildren<ControlProps>>(

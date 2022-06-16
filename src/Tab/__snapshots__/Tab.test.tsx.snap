@@ -2,20 +2,15 @@
 
 exports[`<Tab/> should match snapshot 1`] = `
 <button
-  className="tb__btn"
-  style={
-    Object {
-      "cursor": "unset",
-    }
-  }
+  class="tb__btn animate"
   type="button"
 >
   <span
-    className="tb__box"
-    tabIndex={-1}
+    class="tb__box"
+    tabindex="-1"
   >
     <span
-      className="tb__txt"
+      class="tb__txt"
     />
   </span>
 </button>

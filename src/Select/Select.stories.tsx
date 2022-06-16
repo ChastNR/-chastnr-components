@@ -27,4 +27,28 @@ export const DefaultSelect = () => {
   );
 };
 
+export const Form = () => {
+  const [value, setValue] = useState<IOption>();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!e.currentTarget.test.value) {
+      e.currentTarget.test.focus();
+    }
+  };
+
+  return (
+    <form noValidate onSubmit={handleSubmit}>
+      <Select
+        label="Выберите файлы или перетяните их сюда"
+        onSelect={setValue}
+        options={testOptions}
+        selected={value}
+      />
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
+
 export default componentMeta;

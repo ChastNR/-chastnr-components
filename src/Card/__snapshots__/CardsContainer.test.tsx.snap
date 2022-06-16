@@ -2,7 +2,7 @@
 
 exports[`<CardsContainer/> should match snapshot 1`] = `
 <div
-  class="cds__cnt"
+  class="cds__cnt custom-cards-container"
 >
   Test Render
 </div>

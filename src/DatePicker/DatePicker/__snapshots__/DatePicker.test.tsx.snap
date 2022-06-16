@@ -1,32 +1,327 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<DatePicker /> should render 1`] = `
-<ForwardRef
-  className="dp"
-  content={
-    <div
-      className="dp__cnt"
-    >
-      <Memo />
-    </div>
-  }
-  error={null}
-  hasValue={false}
-  label="testLabel"
-  onBlur={[Function]}
-  required={false}
+exports[`<DatePicker /> should match snapshot 1`] = `
+<div
+  class="ctrl"
 >
-  <span
-    className="dp__value"
-  >
-    дд.мм.гггг
-  </span>
   <div
-    className="dp__cntr"
+    class="ctrl__cntr dp"
+    role="textbox"
+    tabindex="0"
   >
-    <Picker
-      onSelect={[Function]}
-    />
+    <label
+      class="ctrl__lb"
+    >
+      testLabel
+    </label>
+    <span
+      class="dp__value"
+    >
+      дд.мм.гггг
+    </span>
+    <div
+      class="dp__cntr"
+    >
+      <div
+        class="cldr"
+      >
+        <div>
+          <div
+            class="cldr__wrp"
+          >
+            <div>
+              <div
+                class="cldr__cntr"
+              >
+                <div>
+                  <div>
+                    <div
+                      class="cldr__hdr"
+                    >
+                      <span>
+                        content
+                      </span>
+                      <div>
+                        Июнь 2022
+                      </div>
+                      <span>
+                        content
+                      </span>
+                    </div>
+                    <div
+                      class="cldr__wd"
+                    >
+                      <div>
+                        ВС
+                      </div>
+                      <div>
+                        ПН
+                      </div>
+                      <div>
+                        ВТ
+                      </div>
+                      <div>
+                        СР
+                      </div>
+                      <div>
+                        ЧТ
+                      </div>
+                      <div>
+                        ПТ
+                      </div>
+                      <div>
+                        СБ
+                      </div>
+                    </div>
+                    <div
+                      class="cldr__tbl"
+                    >
+                      <div
+                        class="cldr__day weekend"
+                      >
+                        29
+                      </div>
+                      <div
+                        class="cldr__day"
+                      >
+                        30
+                      </div>
+                      <div
+                        class="cldr__day"
+                      >
+                        31
+                      </div>
+                      <div
+                        class="cldr__day inmonth"
+                      >
+                        1
+                      </div>
+                      <div
+                        class="cldr__day inmonth"
+                      >
+                        2
+                      </div>
+                      <div
+                        class="cldr__day inmonth"
+                      >
+                        3
+                      </div>
+                      <div
+                        class="cldr__day inmonth weekend"
+                      >
+                        4
+                      </div>
+                      <div
+                        class="cldr__day inmonth weekend"
+                      >
+                        5
+                      </div>
+                      <div
+                        class="cldr__day inmonth"
+                      >
+                        6
+                      </div>
+                      <div
+                        class="cldr__day inmonth"
+                      >
+                        7
+                      </div>
+                      <div
+                        class="cldr__day inmonth"
+                      >
+                        8
+                      </div>
+                      <div
+                        class="cldr__day inmonth"
+                      >
+                        9
+                      </div>
+                      <div
+                        class="cldr__day inmonth"
+                      >
+                        10
+                      </div>
+                      <div
+                        class="cldr__day inmonth weekend"
+                      >
+                        11
+                      </div>
+                      <div
+                        class="cldr__day inmonth weekend"
+                      >
+                        12
+                      </div>
+                      <div
+                        class="cldr__day inmonth"
+                      >
+                        13
+                      </div>
+                      <div
+                        class="cldr__day inmonth"
+                      >
+                        14
+                      </div>
+                      <div
+                        class="cldr__day inmonth"
+                      >
+                        15
+                      </div>
+                      <div
+                        class="cldr__day inmonth"
+                      >
+                        16
+                      </div>
+                      <div
+                        class="cldr__day inmonth"
+                      >
+                        17
+                      </div>
+                      <div
+                        class="cldr__day inmonth weekend"
+                      >
+                        18
+                      </div>
+                      <div
+                        class="cldr__day current inmonth weekend"
+                      >
+                        19
+                      </div>
+                      <div
+                        class="cldr__day inmonth"
+                      >
+                        20
+                      </div>
+                      <div
+                        class="cldr__day inmonth"
+                      >
+                        21
+                      </div>
+                      <div
+                        class="cldr__day inmonth"
+                      >
+                        22
+                      </div>
+                      <div
+                        class="cldr__day inmonth"
+                      >
+                        23
+                      </div>
+                      <div
+                        class="cldr__day current inmonth"
+                      >
+                        24
+                      </div>
+                      <div
+                        class="cldr__day inmonth weekend"
+                      >
+                        25
+                      </div>
+                      <div
+                        class="cldr__day inmonth weekend"
+                      >
+                        26
+                      </div>
+                      <div
+                        class="cldr__day inmonth"
+                      >
+                        27
+                      </div>
+                      <div
+                        class="cldr__day inmonth"
+                      >
+                        28
+                      </div>
+                      <div
+                        class="cldr__day inmonth"
+                      >
+                        29
+                      </div>
+                      <div
+                        class="cldr__day inmonth"
+                      >
+                        30
+                      </div>
+                      <div
+                        class="cldr__day"
+                      >
+                        1
+                      </div>
+                      <div
+                        class="cldr__day weekend"
+                      >
+                        2
+                      </div>
+                      <div
+                        class="cldr__day weekend"
+                      >
+                        3
+                      </div>
+                      <div
+                        class="cldr__day"
+                      >
+                        4
+                      </div>
+                      <div
+                        class="cldr__day"
+                      >
+                        5
+                      </div>
+                      <div
+                        class="cldr__day"
+                      >
+                        6
+                      </div>
+                      <div
+                        class="cldr__day"
+                      >
+                        7
+                      </div>
+                      <div
+                        class="cldr__day"
+                      >
+                        8
+                      </div>
+                      <div
+                        class="cldr__day weekend"
+                      >
+                        9
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ctrl__cnt"
+    >
+      <div
+        class="dp__cnt"
+      >
+        <div
+          class="cldr__icon"
+        >
+          <span>
+            <span>
+              <span>
+                <span>
+                  content
+                </span>
+              </span>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
-</ForwardRef>
+  <div
+    class="er__cntr"
+    style="height: 0px;"
+  >
+    <div />
+  </div>
+</div>
 `;

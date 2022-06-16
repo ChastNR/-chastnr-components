@@ -1,10 +1,9 @@
-import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 import { Form } from './Form';
 
 describe('<Form />', () => {
-  it('should equal snapshot', () => {
-    const form = shallow(<Form title="Test Title">Test Content</Form>);
-    expect(toJson(form)).toMatchSnapshot();
+  it('should match snapshot', () => {
+    const form = render(<Form title="Test Title">Test Content</Form>);
+    expect(form.container.firstChild).toMatchSnapshot();
   });
 });

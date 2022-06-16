@@ -1,13 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Error/> should equal snapshot 1`] = `
+exports[`<Error/> should match snapshot 1`] = `
 <div
-  className="er__cntr"
-  style={
-    Object {
-      "height": 0,
-    }
-  }
+  class="er__cntr"
+  style="height: 0px;"
 >
   <div>
     Error Text

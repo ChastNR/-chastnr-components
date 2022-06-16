@@ -7,22 +7,23 @@ import './Card.scss';
 interface ICardProps
   extends PropsWithChildren<{
     animate?: boolean;
-    className?: string;
-    size?: 'small' | 'medium';
-    imgSrc: string;
     buttonText: React.ReactNode;
+    className?: string;
+    imgSrc: string;
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
+    size?: 'small' | 'medium';
   }> {}
 
 export const Card: React.FC<ICardProps> = ({
   animate = true,
-  size = 'medium',
-  imgSrc,
   buttonText,
   children,
+  className,
+  imgSrc,
   onClick,
+  size = 'medium',
 }) => {
-  const cardClassNames = classNames('cd', {
+  const cardClassNames = classNames('cd', className, {
     size,
   });
 

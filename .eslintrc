@@ -1,8 +1,8 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "eslint-plugin-import-helpers", "jest"],
   "extends": ["airbnb", "airbnb-typescript", "airbnb/hooks", "plugin:jest/recommended", "prettier"],
+  "plugins": ["@typescript-eslint", "eslint-plugin-import-helpers", "jest"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -52,6 +52,14 @@
       "always",
       {
         "ignoreClassFields": true
+      }
+    ],
+    "react/require-default-props": "off",
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
       }
     ],
     "react/jsx-max-props-per-line": [

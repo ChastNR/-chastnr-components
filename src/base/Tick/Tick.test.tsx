@@ -1,11 +1,9 @@
-import { render } from "enzyme";
-import toJson from "enzyme-to-json";
+import { render } from '@testing-library/react';
+import { Tick } from './Tick';
 
-import { Tick } from "./Tick";
-
-describe("<Tick/>", () => {
-  it("should match snapshot", () => {
+describe('<Tick/>', () => {
+  it('should match snapshot', () => {
     const tick = render(<Tick />);
-    expect(toJson(tick)).toMatchSnapshot();
+    expect(tick.container.firstChild).toMatchSnapshot();
   });
 });

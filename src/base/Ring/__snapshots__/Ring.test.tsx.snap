@@ -2,10 +2,10 @@
 
 exports[`<Calendar/> should equal snapshot 1`] = `
 <div
-  className="ring ring--small"
+  class="ring ring--small"
 >
-  <ReactComponent
-    stroke="#1771e6"
-  />
+  <span>
+    content
+  </span>
 </div>
 `;
