@@ -2,13 +2,11 @@
 
 exports[`<Option /> should equal snapshot 1`] = `
 <button
-  className="slt__opt"
-  onClick={[Function]}
-  onMouseDown={[Function]}
+  class="slt__opt"
   type="button"
 >
   <div
-    className="slt__opt__txt"
+    class="slt__opt__txt"
   >
     Test
   </div>

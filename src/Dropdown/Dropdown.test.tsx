@@ -1,8 +1,7 @@
 import { MemoryRouter } from 'react-router-dom';
-import { mount, shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
 import { IDropdownItem } from './DropdownItem';
 import { Dropdown } from './Dropdown';
+import { render } from '@testing-library/react';
 
 describe('<Dropdown />', () => {
   const items: IDropdownItem[] = [
@@ -13,20 +12,25 @@ describe('<Dropdown />', () => {
     },
   ];
 
-  it('shoud equal snapshot', () => {
-    const dropdown = shallow(<Dropdown items={items} />);
-    expect(toJson(dropdown)).toMatchSnapshot();
-  });
-
-  it('props should be equal', () => {
-    const dropdown = mount(
+  it('should match snapshot', () => {
+    const dropdown = render(
       <MemoryRouter>
         <Dropdown items={items} />
       </MemoryRouter>
     );
-    const link = dropdown.find('a');
 
-    expect(link.props().href).toEqual('/');
-    expect(link.text()).toContain('testTitle');
+    expect(dropdown.container.firstChild).toMatchSnapshot();
+  });
+
+  it('props should be equal', () => {
+    const dropdown = render(
+      <MemoryRouter>
+        <Dropdown items={items} />
+      </MemoryRouter>
+    );
+    const anchorElement = dropdown.container.getElementsByTagName('a')[0];
+
+    expect(anchorElement.href).toMatch('/');
+    expect(anchorElement.text).toContain('testTitle');
   });
 });

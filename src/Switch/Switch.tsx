@@ -12,7 +12,7 @@ interface ISwitchProps {
 }
 
 export const Switch: React.FC<ISwitchProps> = ({
-  checked,
+  checked = false,
   className,
   name,
   onChange,
@@ -25,7 +25,7 @@ export const Switch: React.FC<ISwitchProps> = ({
   return (
     <span className={switchClassNames} onClick={onChange} onKeyDown={onKeyDown}>
       <span className="sw__box" tabIndex={-1}>
-        <input checked={checked} hidden name={name} type="checkbox" />
+        <input defaultChecked={checked} hidden name={name} type="checkbox" />
         <span className="sw__box__left" />
         <span className="sw__box__right" />
       </span>

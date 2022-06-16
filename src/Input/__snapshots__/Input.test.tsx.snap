@@ -1,20 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Input /> snapshots should be equal 1`] = `
-<ForwardRef
-  error={null}
-  hasValue={true}
-  label="Test"
-  onBlur={[Function]}
-  onFocus={[Function]}
-  required={false}
+<div
+  class="ctrl"
 >
-  <input
-    autoComplete="off"
-    onChange={[Function]}
-    required={false}
-    type="text"
-    value="test"
-  />
-</ForwardRef>
+  <div
+    class="ctrl__cntr testClassName required disabled error hasValue"
+    role="textbox"
+    tabindex="0"
+  >
+    <label
+      class="ctrl__lb"
+      for="testInput"
+    >
+      Test
+    </label>
+    <input
+      autocomplete="on"
+      disabled=""
+      maxlength="100"
+      name="testInput"
+      placeholder="testPlaceholder"
+      required=""
+      type="password"
+      value="testValue"
+    />
+    testContent
+  </div>
+  <div
+    class="er__cntr"
+    style="height: 0px;"
+  >
+    <div>
+      errorMessage
+    </div>
+  </div>
+</div>
 `;

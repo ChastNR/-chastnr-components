@@ -1,6 +1,15 @@
 import { PropsWithChildren } from 'react';
+import classNames from 'clsx';
+
 import './CardsContainer.scss';
 
-export const CardsContainer: React.FC<PropsWithChildren<{}>> = ({ children }) => (
-  <div className="cds__cnt">{children}</div>
-);
+interface ICardsContainerProps
+  extends PropsWithChildren<{
+    className?: string;
+  }> {}
+
+export const CardsContainer: React.FC<ICardsContainerProps> = ({ className, children }) => {
+  const containerClassName = classNames('cds__cnt', className);
+
+  return <div className={containerClassName}>{children}</div>;
+};

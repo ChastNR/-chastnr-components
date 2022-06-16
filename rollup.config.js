@@ -1,12 +1,12 @@
-import { uglify } from 'rollup-plugin-uglify';
+import { terser } from 'rollup-plugin-terser';
 import commonjs from '@rollup/plugin-commonjs';
 import image from '@rollup/plugin-image';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import postcss from 'rollup-plugin-postcss';
 import resolve from '@rollup/plugin-node-resolve';
 import svgr from '@svgr/rollup';
 import typescript from 'rollup-plugin-typescript2';
-import url from 'rollup-plugin-url';
-import postcss from 'rollup-plugin-postcss';
+import url from '@rollup/plugin-url';
 
 const packageJson = require('./package.json');
 
@@ -25,7 +25,6 @@ const config = {
     },
   ],
   plugins: [
-    uglify(),
     peerDepsExternal(),
     resolve(),
     commonjs(),
@@ -37,6 +36,7 @@ const config = {
     url(),
     svgr(),
     image(),
+    terser(),
   ],
   external: ['react', 'react-dom', 'react-router-dom'],
 };

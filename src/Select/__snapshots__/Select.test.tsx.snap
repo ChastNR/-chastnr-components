@@ -1,22 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Select/> should match snapshot 1`] = `
-<ForwardRef
-  className="slt"
-  content={<Arrow />}
-  error={null}
-  hasValue={false}
-  label="Test Select"
-  onBlur={[Function]}
-  required={false}
+<div
+  class="ctrl"
 >
   <div
-    className="slt__value"
-  />
-  <Options
-    isMulti={false}
-    onClick={[Function]}
-    options={Array []}
-  />
-</ForwardRef>
+    class="ctrl__cntr slt required disabled hasValue"
+    role="textbox"
+    tabindex="0"
+  >
+    <label
+      class="ctrl__lb"
+    >
+      Test Select
+    </label>
+    <div
+      class="slt__value"
+    />
+    <div
+      class="slt__opts"
+    />
+    <div
+      class="ctrl__cnt"
+    >
+      <div
+        class="arrow"
+      >
+        <span>
+          content
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="er__cntr"
+    style="height: 0px;"
+  >
+    <div />
+  </div>
+</div>
 `;

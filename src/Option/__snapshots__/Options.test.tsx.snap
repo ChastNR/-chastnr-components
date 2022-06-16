@@ -1,26 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Options /> shoud equal snapshot 1`] = `
-<OptionsContainer>
-  <SelectOption
-    isMulti={false}
-    key="testValue"
-    option={
-      Object {
-        "title": "Test",
-        "value": "testValue",
-      }
-    }
-  />
-  <SelectOption
-    isMulti={false}
-    key="testValue2"
-    option={
-      Object {
-        "title": "Test 2",
-        "value": "testValue2",
-      }
-    }
-  />
-</OptionsContainer>
+<div
+  class="slt__opts"
+>
+  <button
+    class="slt__opt"
+    type="button"
+  >
+    <div
+      class="slt__opt__txt"
+    >
+      Test
+    </div>
+  </button>
+  <button
+    class="slt__opt"
+    type="button"
+  >
+    <div
+      class="slt__opt__txt"
+    >
+      Test 2
+    </div>
+  </button>
+</div>
 `;

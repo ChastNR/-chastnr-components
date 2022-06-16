@@ -1,22 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Dropdown /> shoud equal snapshot 1`] = `
+exports[`<Dropdown /> should match snapshot 1`] = `
 <div
-  className="dd"
+  class="dd"
 >
   <span
-    className="dd__cnt"
+    class="dd__cnt"
   />
   <span
-    className="dd__itms"
+    class="dd__itms"
   >
     <ul>
-      <DropdownElement
-        id={0}
-        key="0"
-        title="testTitle"
-        to="/"
-      />
+      <li>
+        <a
+          href="/"
+        >
+          testTitle
+        </a>
+      </li>
     </ul>
   </span>
 </div>

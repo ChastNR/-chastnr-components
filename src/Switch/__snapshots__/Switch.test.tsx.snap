@@ -2,21 +2,21 @@
 
 exports[`<Switch/> should match snapshot 1`] = `
 <span
-  className="sw"
+  class="sw"
 >
   <span
-    className="sw__box"
-    tabIndex={-1}
+    class="sw__box"
+    tabindex="-1"
   >
     <input
-      hidden={true}
+      hidden=""
       type="checkbox"
     />
     <span
-      className="sw__box__left"
+      class="sw__box__left"
     />
     <span
-      className="sw__box__right"
+      class="sw__box__right"
     />
   </span>
 </span>

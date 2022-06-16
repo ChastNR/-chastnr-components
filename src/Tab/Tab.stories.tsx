@@ -12,4 +12,11 @@ const componentMeta: ComponentMeta<typeof Tab> = {
 
 export const DefaultTab = () => <Tab animate={false}>Test</Tab>;
 
+export const ConfigurableTab = {
+  args: {
+    animate: true,
+    children: 'Text',
+  },
+};
+
 export default componentMeta;

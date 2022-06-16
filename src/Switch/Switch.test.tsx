@@ -1,11 +1,10 @@
-import { mount, shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 import { Switch } from './Switch';
 
 describe('<Switch/>', () => {
   it('should match snapshot', () => {
-    const switchComponent = shallow(<Switch />);
-    expect(toJson(switchComponent)).toMatchSnapshot();
+    const switchComponent = render(<Switch />);
+    expect(switchComponent.container.firstChild).toMatchSnapshot();
   });
 
   it('props should be equal', () => {
@@ -13,11 +12,10 @@ describe('<Switch/>', () => {
     const checked = true;
     const onChange = jest.fn();
 
-    const switchComponent = mount(<Switch checked={checked} onChange={onChange} name={name} />);
+    const switchComponent = render(<Switch checked={checked} onChange={onChange} name={name} />);
+    const inputElement = switchComponent.container.getElementsByTagName('input')[0];
 
-    const props = switchComponent.props();
-
-    expect(props.name).toEqual(name);
-    expect(props.checked).toEqual(checked);
+    expect(inputElement.name).toEqual(name);
+    expect(inputElement.checked).toEqual(checked);
   });
 });

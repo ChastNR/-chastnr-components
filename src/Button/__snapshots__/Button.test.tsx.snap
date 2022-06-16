@@ -2,17 +2,24 @@
 
 exports[`<Button /> should match snapshot 1`] = `
 <button
-  className="btn"
-  type="button"
+  class="btn testClassName btn--outline"
+  disabled=""
+  type="submit"
 >
   <div
-    className="btn__txt__cntr"
-    tabIndex={-1}
+    class="btn__txt__cntr"
+    tabindex="-1"
   >
     <div
-      className="btn__txt__cntr__txt"
+      class="btn__txt__cntr__txt"
     >
-      Click
+      <div
+        class="ring ring--small"
+      >
+        <span>
+          content
+        </span>
+      </div>
     </div>
   </div>
 </button>

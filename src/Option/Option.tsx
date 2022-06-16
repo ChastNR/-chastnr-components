@@ -26,10 +26,7 @@ export const SelectOption: React.FC<IOptionProps> = ({
   const handleClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
       setChecked((s) => !s);
-
-      if (onClick) {
-        onClick(e);
-      }
+      onClick?.(e);
     },
     [onClick]
   );
