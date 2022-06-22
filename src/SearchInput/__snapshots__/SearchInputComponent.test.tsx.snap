@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchInputComponent should render properly 1`] = `
+<div
+  class="ctrl"
+>
+  <div
+    class="ctrl__cntr"
+    role="textbox"
+    tabindex="0"
+  >
+    <label
+      class="ctrl__lb"
+    >
+      testLabel
+    </label>
+    <input
+      autocomplete="off"
+      type="text"
+      value=""
+    />
+    <div
+      class="slt__opts"
+    />
+  </div>
+  <div
+    class="er__cntr"
+    style="height: 0px;"
+  >
+    <div />
+  </div>
+</div>
+`;

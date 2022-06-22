@@ -19,7 +19,7 @@
   },
   "coverageReporters": ["lcov", "text", "text-summary"],
   "coverageDirectory": "<rootDir>/coverage",
-  "coveragePathIgnorePatterns": ["node_modules"],
+  "coveragePathIgnorePatterns": ["node_modules", ".stories.tsx"],
   "coverageThreshold": {
     "global": {
       "statements": 100,

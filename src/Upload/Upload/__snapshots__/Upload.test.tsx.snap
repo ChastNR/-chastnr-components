@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Upload should render properly 1`] = `
+<div
+  class="ctrl"
+>
+  <div
+    class="ctrl__cntr upl testClassName required"
+    role="textbox"
+    tabindex="0"
+  >
+    <label
+      class="ctrl__lb"
+      for="Hi"
+    >
+      Upload label
+    </label>
+    <input
+      accept=".txt"
+      multiple=""
+      name="Hi"
+      required=""
+      type="file"
+    />
+  </div>
+  <div>
+    <ul
+      class="upl__fls"
+    >
+      <li
+        class="upl__fl"
+      >
+        <div
+          class="upl__fl__cntr"
+        >
+          <div
+            class="upl__fl__cntr__vldt valid"
+          >
+            <span
+              class="rnd__tick"
+            >
+              <span>
+                content
+              </span>
+            </span>
+          </div>
+          <div
+            class="upl__fl__cntr__data"
+          >
+            <span
+              class="upl__fl__cntr__name"
+            >
+              test
+            </span>
+            <span>
+              .
+              txt
+            </span>
+            <span
+              class="upl__fl__cntr__size"
+            >
+              0.00 KB
+            </span>
+          </div>
+          <button
+            class="upl__fl__cntr__dlt__btn"
+            type="button"
+          >
+            <span
+              class="close"
+            >
+              <span>
+                content
+              </span>
+            </span>
+          </button>
+        </div>
+      </li>
+    </ul>
+    <div
+      class="upl__info"
+    >
+      testInfo
+    </div>
+  </div>
+  <div
+    class="er__cntr"
+    style="height: 0px;"
+  >
+    <div />
+  </div>
+</div>
+`;

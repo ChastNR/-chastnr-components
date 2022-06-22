@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UploadedFile should render properly 1`] = `
+<li
+  class="upl__fl"
+>
+  <div
+    class="upl__fl__cntr"
+  >
+    <div
+      class="upl__fl__cntr__vldt valid"
+    >
+      <span
+        class="rnd__tick"
+      >
+        <span>
+          content
+        </span>
+      </span>
+    </div>
+    <div
+      class="upl__fl__cntr__data"
+    >
+      <span
+        class="upl__fl__cntr__name"
+      >
+        test
+      </span>
+      <span>
+        .
+        txt
+      </span>
+      <span
+        class="upl__fl__cntr__size"
+      >
+        0.00 KB
+      </span>
+    </div>
+    <button
+      class="upl__fl__cntr__dlt__btn"
+      type="button"
+    >
+      <span
+        class="close"
+      >
+        <span>
+          content
+        </span>
+      </span>
+    </button>
+  </div>
+</li>
+`;

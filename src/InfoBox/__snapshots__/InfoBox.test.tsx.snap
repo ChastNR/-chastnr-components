@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InfoBox /> should match snapshot 1`] = `
+<label
+  class="ib testClassName"
+>
+  <div>
+    <div
+      class="ib__stn"
+    >
+      <div
+        class="cb"
+      >
+        <input
+          checked=""
+          class="cb__input"
+          disabled=""
+          type="checkbox"
+        />
+        <span>
+          <span>
+            <span>
+              <span>
+                content
+              </span>
+            </span>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="ib__stn"
+    >
+      <div
+        class="ib__stn__title"
+      >
+        testTitle
+      </div>
+      <div
+        class="ib__stn__cnt"
+      >
+        Text content
+      </div>
+    </div>
+    <div
+      class="ib__stn"
+    >
+      <span>
+        Additional info
+      </span>
+    </div>
+  </div>
+</label>
+`;

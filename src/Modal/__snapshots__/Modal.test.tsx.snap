@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal should render properly 1`] = `
+<div
+  class="ovrly"
+>
+  <div
+    class="ovrly__popup"
+    role="presentation"
+  >
+    <div
+      class="mdl testClassName"
+    >
+      <div
+        class="mdl__cntr"
+      >
+        <button
+          type="button"
+        >
+          <span
+            class="close"
+          >
+            <span>
+              content
+            </span>
+          </span>
+        </button>
+        <div>
+          Test content
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

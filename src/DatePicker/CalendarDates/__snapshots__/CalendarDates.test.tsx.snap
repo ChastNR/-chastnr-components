@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarDates should render properly 1`] = `
+<div
+  class="cldr__tbl"
+>
+  <div
+    class="cldr__day"
+  >
+    1
+  </div>
+</div>
+`;

@@ -182,7 +182,7 @@ exports[`<DatePicker /> should match snapshot 1`] = `
                         18
                       </div>
                       <div
-                        class="cldr__day current inmonth weekend"
+                        class="cldr__day inmonth weekend"
                       >
                         19
                       </div>
@@ -197,7 +197,7 @@ exports[`<DatePicker /> should match snapshot 1`] = `
                         21
                       </div>
                       <div
-                        class="cldr__day inmonth"
+                        class="cldr__day current inmonth"
                       >
                         22
                       </div>

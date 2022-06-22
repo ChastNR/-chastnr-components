@@ -39,7 +39,6 @@ export const SearchInput: React.FC<ISearchInputProps> = ({
   const handleChange = useCallback(
     (value: string): void => {
       setInputValue(value);
-
       setOptions([]);
 
       if (value.length < searchThreshold) {
@@ -58,11 +57,8 @@ export const SearchInput: React.FC<ISearchInputProps> = ({
       }
 
       inputEl.current?.blur();
-
       setInputValue(option.label);
-
       onChange(`${option.value}`);
-
       setOptions([]);
     },
     [onChange, searchInputId]

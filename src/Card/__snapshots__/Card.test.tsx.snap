@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should render properly 1`] = `
+<div
+  class="cd size"
+>
+  <div>
+    <div
+      class="cd__box animate"
+    >
+      <div>
+        <div
+          class="cd__pctr"
+        >
+          <img
+            alt="alt"
+            src="testImgSource"
+          />
+        </div>
+        <div
+          class="cd__cnt"
+        >
+          <div
+            class="cd__stn"
+          >
+            Text content
+          </div>
+          <div
+            class="cd__stn"
+          >
+            <button
+              class="btn"
+              type="button"
+            >
+              <div
+                class="btn__txt__cntr"
+                tabindex="-1"
+              >
+                <div
+                  class="btn__txt__cntr__txt"
+                >
+                  Click me
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropdownElement should render properly 1`] = `
+<li>
+  <a
+    href="/testUrl"
+  >
+    testTitle
+  </a>
+</li>
+`;
